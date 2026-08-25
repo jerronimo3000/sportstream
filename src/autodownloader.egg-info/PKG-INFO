@@ -1,0 +1,5 @@
+Metadata-Version: 2.4
+Name: autodownloader
+Version: 0.0.1
+Summary: m3u8 toolset
+Requires-Python: >=3.12
