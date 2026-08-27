@@ -37,9 +37,11 @@ class Dudestream(Site_plugin):
             return game_url
 
 class Sportsurge(Site_plugin):
-    base_url: ClassVar[str] = "https://soccersurge.io"
+    base_url: ClassVar[str] = "https://v2.sportsurge.net/"
+    base_url_NFL: ClassVar[str] = "https://v2.sportsurge.net/watch-nfl-streams/"
     preferred_sites: ClassVar[dict[str,list[str]]] = {
-        "soccer": ["tvsportslive","iframely","socowatch"]
+        "soccer": ["tvsportslive","iframely","socowatch"],
+        "NFL": ["tvsportslive","streameast"]
     }
 
     def get_current_game_url(self,team_name: str,provider: str = None) -> str:
@@ -57,15 +59,18 @@ class Sportsurge(Site_plugin):
             )
 
             page = browser.new_page()
-            page.goto(self.base_url)
+            page.goto(self.base_url_NFL)
 
-            streaming_list_elem = page.locator("a").filter(has_text=team_name).first
-            stream_list_appendix = streaming_list_elem.get_attribute("href")
-            stream_list_url = f"{self.base_url}/{stream_list_appendix}"
+            #streaming_list_elem = page.locator("a").filter(has_text=team_name).first
+            with page.expect_navigation(wait_until="domcontentloaded"):
+                page.locator("a").filter(has_text=team_name).first.click()
+            #stream_list_appendix = streaming_list_elem.get_attribute("href")
+            #stream_list_url = f"{self.base_url}/{stream_list_appendix}"
+            #print(stream_list_url)
 
-            page.goto(stream_list_url)
+            #page.goto(stream_list_url)
 
-            sport = "soccer"
+            sport = "NFL"
             if provider is None:
                 game_url = []
                 for site in self.preferred_sites[sport]:

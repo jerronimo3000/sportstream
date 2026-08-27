@@ -1,5 +1,5 @@
 import re
-from playwright.sync_api import sync_playwright,Page,Browser
+from playwright.sync_api import sync_playwright,Page,Browser,Request
 from dataclasses import dataclass
 import re
 import subprocess
@@ -18,11 +18,35 @@ class m3u8_link:
     cookies_header: str
 
 def match_m3u8(request) -> str:
-    print(request.url)
+    #print(request.url)
     pattern = r"\.m3u8(\?.*)?$"
     if re.search(pattern, request.url):
         print(f"FOUND M3U8 URL!!!: {request.url}")
-    
+
+def print_request_url(request: Request):
+    print(f"URL: {request.url}")
+
+def get_network_requests(url: str):
+    with sync_playwright() as p:
+        browser = p.chromium.launch(
+            headless=False,  # Must be False so the player initializes
+            args=[
+                "--disable-blink-features=AutomationControlled",
+                "--no-sandbox",
+                "--autoplay-policy=no-user-gesture-required"
+            ]
+        )
+        context = browser.new_context(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            viewport={"width": 3840, "height": 2160}
+        )    
+
+        page = browser.new_page()
+        page.on("request",match_m3u8)
+        page.goto(url=url,wait_until="domcontentloaded")
+        page.wait_for_timeout(timeout=60000)
+
+
 
 def get_m3u8_url(
     url: str, timeout: int = 15000, raise_on_missing: bool = False
@@ -174,7 +198,7 @@ def find_m3u8_link(urls: str, num_retries: int = 5):
 @app.get("/restream")
 def restream():
     site = Sportsurge()
-    url = site.get_current_game_url("barcelona", "sportsupa")
+    url = site.get_current_game_url("buffalo", "tvsportslive")
     # site = Dudestream()
     # url = site.get_current_game_url("ararat")
     print(url)

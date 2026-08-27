@@ -1,1 +1,1 @@
-from .main import get_m3u8_url
+from .main import get_m3u8_url,get_network_requests
