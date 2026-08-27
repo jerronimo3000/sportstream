@@ -5,11 +5,16 @@ import re
 import subprocess
 import time
 import requests
+import streamlink
+from flask import Flask, Response
+from streamlink.stream.stream import Stream
 
 @dataclass
 class m3u8_link:
     url: str
     referer: str
+    user_agent: str
+    cookies_header: str
 
 def match_m3u8(request) -> str:
     #print(request.url)
@@ -60,57 +65,107 @@ def get_m3u8_url(
         finally:
             browser.close()
 
-
-def save_stream_to_file(m3u8: m3u8_link, output_file: str = "output.mp4"):
+def get_stream(m3u8: m3u8_link) -> Stream:
     if not m3u8 or not m3u8.url:
-        print("[!] No valid m3u8 link provided.")
+        print("[!] Invalid stream object.")
         return
 
-    ua = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    # Initialize a Streamlink session
+    session = streamlink.Streamlink()
 
-    ffmpeg_cmd = [
-        "ffmpeg",
-        "-y",
-        "-user_agent",
-        ua,
-        "-referer",
-        m3u8.referer,
-        "-allowed_segment_extensions",
-        "ALL",
-        "-allowed_extensions",
-        "ALL",
-        "-reconnect",
-        "1",
-        "-reconnect_at_eof",
-        "1",
-        "-reconnect_streamed",
-        "1",
-        "-reconnect_delay_max",
-        "5",
-        "-i",
-        m3u8.url,
-        "-c",
-        "copy",
-        "-bsf:a",
-        "aac_adtstoasc",
-        output_file,
-    ]
+    # Configure session options/headers to pass CDN checks
+    session.set_option("http-headers", {
+        "Referer": m3u8.referer,
+        "User-Agent": m3u8.user_agent,
+        "Cookie": m3u8.cookies_header
+    })
+    session.set_option("hls-live-restart", True)
 
-    print(
-        f"\n[+] Recording stream via FFmpeg into '{output_file}'... Press"
-        " Ctrl+C to stop.\n"
-    )
+    print(f"[+] Fetching stream tracks from manifest...")
+    # Wrap with hlsvariant:// to force HLS parsing
+    streams = session.streams(f"hlsvariant://{m3u8.url}")
+    
+    if "best" not in streams:
+        print("[!] No valid stream variant found.")
+        return
+
+    stream = streams["best"]
+    return stream
+
+def save_stream_to_file(stream: Stream, output_file: str = "output.mp4"):
+    print(f"[+] Recording stream into '{output_file}'... Press Ctrl+C to stop.")
+
     try:
-        process = subprocess.Popen(ffmpeg_cmd)
-        process.wait()
+        with stream.open() as stream_fd, open(output_file, "wb") as out_file:
+            while True:
+                # Read chunks from the stream and write to disk
+                data = stream_fd.read(1024 * 64)
+                if not data:
+                    break
+                out_file.write(data)
     except KeyboardInterrupt:
-        print("\n[+] Finalizing video file...")
+        print("\n[+] Recording stopped by user.")
     finally:
-        print(f"[+] Recording stopped. Saved to {output_file}")
+        print(f"[+] File saved: {output_file}")
 
 
-url = "https://tvsportslive.fr/62470-2/"
-m3u8 = get_m3u8_url(url)
-print(m3u8.referer)
-print(m3u8.url)
-save_stream_to_file(m3u8=m3u8)
+app = Flask(__name__)
+
+def generate():
+    url = "https://v2.streameast.ga/mlb/texas-rangers-vs-chicago-white-sox-3/"
+
+    while True:
+        stream_fd = None
+
+        try:
+            print("Finding a new M3U8 stream...")
+            m3u8 = get_m3u8_url(url)
+
+            if m3u8 is None:
+                raise RuntimeError("Could not find M3U8 URL")
+
+            stream = get_stream(m3u8)
+
+            if stream is None:
+                raise RuntimeError("Could not find playable stream")
+
+            print("Opening Streamlink stream...")
+            stream_fd = stream.open()
+
+            while True:
+                data = stream_fd.read(64 * 1024)
+
+                if not data:
+                    raise ConnectionError("Stream ended")
+
+                yield data
+
+        except Exception as e:
+            print(f"Stream failed: {e!r}")
+            print("Retrying in 5 seconds...")
+            time.sleep(5)
+
+        finally:
+            if stream_fd is not None:
+                try:
+                    stream_fd.close()
+                except Exception:
+                    pass
+
+            print("Stream connection closed")
+
+
+@app.get("/restream")
+def restream():
+    return Response(generate(), mimetype="video/mp2t")
+
+
+#url = "https://v2.streameast.ga/mlb/philadelphia-phillies-vs-seattle-mariners-2/"
+#m3u8 = get_m3u8_url(url)
+#print(m3u8.referer)
+#print(m3u8.url)
+#stream = get_stream(m3u8=m3u8)
+#save_stream_to_file(stream=stream)
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8900)
