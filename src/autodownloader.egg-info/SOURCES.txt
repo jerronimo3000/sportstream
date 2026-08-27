@@ -1,6 +1,7 @@
 pyproject.toml
 src/autodownloader/__init__.py
 src/autodownloader/main.py
+src/autodownloader/plugins.py
 src/autodownloader.egg-info/PKG-INFO
 src/autodownloader.egg-info/SOURCES.txt
 src/autodownloader.egg-info/dependency_links.txt

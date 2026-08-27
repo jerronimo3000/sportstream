@@ -1,5 +1,5 @@
 import re
-from playwright.sync_api import sync_playwright
+from playwright.sync_api import sync_playwright,Page,Browser
 from dataclasses import dataclass
 import re
 import subprocess
@@ -8,6 +8,7 @@ import requests
 import streamlink
 from flask import Flask, Response
 from streamlink.stream.stream import Stream
+from plugins import Sportsurge, Dudestream
 
 @dataclass
 class m3u8_link:
@@ -17,7 +18,7 @@ class m3u8_link:
     cookies_header: str
 
 def match_m3u8(request) -> str:
-    #print(request.url)
+    print(request.url)
     pattern = r"\.m3u8(\?.*)?$"
     if re.search(pattern, request.url):
         print(f"FOUND M3U8 URL!!!: {request.url}")
@@ -37,11 +38,12 @@ def get_m3u8_url(
         context = browser.new_context(
             user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
             viewport={"width": 3840, "height": 2160}
-        )
+        )    
 
         page = browser.new_page()
 
         try:
+            print("opening url and waiting for m3u8 request")
             with page.expect_request(lambda req: ".m3u8" in req.url, timeout=timeout) as request_info:
                 page.goto(url=url, wait_until="domcontentloaded")
                 page.wait_for_timeout(4000)
@@ -53,6 +55,7 @@ def get_m3u8_url(
             cookies = context.cookies()
             cookie_str = "; ".join([f"{c['name']}={c['value']}" for c in cookies])
 
+            print(f"FOUND M3U8 ULR: {request.url}")
             return m3u8_link(
                 url=request.url,
                 referer=referer,
@@ -111,8 +114,7 @@ def save_stream_to_file(stream: Stream, output_file: str = "output.mp4"):
 
 app = Flask(__name__)
 
-def generate():
-    url = "https://v2.streameast.ga/mlb/texas-rangers-vs-chicago-white-sox-3/"
+def generate(url: str):
 
     while True:
         stream_fd = None
@@ -154,10 +156,29 @@ def generate():
 
             print("Stream connection closed")
 
+def find_m3u8_link(urls: str, num_retries: int = 5):
+    print("Finding a new M3U8 stream...")
+    for url in urls:
+        for i in range(3):
+            m3u8 = get_m3u8_url(url,timeout=5000)
+            if m3u8 is not None:
+                break
+        if m3u8 is not None:
+            break
+
+    if m3u8 is None:
+        raise RuntimeError("Could not find M3U8 URL")
+
+    return m3u8
 
 @app.get("/restream")
 def restream():
-    return Response(generate(), mimetype="video/mp2t")
+    site = Sportsurge()
+    url = site.get_current_game_url("barcelona", "sportsupa")
+    # site = Dudestream()
+    # url = site.get_current_game_url("ararat")
+    print(url)
+    return Response(generate(url = url), mimetype="video/mp2t")
 
 
 #url = "https://v2.streameast.ga/mlb/philadelphia-phillies-vs-seattle-mariners-2/"
