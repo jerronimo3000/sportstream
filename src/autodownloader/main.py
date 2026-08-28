@@ -10,6 +10,9 @@ from flask import Flask, Response
 from streamlink.stream.stream import Stream
 from plugins import Sportsurge, Dudestream
 
+app = Flask(__name__)
+
+
 @dataclass
 class m3u8_link:
     url: str
@@ -136,10 +139,9 @@ def save_stream_to_file(stream: Stream, output_file: str = "output.mp4"):
         print(f"[+] File saved: {output_file}")
 
 
-app = Flask(__name__)
+
 
 def generate(url: str):
-
     while True:
         stream_fd = None
 
@@ -198,7 +200,7 @@ def find_m3u8_link(urls: str, num_retries: int = 5):
 @app.get("/restream")
 def restream():
     site = Sportsurge()
-    url = site.get_current_game_url("chargers", "tvsportslive")
+    url = site.get_current_game_url("commanders")
     # site = Dudestream()
     # url = site.get_current_game_url("ararat")
     print(url)
@@ -211,6 +213,7 @@ def restream():
 #print(m3u8.url)
 #stream = get_stream(m3u8=m3u8)
 #save_stream_to_file(stream=stream)
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8900)

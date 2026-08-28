@@ -2,6 +2,9 @@ from playwright.sync_api import sync_playwright
 from dataclasses import dataclass
 from abc import ABC, abstractmethod
 from typing import ClassVar
+import json
+from pathlib import Path
+
 
 class Site_plugin(ABC):
     @abstractmethod
@@ -37,12 +40,35 @@ class Dudestream(Site_plugin):
             return game_url
 
 class Sportsurge(Site_plugin):
-    base_url: ClassVar[str] = "https://v2.sportsurge.net/"
-    base_url_NFL: ClassVar[str] = "https://v2.sportsurge.net/watch-nfl-streams/"
+    base_url: ClassVar[dict[str,str]] = {
+        "any": "https://v2.sportsurge.net/",
+        "soccer": "https://soccersurge.io/",
+        "basketball": "https://v2.sportsurge.net/watch-basketball-streams/",
+        "NFL": "https://v2.sportsurge.net/watch-nfl-streams/",
+    }
+     
     preferred_sites: ClassVar[dict[str,list[str]]] = {
         "soccer": ["tvsportslive","iframely","socowatch"],
         "NFL": ["tvsportslive","streameast"]
     }
+
+    def __init__(self):
+        self.set_team_data()
+    
+    def set_team_data(self):
+        team_data_path = Path(__file__).resolve().parent / "data/team_data.json"
+        with open(team_data_path,"r") as f:
+            self.team_data = json.load(f)
+
+    def get_base_url(self,team_name: str) -> str:
+        team_data = self.team_data[team_name]
+        if team_data["sport"] in self.base_url:
+            base_url = self.base_url[team_data["sport"]]
+        elif team_data["league"] in self.base_url:
+            base_url = self.base_url[team_data["league"]]
+        else:
+            raise ValueError(f"[ERROR] Team {team_name}'s sport ({team_data["sport"]}) and league ({team_data["league"]}) not configured in plugin")
+        return base_url
 
     def get_current_game_url(self,team_name: str,provider: str = None) -> str:
          with sync_playwright() as p:
@@ -59,7 +85,7 @@ class Sportsurge(Site_plugin):
             )
 
             page = browser.new_page()
-            page.goto(self.base_url_NFL)
+            page.goto(self.get_base_url(team_name=team_name))
 
             #streaming_list_elem = page.locator("a").filter(has_text=team_name).first
             with page.expect_navigation(wait_until="domcontentloaded"):
@@ -70,25 +96,21 @@ class Sportsurge(Site_plugin):
 
             #page.goto(stream_list_url)
 
-            sport = "NFL"
-            if provider is None:
-                game_url = []
-                for site in self.preferred_sites[sport]:
-                    streaming_site_elems_search = page.locator("div.stream-item").filter(has_text=site)
-                    if streaming_site_elems_search.count() > 0:
-                        game_url.append(streaming_site_elems_search.first.get_attribute("data-href"))
-                    else:
-                        raise ValueError("could not find streaming site")
+            # if provider is None:
+            #     game_url = []
+            #     for site in self.preferred_sites[sport]:
+            #         streaming_site_elems_search = page.locator("div.stream-item").filter(has_text=site)
+            #         if streaming_site_elems_search.count() > 0:
+            #             game_url.append(streaming_site_elems_search.first.get_attribute("data-href"))
+            #         else:
+            #             raise ValueError("could not find streaming site")
+            # else:
+            streaming_site_elems_search = page.locator("div.stream-item").filter(has_text=provider)
+            if streaming_site_elems_search.count() > 0:
+                game_url = streaming_site_elems_search.first.get_attribute("data-href")
             else:
-                streaming_site_elems_search = page.locator("div.stream-item").filter(has_text=provider)
-                if streaming_site_elems_search.count() > 0:
-                    game_url = streaming_site_elems_search.first.get_attribute("data-href")
-                else:
-                    raise ValueError("could not find streaming site")
+                raise ValueError("could not find streaming site")
             browser.close()
 
 
-            return game_url       
-
-#site = Sportsurge()
-#print(site.get_current_game_url(team_name="KUPS KUOPIO"))
+            return game_url
