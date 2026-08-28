@@ -1,0 +1,18 @@
+{
+    "chargers": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "vikings": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "thunder": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "timberwolves": {
+        "sport": "basketball",
+        "league": "NBA"
+    }
+}

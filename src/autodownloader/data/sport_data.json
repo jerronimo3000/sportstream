@@ -1,0 +1,24 @@
+{
+    "sports": {
+        "football": {
+            "leagues": {
+                "NFL": {
+                    "teams": [
+                        "chargers",
+                        "vikings"
+                    ]
+                }
+            }
+        },
+        "basketball": {
+            "leagues": {
+                "NBA": {
+                    "teams": [
+                        "thunder",
+                        "timberwolves"
+                    ]
+                }
+            }
+        }
+    }
+}
