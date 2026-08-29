@@ -18,5 +18,13 @@
     "timberwolves": {
         "sport": "basketball",
         "league": "NBA"
+    },
+    "diamondbacks": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "giants": {
+        "sport": "baseball",
+        "league": "MLB"
     }
 }

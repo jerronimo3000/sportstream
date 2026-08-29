@@ -44,6 +44,7 @@ class Sportsurge(Site_plugin):
         "any": "https://v2.sportsurge.net/",
         "soccer": "https://soccersurge.io/",
         "basketball": "https://v2.sportsurge.net/watch-basketball-streams/",
+        "baseball": "https://v2.sportsurge.net/watch-baseball-streams/",
         "NFL": "https://v2.sportsurge.net/watch-nfl-streams/",
     }
      
