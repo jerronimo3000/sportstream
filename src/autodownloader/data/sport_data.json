@@ -20,6 +20,16 @@
                     ]
                 }
             }
+        },
+        "baseball": {
+            "leagues": {
+                "MLB": {
+                    "teams": [
+                        "diamondbacks",
+                        "giants"
+                    ]
+                }
+            }
         }
     }
 }
