@@ -26,5 +26,9 @@
     "giants": {
         "sport": "baseball",
         "league": "MLB"
+    },
+    "phillies": {
+        "sport": "baseball",
+        "league": "MLB"
     }
 }
