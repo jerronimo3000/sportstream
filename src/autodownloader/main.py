@@ -200,7 +200,7 @@ def find_m3u8_link(urls: str, num_retries: int = 5):
 @app.get("/restream")
 def restream():
     site = Sportsurge()
-    url = site.get_current_game_url("diamondbacks")
+    url = site.get_current_game_url("phillies")
     # site = Dudestream()
     # url = site.get_current_game_url("ararat")
     print(url)
