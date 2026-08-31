@@ -20,11 +20,12 @@ class Schedule_generator_from_calendar(ABC):
         return data
 
     def get_time_start_from_component(self,component: Component) -> datetime:
-        time_start_ical = component.get("dtstart").dt
+        time_start_ical = component.get("dtstart").dt.isoformat()
         return time_start_ical
     def get_time_end_from_component(self,component: Component) -> datetime:
-        time_end_ical = component.get("dtend").dt
+        time_end_ical = component.get("dtend").dt.isoformat()
         return time_end_ical
+
 class Schedule_generator_from_calendar_MLB(Schedule_generator_from_calendar):
     sport: ClassVar[str] = "baseball"
     league: ClassVar[str] = "MLB"
@@ -116,7 +117,7 @@ class Schedule:
         self.schedule = {}
 
     def add_game(self,game: dict):
-        date = game["time_start"].date()
+        date = str(datetime.fromisoformat(game["time_start"]).date())
 
         if not date in self.schedule:
             self._initiate_date(game,date)
@@ -128,7 +129,7 @@ class Schedule:
         self.schedule[date] = {"channels": {1: {"games": [game]}}}
 
     def get_first_open_channel(self,game: dict) -> int:
-        date = game["time_start"].date()
+        date = str(datetime.fromisoformat(game["time_start"]).date())
         existing_free_channel = False
         for channel in self.schedule[date]["channels"]:
             if not self._interferes_with_existing_game_on_channel(game,channel):
@@ -141,18 +142,21 @@ class Schedule:
         return open_channel
 
     def _interferes_with_existing_game_on_channel(self,game: dict, channel: int) -> bool:
-        date = game["time_start"].date()
+        date = str(datetime.fromisoformat(game["time_start"]).date())
         existing_games = self.schedule[date]["channels"][channel]["games"]
 
         interferes = False
         for existing_game in existing_games:
-            if (game["time_start"] >= existing_game["time_start"]) and (game["time_start"] <= existing_game["time_end"]):
+            game_start_time = datetime.fromisoformat(game["time_start"])
+            existing_game_start_time = datetime.fromisoformat(existing_game["time_start"])
+            existing_game_end_time = datetime.fromisoformat(existing_game["time_end"])
+            if (game_start_time >= existing_game_start_time) and (game_start_time <= existing_game_end_time):
                 interferes = True
         
         return interferes
     
     def _add_game_to_channel(self,game: dict, channel: id):
-        date = game["time_start"].date()
+        date = str(datetime.fromisoformat(game["time_start"]).date())
         if channel in self.schedule[date]["channels"]:
             self.schedule[date]["channels"][channel]["games"].append(game)
         else:
@@ -167,7 +171,8 @@ scheduler = Schedule_generator_from_calendar_MLB()
 schedule = scheduler.generate_schedule_from_calendar().schedule
 
 print(schedule[list(schedule)[0]])
-
+with open(Path(__file__).resolve().parent / "data/schedule.json","w") as f:
+    json.dump(schedule,f,indent=4)
 #for date in schedule:
     #print(len(schedule[date]["channels"]))
     # if len(schedule[date]["channels"]) == 2:
