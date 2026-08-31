@@ -25,9 +25,11 @@
             "leagues": {
                 "MLB": {
                     "teams": [
+                        "cubs",
                         "diamondbacks",
                         "giants",
-                        "phillies"
+                        "phillies",
+                        "reds"
                     ]
                 }
             }

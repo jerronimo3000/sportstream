@@ -19,6 +19,10 @@
         "sport": "basketball",
         "league": "NBA"
     },
+    "cubs": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
     "diamondbacks": {
         "sport": "baseball",
         "league": "MLB"
@@ -28,6 +32,10 @@
         "league": "MLB"
     },
     "phillies": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "reds": {
         "sport": "baseball",
         "league": "MLB"
     }
