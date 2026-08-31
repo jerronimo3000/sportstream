@@ -131,7 +131,43 @@
         "sport": "basketball",
         "league": "NBA"
     },
+    "angels": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "athletics": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "astros": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "blue jays": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "braves": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "brewers": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "cardinals": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "cubs": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
     "diamondbacks": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "dodgers": {
         "sport": "baseball",
         "league": "MLB"
     },
@@ -139,7 +175,79 @@
         "sport": "baseball",
         "league": "MLB"
     },
+    "guardians": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "mariners": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "marlins": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "mets": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "nationals": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "orioles": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "padres": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
     "phillies": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "pirates": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "rangers": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "rays": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "red sox": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "reds": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "rockies": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "royals": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "tigers": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "twins": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "white sox": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "yankees": {
         "sport": "baseball",
         "league": "MLB"
     }

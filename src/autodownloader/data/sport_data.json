@@ -53,9 +53,36 @@
             "leagues": {
                 "MLB": {
                     "teams": [
+                        "angels",
+                        "athletics",
+                        "astros",
+                        "blue jays",
+                        "braves",
+                        "brewers",
+                        "cardinals",
+                        "cubs",
                         "diamondbacks",
+                        "dodgers",
                         "giants",
-                        "phillies"
+                        "guardians",
+                        "mariners",
+                        "marlins",
+                        "mets",
+                        "nationals",
+                        "orioles",
+                        "padres",
+                        "phillies",
+                        "pirates",
+                        "rangers",
+                        "rays",
+                        "red sox",
+                        "reds",
+                        "rockies",
+                        "royals",
+                        "tigers",
+                        "twins",
+                        "white sox",
+                        "yankees"
                     ]
                 }
             }

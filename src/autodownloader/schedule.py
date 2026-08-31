@@ -163,7 +163,7 @@ class Schedule:
 def is_event(cal_component: Component) -> bool:
     return cal_component.name == "VEVENT" and " @ " in cal_component.get("SUMMARY")
 
-scheduler = Schedule_generator_from_calendar_NBA()
+scheduler = Schedule_generator_from_calendar_MLB()
 schedule = scheduler.generate_schedule_from_calendar().schedule
 
 print(schedule[list(schedule)[0]])
