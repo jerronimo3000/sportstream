@@ -36,7 +36,11 @@ class Schedule_generator_from_calendar_MLB(Schedule_generator_from_calendar):
                 game = self.create_game_from_calendar_event(component)
 
     def create_game_from_calendar_event(self,component: Component) -> dict:
+        game = {}
         teams = self.get_teams_from_calendar_string(component["SUMMARY"])
+        game["team_1"] = teams[0]
+        game["team_2"] = teams[1]
+        
     def get_teams_from_calendar_string(self,summary: str) -> list[str]:
         teams = summary.split(" @ ")
         standardized_teams = [self.get_standardized_team(team) for team in teams]
