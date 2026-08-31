@@ -7,6 +7,8 @@ from typing import ClassVar
 import json
 from datetime import datetime
 import pytz
+import xml.etree.ElementTree as ET
+from xml.dom import minidom
 
 class Schedule_generator_from_calendar(ABC):
     @abstractmethod
@@ -44,7 +46,7 @@ class Schedule_generator_from_calendar_MLB(Schedule_generator_from_calendar):
             if is_event(component):
                 game = self.create_game_from_calendar_event(component)
                 schedule.add_game(game)
-        return schedule
+        return {self.sport: schedule.schedule}
 
     def create_game_from_calendar_event(self,component: Component) -> dict:
         game = {}
@@ -88,7 +90,7 @@ class Schedule_generator_from_calendar_NBA(Schedule_generator_from_calendar):
             if is_event(component):
                 game = self.create_game_from_calendar_event(component)
                 schedule.add_game(game)
-        return schedule
+        return {self.sport: schedule.schedule}
 
     def create_game_from_calendar_event(self,component: Component) -> dict:
         game = {}
@@ -162,15 +164,28 @@ class Schedule:
         else:
             self.schedule[date]["channels"][channel] = {"games": [game]}
 
-            
+    def get_epg_xml(self):
+        pass
+        
+
+class Epg_xml_creator:
+    def __init__(schedule: dict):
+        self.schedule = schedule
+    
+    def generate_epg_xml(self):
+        for sport in self.schedule:
+            for date in sport:
+                for channel in date["channels"]:
+                    for game in channel["games"]:
+                        pass
         
 def is_event(cal_component: Component) -> bool:
     return cal_component.name == "VEVENT" and " @ " in cal_component.get("SUMMARY")
 
 scheduler = Schedule_generator_from_calendar_MLB()
-schedule = scheduler.generate_schedule_from_calendar().schedule
+schedule = scheduler.generate_schedule_from_calendar()
 
-print(schedule[list(schedule)[0]])
+#print(schedule[list(schedule)[0]])
 with open(Path(__file__).resolve().parent / "data/schedule.json","w") as f:
     json.dump(schedule,f,indent=4)
 #for date in schedule:

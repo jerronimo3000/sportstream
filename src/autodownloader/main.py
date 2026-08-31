@@ -6,6 +6,7 @@ import subprocess
 import time
 import requests
 import streamlink
+from pathlib import Path
 from flask import Flask, Response
 from streamlink.stream.stream import Stream
 from plugins import Sportsurge, Dudestream
@@ -197,10 +198,12 @@ def find_m3u8_link(urls: str, num_retries: int = 5):
 
     return m3u8
 
+def load_schedule() -> dict:
+    with open(Path())
+
 @app.get("/restream/<string:sport>/<int:channel_index")
 def restream(sport: str, channel_index: int):
     site = Sportsurge()
-    team = 
     url = site.get_current_game_url("diamondbacks")
     print(url)
     return Response(generate(url = url), mimetype="video/mp2t")
