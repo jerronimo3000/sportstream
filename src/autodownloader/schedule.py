@@ -70,8 +70,8 @@ class Schedule_generator_from_calendar_MLB(Schedule_generator_from_calendar):
 
 
 class Schedule_generator_from_calendar_NBA(Schedule_generator_from_calendar):
-    sport: ClassVar[str] = "baseball"
-    league: ClassVar[str] = "MLB"
+    sport: ClassVar[str] = "basketball"
+    league: ClassVar[str] = "NBA"
     
     def __init__(self,calendar_file: Path | str = Path(__file__).resolve().parent / "data/NBA_cal.ics"):
         self.calendar_file = calendar_file

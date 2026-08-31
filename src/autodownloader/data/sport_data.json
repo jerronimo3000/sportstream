@@ -15,8 +15,36 @@
             "leagues": {
                 "NBA": {
                     "teams": [
+                        "hawks",
+                        "celtics",
+                        "nets",
+                        "hornets",
+                        "bulls",
+                        "cavaliers",
+                        "mavericks",
+                        "nuggets",
+                        "pistons",
+                        "warrios",
+                        "rockets",
+                        "pacers",
+                        "clippers",
+                        "lakers",
+                        "grizzlies",
+                        "heat",
+                        "bucks",
+                        "timberwolves",
+                        "pelicans",
+                        "knicks",
                         "thunder",
-                        "timberwolves"
+                        "magic",
+                        "76ers",
+                        "suns",
+                        "blazers",
+                        "kings",
+                        "spurs",
+                        "raptors",
+                        "jazz",
+                        "wizards"
                     ]
                 }
             }

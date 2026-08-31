@@ -11,11 +11,123 @@
         "sport": "football",
         "league": "NFL"
     },
-    "thunder": {
+    "hawks": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "celtics": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "nets": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "hornets": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "bulls": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "cavaliers": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "mavericks": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "nuggets": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "pistons": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "warrios": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "rockets": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "pacers": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "clippers": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "lakers": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "grizzlies": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "heat": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "bucks": {
         "sport": "basketball",
         "league": "NBA"
     },
     "timberwolves": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "pelicans": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "knicks": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "thunder": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "magic": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "76ers": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "suns": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "blazers": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "kings": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "spurs": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "raptors": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "jazz": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "wizards": {
         "sport": "basketball",
         "league": "NBA"
     },
