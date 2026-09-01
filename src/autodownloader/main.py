@@ -7,9 +7,10 @@ import time
 import requests
 import streamlink
 from pathlib import Path
-from flask import Flask, Response
+from flask import Flask, Response, send_file
 from streamlink.stream.stream import Stream
 from plugins import Sportsurge, Dudestream
+import os
 
 app = Flask(__name__)
 
@@ -198,16 +199,20 @@ def find_m3u8_link(urls: str, num_retries: int = 5):
 
     return m3u8
 
-def load_schedule() -> dict:
-    with open(Path())
-
-@app.get("/restream/<string:sport>/<int:channel_index")
+@app.get("/restream/<string:sport>/<int:channel_index>")
 def restream(sport: str, channel_index: int):
     site = Sportsurge()
     url = site.get_current_game_url("diamondbacks")
     print(url)
     return Response(generate(url = url), mimetype="video/mp2t")
 
+@app.route("/epg.xml", methods=["GET"])
+def get_epg():
+    EPG_FILE_PATH = Path(__file__).resolve().parent / "data/epg.xml"
+    if not os.path.exists(EPG_FILE_PATH):
+        return Response("<tv></tv>", mimetype="application/xml"), 404
+
+    return send_file(EPG_FILE_PATH, mimetype="application/xml")
 
 #url = "https://v2.streameast.ga/mlb/philadelphia-phillies-vs-seattle-mariners-2/"
 #m3u8 = get_m3u8_url(url)

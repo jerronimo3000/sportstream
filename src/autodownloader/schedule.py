@@ -7,8 +7,10 @@ from typing import ClassVar
 import json
 from datetime import datetime
 import pytz
+import xmltv
 import xml.etree.ElementTree as ET
 from xml.dom import minidom
+import copy
 
 class Schedule_generator_from_calendar(ABC):
     @abstractmethod
@@ -168,22 +170,84 @@ class Schedule:
         pass
         
 
-class Epg_xml_creator:
-    def __init__(schedule: dict):
+class Epg_xml_generator:
+    def __init__(self,schedule: dict):
         self.schedule = schedule
+        self.tv: ET.Element | None = None
+        
     
     def generate_epg_xml(self):
+        self.initialize_base_element()
+        self.write_channels()
+        self.write_programs()
+        self.write_to_disk()
+
+    def initialize_base_element(self):
+        self.tv = ET.Element(
+            "tv",
+            {
+                "generator-info-name": "The Ocean",
+                "generator-info-url": "A boat on the Ocean"
+            }
+        )
+
+    def write_channels(self):
+        channels_per_sport = {sport: self.get_max_number_of_channels(sport) for sport in self.schedule}
+        for sport, num_channels in channels_per_sport.items():
+            self.write_all_channels_for_sport(sport,num_channels)
+    
+    def get_max_number_of_channels(self,sport: str) -> int:
+        channels_needed_per_day = [len(self.schedule[sport][date]["channels"]) for date in self.schedule[sport]]
+        return max(channels_needed_per_day)
+    
+    def write_all_channels_for_sport(self,sport,num_channels):
+        for i in range(1,num_channels+1):
+            self.write_single_channel(sport,i)
+
+    def write_single_channel(self,sport,channel_num):
+        name = f"{sport}_{channel_num}"
+        channel = ET.SubElement(self.tv, "channel",id=name)
+        display_name = ET.SubElement(channel,"display-name")
+        display_name.text = f"{sport} {channel_num}"
+    
+    def write_to_disk(self):
+        raw_xml_bytes = ET.tostring(self.tv, encoding="utf-8")
+        reparsed = minidom.parseString(raw_xml_bytes)
+        pretty_xml = reparsed.toprettyxml(indent="    ")
+        with open(Path(__file__).resolve().parent / "data/epg.xml","w") as f:
+            f.write(pretty_xml)
+
+    def write_programs(self):
         for sport in self.schedule:
-            for date in sport:
-                for channel in date["channels"]:
-                    for game in channel["games"]:
-                        pass
+            for date in self.schedule[sport]:
+                for channel in self.schedule[sport][date]["channels"]:
+                    for game in self.schedule[sport][date]["channels"][channel]["games"]:
+                        full_game_info = copy.copy(game)
+                        full_game_info["sport"] = sport
+                        full_game_info["channel"] = channel
+                        self.write_single_program(full_game_info)
+    
+    def write_single_program(self,game_info: dict):
+        program = ET.SubElement(
+            self.tv,
+            "programme",
+            start=datetime.fromisoformat(game_info["time_start"]).strftime("%Y%m%d%H%M%S %z"),
+            stop=datetime.fromisoformat(game_info["time_end"]).strftime("%Y%m%d%H%M%S %z"),
+            channel=f"{game_info["sport"]}_{game_info["channel"]}"
+        )
+
+        title = ET.SubElement(program, "title", lang="en")
+        title.text = f"{game_info["team_1"]} @ {game_info["team_2"]}"
+
         
 def is_event(cal_component: Component) -> bool:
     return cal_component.name == "VEVENT" and " @ " in cal_component.get("SUMMARY")
 
 scheduler = Schedule_generator_from_calendar_MLB()
 schedule = scheduler.generate_schedule_from_calendar()
+
+epg_creator = Epg_xml_generator(schedule)
+epg_creator.generate_epg_xml()
 
 #print(schedule[list(schedule)[0]])
 with open(Path(__file__).resolve().parent / "data/schedule.json","w") as f:
