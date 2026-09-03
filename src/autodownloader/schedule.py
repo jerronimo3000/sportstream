@@ -24,11 +24,23 @@ class Schedule_generator_from_calendar(ABC):
         return data
 
     def get_time_start_from_component(self,component: Component) -> datetime:
-        time_start_ical = component.get("dtstart").dt.isoformat()
+        dt = component.get("dtstart").dt
+        dt_local = self.enforce_timezone_info(dt)
+        time_start_ical = dt_local.isoformat()
         return time_start_ical
     def get_time_end_from_component(self,component: Component) -> datetime:
-        time_end_ical = component.get("dtend").dt.isoformat()
+        dt = component.get("dtend").dt
+        dt_local = self.enforce_timezone_info(dt)
+        time_end_ical = dt_local.isoformat()
         return time_end_ical
+    
+    def enforce_timezone_info(self,dt: datetime) -> datetime:
+        user_tz = datetime.now().astimezone().tzinfo
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=user_tz)
+        else:
+            dt = dt.astimezone(user_tz)
+
 
 class Schedule_generator_from_calendar_MLB(Schedule_generator_from_calendar):
     sport: ClassVar[str] = "baseball"
