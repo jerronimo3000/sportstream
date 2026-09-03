@@ -148,7 +148,7 @@ def save_stream_to_file(stream: Stream, output_file: str = "output.mp4"):
 
 def generate(url: str):
     while True:
-        stream_fd = Noned
+        stream_fd = None
 
         try:
             print("Finding a new M3U8 stream...")
@@ -238,7 +238,7 @@ class Game_retriever:
     
     @cached_property
     def schedule(self):
-        with open(Path(__file__).resolve().parent / "data/schedule.json", "rw") as f:
+        with open(Path(__file__).resolve().parent / "data/schedule.json", "r") as f:
             data = json.load(f)
         return data
 
