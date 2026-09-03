@@ -5,7 +5,7 @@ from functools import cached_property
 from pathlib import Path
 from typing import ClassVar
 import json
-from datetime import datetime
+from datetime import datetime,timezone
 import pytz
 import xmltv
 import xml.etree.ElementTree as ET
@@ -24,11 +24,24 @@ class Schedule_generator_from_calendar(ABC):
         return data
 
     def get_time_start_from_component(self,component: Component) -> datetime:
-        time_start_ical = component.get("dtstart").dt.isoformat()
+        dt = component.get("dtstart").dt
+        dt_utc = self.enforce_utc_timezone_info(dt)
+        time_start_ical = dt_utc.isoformat()
         return time_start_ical
     def get_time_end_from_component(self,component: Component) -> datetime:
-        time_end_ical = component.get("dtend").dt.isoformat()
+        dt = component.get("dtend").dt
+        dt_utc = self.enforce_utc_timezone_info(dt)
+        time_end_ical = dt_utc.isoformat()
         return time_end_ical
+    
+    def enforce_utc_timezone_info(self,dt: datetime) -> datetime:
+        if dt.tzinfo is None:
+            dt_utc = dt.replace(tzinfo=timezone.utc)
+        else:
+            dt_utc = dt.astimezone(timezone.utc)
+
+        return dt_utc
+
 
 class Schedule_generator_from_calendar_MLB(Schedule_generator_from_calendar):
     sport: ClassVar[str] = "baseball"
@@ -118,53 +131,50 @@ class Schedule_generator_from_calendar_NBA(Schedule_generator_from_calendar):
     
 class Schedule:
     def __init__(self):
-        self.schedule = {}
+        self.schedule = {"channels": {1: {"games": []}}}
 
     def add_game(self,game: dict):
-        date = str(datetime.fromisoformat(game["time_start"]).date())
-
-        if not date in self.schedule:
-            self._initiate_date(game,date)
-        else:
-            open_channel = self.get_first_open_channel(game)
-            self._add_game_to_channel(game,open_channel)
+        open_channel = self.get_first_open_channel(game)
+        self._add_game_to_channel(game,open_channel)
     
     def _initiate_date(self,game: dict, date: str):
         self.schedule[date] = {"channels": {1: {"games": [game]}}}
 
     def get_first_open_channel(self,game: dict) -> int:
-        date = str(datetime.fromisoformat(game["time_start"]).date())
         existing_free_channel = False
-        for channel in self.schedule[date]["channels"]:
+        for channel in self.schedule["channels"]:
             if not self._interferes_with_existing_game_on_channel(game,channel):
                 existing_free_channel = channel
                 break
         if existing_free_channel:
             open_channel = existing_free_channel
         else:
-            open_channel = max(self.schedule[date]["channels"]) + 1
+            open_channel = max(self.schedule["channels"]) + 1
         return open_channel
 
     def _interferes_with_existing_game_on_channel(self,game: dict, channel: int) -> bool:
-        date = str(datetime.fromisoformat(game["time_start"]).date())
-        existing_games = self.schedule[date]["channels"][channel]["games"]
+        existing_games = self.schedule["channels"][channel]["games"]
 
         interferes = False
         for existing_game in existing_games:
             game_start_time = datetime.fromisoformat(game["time_start"])
+            game_end_time = datetime.fromisoformat(game["time_end"])
             existing_game_start_time = datetime.fromisoformat(existing_game["time_start"])
             existing_game_end_time = datetime.fromisoformat(existing_game["time_end"])
             if (game_start_time >= existing_game_start_time) and (game_start_time <= existing_game_end_time):
+                interferes = True
+            if (game_end_time >= existing_game_start_time) and (game_end_time <= existing_game_end_time):
+                interferes = True
+            if (existing_game_start_time >= game_start_time) and (existing_game_end_time <= game_end_time):
                 interferes = True
         
         return interferes
     
     def _add_game_to_channel(self,game: dict, channel: id):
-        date = str(datetime.fromisoformat(game["time_start"]).date())
-        if channel in self.schedule[date]["channels"]:
-            self.schedule[date]["channels"][channel]["games"].append(game)
+        if channel in self.schedule["channels"]:
+            self.schedule["channels"][channel]["games"].append(game)
         else:
-            self.schedule[date]["channels"][channel] = {"games": [game]}
+            self.schedule["channels"][channel] = {"games": [game]}
 
     def get_epg_xml(self):
         pass
@@ -197,7 +207,7 @@ class Epg_xml_generator:
             self.write_all_channels_for_sport(sport,num_channels)
     
     def get_max_number_of_channels(self,sport: str) -> int:
-        channels_needed_per_day = [len(self.schedule[sport][date]["channels"]) for date in self.schedule[sport]]
+        channels_needed_per_day = [len(self.schedule[sport]["channels"]) for date in self.schedule[sport]]
         return max(channels_needed_per_day)
     
     def write_all_channels_for_sport(self,sport,num_channels):
@@ -219,13 +229,12 @@ class Epg_xml_generator:
 
     def write_programs(self):
         for sport in self.schedule:
-            for date in self.schedule[sport]:
-                for channel in self.schedule[sport][date]["channels"]:
-                    for game in self.schedule[sport][date]["channels"][channel]["games"]:
-                        full_game_info = copy.copy(game)
-                        full_game_info["sport"] = sport
-                        full_game_info["channel"] = channel
-                        self.write_single_program(full_game_info)
+            for channel in self.schedule[sport]["channels"]:
+                for game in self.schedule[sport]["channels"][channel]["games"]:
+                    full_game_info = copy.copy(game)
+                    full_game_info["sport"] = sport
+                    full_game_info["channel"] = channel
+                    self.write_single_program(full_game_info)
     
     def write_single_program(self,game_info: dict):
         program = ET.SubElement(
