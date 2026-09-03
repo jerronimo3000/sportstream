@@ -11,7 +11,7 @@ from flask import Flask, Response, send_file
 from streamlink.stream.stream import Stream
 from plugins import Sportsurge, Dudestream
 import os
-from datetime import datetime,timedelta
+from datetime import datetime,timedelta,timezone
 from functools import cached_property
 import json
 from zoneinfo import ZoneInfo
@@ -232,9 +232,7 @@ class Game_retriever:
     def __init__(self,sport: str, channel: int):
         self.sport = sport
         self.channel = str(channel)
-        self.now = datetime.now(ZoneInfo("America/Chicago"))
-        self.today = str(self.now.date())
-        self.yesterday = self.now - timedelta(days=1)
+        self.now = datetime.now(timezone.utc)
     
     @cached_property
     def schedule(self):
@@ -256,11 +254,10 @@ class Game_retriever:
         return time_start <= self.now and time_end >= self.now
 
     def find_possible_games(self):
-        games = self.schedule[self.sport][self.today]["channels"][self.channel]["games"]
+        games = self.schedule[self.sport]["channels"][self.channel]["games"]
         return games
 
-    #def set_m3u8_url(self):
-
+    #def set_m3u8_url(dself):
 
 
 
