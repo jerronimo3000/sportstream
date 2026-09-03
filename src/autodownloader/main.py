@@ -6,10 +6,15 @@ import subprocess
 import time
 import requests
 import streamlink
-from flask import Flask, Response
+from pathlib import Path
+from flask import Flask, Response, send_file
 from streamlink.stream.stream import Stream
 from plugins import Sportsurge, Dudestream
-
+import os
+from datetime import datetime,timedelta
+from functools import cached_property
+import json
+from zoneinfo import ZoneInfo
 app = Flask(__name__)
 
 
@@ -106,8 +111,8 @@ def get_stream(m3u8: m3u8_link) -> Stream:
     # Configure session options/headers to pass CDN checks
     session.set_option("http-headers", {
         "Referer": m3u8.referer,
-        "User-Agent": m3u8.user_agent,
-        "Cookie": m3u8.cookies_header
+        #"User-Agent": m3u8.user_agent,
+        #"Cookie": m3u8.cookies_header
     })
     session.set_option("hls-live-restart", True)
 
@@ -197,23 +202,75 @@ def find_m3u8_link(urls: str, num_retries: int = 5):
 
     return m3u8
 
-@app.get("/restream")
-def restream():
+@app.get("/<string:sport>/<int:channel_index>")
+def restream(sport: str, channel_index: int):
+    print(f"This is the sport: {sport}", flush=True)
     site = Sportsurge()
-    url = site.get_current_game_url("reds")
-    # site = Dudestream()
-    # url = site.get_current_game_url("ararat")
+    game_retriever = Game_retriever(sport,channel_index)
+    active_team = game_retriever.get_currently_playing_team()
+    #active_team = "commanders"
+    if not active_team:
+        print(f"No active game found for {sport} on channel slot {channel_index}", flush=True)
+        return Response("No active game scheduled right now.", status=404, mimetype="text/plain")
+
+    print(f"{active_team} are playing {sport} right now", flush=True)
+    url = site.get_current_game_url(active_team)
     print(url)
     return Response(generate(url = url), mimetype="video/mp2t")
 
+@app.route("/epg.xml", methods=["GET"])
+def get_epg():
+    EPG_FILE_PATH = Path(__file__).resolve().parent / "data/epg.xml"
+    if not os.path.exists(EPG_FILE_PATH):
+        return Response("<tv></tv>", mimetype="application/xml"), 404
 
+    return send_file(EPG_FILE_PATH, mimetype="application/xml")
+
+
+
+class Game_retriever:
+    def __init__(self,sport: str, channel: int):
+        self.sport = sport
+        self.channel = str(channel)
+        self.now = datetime.now(ZoneInfo("America/Chicago"))
+        self.today = str(self.now.date())
+        self.yesterday = self.now - timedelta(days=1)
+    
+    @cached_property
+    def schedule(self):
+        with open(Path(__file__).resolve().parent / "data/schedule.json", "r") as f:
+            data = json.load(f)
+        return data
+
+    def get_currently_playing_team(self) -> str:
+        print(f"finding team playing {self.sport} on channel {self.channel}")
+        games = self.find_possible_games()
+        for game in games:
+            if self.game_is_on_now(game):
+                return game["team_1"]
+    
+    def game_is_on_now(self,game: dict) -> bool:
+        time_start = datetime.fromisoformat(game["time_start"])
+        time_end = datetime.fromisoformat(game["time_end"])
+
+        return time_start <= self.now and time_end >= self.now
+
+    def find_possible_games(self):
+        games = self.schedule[self.sport][self.today]["channels"][self.channel]["games"]
+        return games
+
+    #def set_m3u8_url(self):
+
+
+
+
+    
 #url = "https://v2.streameast.ga/mlb/philadelphia-phillies-vs-seattle-mariners-2/"
 #m3u8 = get_m3u8_url(url)
 #print(m3u8.referer)
 #print(m3u8.url)
 #stream = get_stream(m3u8=m3u8)
 #save_stream_to_file(stream=stream)
-
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8900)

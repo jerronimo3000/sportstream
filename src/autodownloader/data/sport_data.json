@@ -15,8 +15,36 @@
             "leagues": {
                 "NBA": {
                     "teams": [
+                        "hawks",
+                        "celtics",
+                        "nets",
+                        "hornets",
+                        "bulls",
+                        "cavaliers",
+                        "mavericks",
+                        "nuggets",
+                        "pistons",
+                        "warrios",
+                        "rockets",
+                        "pacers",
+                        "clippers",
+                        "lakers",
+                        "grizzlies",
+                        "heat",
+                        "bucks",
+                        "timberwolves",
+                        "pelicans",
+                        "knicks",
                         "thunder",
-                        "timberwolves"
+                        "magic",
+                        "76ers",
+                        "suns",
+                        "blazers",
+                        "kings",
+                        "spurs",
+                        "raptors",
+                        "jazz",
+                        "wizards"
                     ]
                 }
             }
@@ -25,11 +53,36 @@
             "leagues": {
                 "MLB": {
                     "teams": [
+                        "angels",
+                        "athletics",
+                        "astros",
+                        "blue jays",
+                        "braves",
+                        "brewers",
+                        "cardinals",
                         "cubs",
                         "diamondbacks",
+                        "dodgers",
                         "giants",
+                        "guardians",
+                        "mariners",
+                        "marlins",
+                        "mets",
+                        "nationals",
+                        "orioles",
+                        "padres",
                         "phillies",
-                        "reds"
+                        "pirates",
+                        "rangers",
+                        "rays",
+                        "red sox",
+                        "reds",
+                        "rockies",
+                        "royals",
+                        "tigers",
+                        "twins",
+                        "white sox",
+                        "yankees"
                     ]
                 }
             }

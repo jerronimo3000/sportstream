@@ -11,13 +11,153 @@
         "sport": "football",
         "league": "NFL"
     },
-    "thunder": {
+    "hawks": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "celtics": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "nets": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "hornets": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "bulls": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "cavaliers": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "mavericks": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "nuggets": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "pistons": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "warrios": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "rockets": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "pacers": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "clippers": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "lakers": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "grizzlies": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "heat": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "bucks": {
         "sport": "basketball",
         "league": "NBA"
     },
     "timberwolves": {
         "sport": "basketball",
         "league": "NBA"
+    },
+    "pelicans": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "knicks": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "thunder": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "magic": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "76ers": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "suns": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "blazers": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "kings": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "spurs": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "raptors": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "jazz": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "wizards": {
+        "sport": "basketball",
+        "league": "NBA"
+    },
+    "angels": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "athletics": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "astros": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "blue jays": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "braves": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "brewers": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "cardinals": {
+        "sport": "baseball",
+        "league": "MLB"
     },
     "cubs": {
         "sport": "baseball",
@@ -27,7 +167,39 @@
         "sport": "baseball",
         "league": "MLB"
     },
+    "dodgers": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
     "giants": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "guardians": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "mariners": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "marlins": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "mets": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "nationals": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "orioles": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "padres": {
         "sport": "baseball",
         "league": "MLB"
     },
@@ -35,7 +207,47 @@
         "sport": "baseball",
         "league": "MLB"
     },
+    "pirates": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "rangers": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "rays": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "red sox": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
     "reds": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "rockies": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "royals": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "tigers": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "twins": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "white sox": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "yankees": {
         "sport": "baseball",
         "league": "MLB"
     }
