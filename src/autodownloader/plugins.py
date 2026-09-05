@@ -71,7 +71,7 @@ class Sportsurge(Site_plugin):
             raise ValueError(f"[ERROR] Team {team_name}'s sport ({team_data["sport"]}) and league ({team_data["league"]}) not configured in plugin")
         return base_url
 
-    def get_current_game_url(self,team_name: str,provider: str = None) -> str:
+    def get_current_game_url(self,team_name: str,provider: str = None,retries: int = 10) -> str:
          with sync_playwright() as p:
             browser = p.chromium.launch(
                 headless=False,  # Must be False so the player initializes
@@ -86,6 +86,7 @@ class Sportsurge(Site_plugin):
             )
 
             page = browser.new_page()
+
             page.goto(self.get_base_url(team_name=team_name))
 
             #streaming_list_elem = page.locator("a").filter(has_text=team_name).first

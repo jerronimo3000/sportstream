@@ -252,6 +252,23 @@ class Epg_xml_generator:
 def is_event(cal_component: Component) -> bool:
     return cal_component.name == "VEVENT" and " @ " in cal_component.get("SUMMARY")
 
+
+class M3U_generator:
+    def __init__(self,schedule: dict, host_ip_and_port: str):
+        self.schedule = schedule
+        self.host_ip_and_port = host_ip_and_port
+        self.m3u_list: list[str] | None = None
+    
+    def generate_m3u(self):
+        for sport in schedule:
+            for channel in schedule[sport]["channels"]:
+                self.add_channel_to_m3u(sport,channel)
+    
+    def add_channel_to_m3u(self, sport: str, channel: int):
+        pass
+   
+
+
 scheduler = Schedule_generator_from_calendar_MLB()
 schedule = scheduler.generate_schedule_from_calendar()
 

@@ -208,7 +208,7 @@ def restream(sport: str, channel_index: int):
     site = Sportsurge()
     game_retriever = Game_retriever(sport,channel_index)
     active_team = game_retriever.get_currently_playing_team()
-    #active_team = "commanders"
+    #active_team = "athletics"
     if not active_team:
         print(f"No active game found for {sport} on channel slot {channel_index}", flush=True)
         return Response("No active game scheduled right now.", status=404, mimetype="text/plain")
