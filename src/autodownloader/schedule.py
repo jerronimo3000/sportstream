@@ -1,3 +1,4 @@
+from dataclasses import dataclass
 import icalendar as ical
 from icalendar import Calendar, Component
 from abc import ABC, abstractmethod
@@ -257,21 +258,52 @@ class M3U_generator:
     def __init__(self,schedule: dict, host_ip_and_port: str):
         self.schedule = schedule
         self.host_ip_and_port = host_ip_and_port
-        self.m3u_list: list[str] | None = None
     
-    def generate_m3u(self):
+    @cached_property
+    def m3u_string(self):
+        m3u_string_list = ["#EXTM3U"]
+        guide_channel = 1
         for sport in schedule:
             for channel in schedule[sport]["channels"]:
-                self.add_channel_to_m3u(sport,channel)
-    
-    def add_channel_to_m3u(self, sport: str, channel: int):
-        pass
-   
+                channel_string_creator = M3u_channel_string_creator(
+                    sport=sport,
+                    global_channel=guide_channel,
+                    sport_channel=channel,
+                    host_ip_and_port=self.host_ip_and_port
+                )
+                m3u_string_list.extend(channel_string_creator.get_channel_string())
+                guide_channel += 1
+        
+        final_m3u_string = "\n".join(m3u_string_list)
+        return final_m3u_string
 
+    def Write_m3u(self):
+        with open(Path(__file__).resolve().parent / "data/channels.m3u", "w") as f:
+            f.write(self.m3u_string)
+                
+@dataclass
+class M3u_channel_string_creator:
+    sport: str
+    global_channel: int
+    sport_channel: int
+    host_ip_and_port: str
+
+    def get_channel_string(self):
+        tvg_id = f"{self.sport}_{self.sport_channel}"
+        tvg_name = tvg_id
+        group_title = "Sports"
+        
+        m3u_line_1 = rf'#EXTINF:-1 tvg-id="{tvg_id}" tvg-name="{tvg_name}" group_title="{group_title}" channel-id="{self.global_channel}", {tvg_name}'
+        m3u_line_2 = f"http://{self.host_ip_and_port}/{self.sport}/{self.sport_channel}"
+
+        full_m3u_string = [m3u_line_1,m3u_line_2]
+        return full_m3u_string
 
 scheduler = Schedule_generator_from_calendar_MLB()
 schedule = scheduler.generate_schedule_from_calendar()
 
+m3u_creator = M3U_generator(schedule=schedule, host_ip_and_port="192.168.50.109:8900")
+m3u_creator.Write_m3u()
 epg_creator = Epg_xml_generator(schedule)
 epg_creator.generate_epg_xml()
 

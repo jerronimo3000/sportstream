@@ -226,6 +226,12 @@ def get_epg():
 
     return send_file(EPG_FILE_PATH, mimetype="application/xml")
 
+@app.route("/channels.m3u", methods=["GET"])
+def get_channels_m3u():
+    m3u_path = Path(__file__).resolve().parent / "data/channels.m3u"
+    if not os.path.exists(m3u_path):
+        return Response("#EXTM3U\n", mimetype="audio/x-mpegurl"), 404
+    return send_file(m3u_path, mimetype="audio/x-mpegurl")
 
 
 class Game_retriever:
