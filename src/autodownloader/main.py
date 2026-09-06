@@ -12,9 +12,12 @@ from streamlink.stream.stream import Stream
 from plugins import Sportsurge, Dudestream
 import os
 from datetime import datetime,timedelta,timezone
+from zoneinfo import ZoneInfo
 from functools import cached_property
 import json
 from zoneinfo import ZoneInfo
+from constants import Constants
+
 app = Flask(__name__)
 
 
@@ -206,8 +209,8 @@ def find_m3u8_link(urls: str, num_retries: int = 5):
 def restream(sport: str, channel_index: int):
     print(f"This is the sport: {sport}", flush=True)
     site = Sportsurge()
-    game_retriever = Game_retriever(sport,channel_index)
-    active_team = game_retriever.get_currently_playing_team()
+    game_retriever = Game_data_manager(sport,channel_index)
+    active_team = game_retriever.currently_playing_team()
     #active_team = "athletics"
     if not active_team:
         print(f"No active game found for {sport} on channel slot {channel_index}", flush=True)
@@ -233,39 +236,66 @@ def get_channels_m3u():
         return Response("#EXTM3U\n", mimetype="audio/x-mpegurl"), 404
     return send_file(m3u_path, mimetype="audio/x-mpegurl")
 
+def get_schedule() -> dict:
+    with open(Constants.schedule_file, "r") as f:
+        data = json.load(f)
+    return data
 
-class Game_retriever:
-    def __init__(self,sport: str, channel: int):
+class Game_data_manager:
+    def __init__(self,sport: str, channel: int, search_time: datetime | None = datetime.now(timezone.utc)):
         self.sport = sport
         self.channel = str(channel)
-        self.now = datetime.now(timezone.utc)
+        self.search_time = search_time
     
     @cached_property
     def schedule(self):
-        with open(Path(__file__).resolve().parent / "data/schedule.json", "r") as f:
-            data = json.load(f)
-        return data
+        return get_schedule()
 
-    def get_currently_playing_team(self) -> str:
+    def get_cached_m3u8_url(self) -> str:
+        return self.active_game["m3u8_url"]
+    
+    def write_m3u8_url(self,m3u8_url: str):
+        self.schedule[self.sport]["channels"][self.channel]["games"][self.active_game_index]["m3u8_url"] = m3u8_url
+        with open(Constants.schedule_file, "w") as f:
+            json.dump(self.schedule, f, indent=4)
+
+    @cached_property
+    def active_game_index(self) -> int:
+        games = self.find_possible_games()
+        for i,game in enumerate(games):
+            if self.game_is_on_now(game):
+                return i
+       
+    @cached_property
+    def active_game(self) -> dict:
         print(f"finding team playing {self.sport} on channel {self.channel}")
         games = self.find_possible_games()
         for game in games:
             if self.game_is_on_now(game):
-                return game["team_1"]
-    
+                return game
+
+    @cached_property
+    def currently_playing_team(self) -> str:
+        game = self.active_game()
+        return game["team_1"]
+
     def game_is_on_now(self,game: dict) -> bool:
         time_start = datetime.fromisoformat(game["time_start"])
         time_end = datetime.fromisoformat(game["time_end"])
 
-        return time_start <= self.now and time_end >= self.now
+        return time_start <= self.search_time and time_end >= self.search_time
 
     def find_possible_games(self):
         games = self.schedule[self.sport]["channels"][self.channel]["games"]
         return games
 
-    #def set_m3u8_url(dself):
 
-
+manager = Game_data_manager(
+    "baseball",
+    3,
+    search_time=datetime(2026,9,6,11,30,0,tzinfo=ZoneInfo("America/Chicago"))
+)
+manager.write_m3u8_url("this is a test")
 
     
 #url = "https://v2.streameast.ga/mlb/philadelphia-phillies-vs-seattle-mariners-2/"
