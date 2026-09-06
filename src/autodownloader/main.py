@@ -146,7 +146,8 @@ def save_stream_to_file(stream: Stream, output_file: str = "output.mp4"):
     finally:
         print(f"[+] File saved: {output_file}")
 
-
+def find_m3u8_url_from_team(team: str) -> str:
+    
 
 
 def generate(url: str):
