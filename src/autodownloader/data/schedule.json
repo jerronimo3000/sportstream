@@ -3087,7 +3087,8 @@
                         "team_1": "brewers",
                         "team_2": "reds",
                         "time_start": "2026-09-06T16:10:00+00:00",
-                        "time_end": "2026-09-06T19:10:00+00:00"
+                        "time_end": "2026-09-06T19:10:00+00:00",
+                        "m3u8_url": "this is a test"
                     },
                     {
                         "team_1": "red sox",

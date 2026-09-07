@@ -146,8 +146,44 @@ def save_stream_to_file(stream: Stream, output_file: str = "output.mp4"):
     finally:
         print(f"[+] File saved: {output_file}")
 
-def find_m3u8_url_from_team(team: str) -> str:
-    
+def find_m3u8_url_from_team(team: str, num_retries: int) -> str:
+    try:
+        print("Finding a new M3U8 stream...")
+        m3u8 = get_m3u8_url(url)
+
+        if m3u8 is None:
+            raise RuntimeError("Could not find M3U8 URL")
+
+        stream = get_stream(m3u8)
+
+        if stream is None:
+            raise RuntimeError("Could not find playable stream")
+
+        print("Opening Streamlink stream...")
+        stream_fd = stream.open()
+
+        while True:
+            data = stream_fd.read(64 * 1024)
+
+            if not data:
+                raise ConnectionError("Stream ended")
+
+            yield data
+
+    except Exception as e:
+        print(f"Stream failed: {e!r}")
+        print("Retrying in 5 seconds...")
+        time.sleep(5)
+
+    finally:
+        if stream_fd is not None:
+            try:
+                stream_fd.close()
+            except Exception:
+                pass
+
+        print("Stream connection closed")
+
 
 
 def generate(url: str):
