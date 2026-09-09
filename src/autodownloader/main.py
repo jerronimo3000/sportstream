@@ -9,7 +9,7 @@ import streamlink
 from pathlib import Path
 from flask import Flask, Response, send_file
 from streamlink.stream.stream import Stream
-from plugins import Sportsurge, Dudestream
+from plugins import Site_plugin,Sportsurge, Dudestream
 import os
 from datetime import datetime,timedelta,timezone
 from zoneinfo import ZoneInfo
@@ -146,15 +146,43 @@ def save_stream_to_file(stream: Stream, output_file: str = "output.mp4"):
     finally:
         print(f"[+] File saved: {output_file}")
 
-def find_m3u8_url_from_team(team: str, num_retries: int) -> str:
-    try:
+
+class m3u8_url_finder:
+    def __init__(self,team: str, num_retries: int = 10,plugin: Site_plugin = Sportsurge):
+        self.team = team
+        self.plugin = plugin()
+        self.num_retries = num_retries
+    
+    def attempt_function(self,function: callable,arguments: dict = {}):
+        attempts = 1
+        while attempts <= self.num_retries:
+            try:
+                function_return = function(**arguments)
+            except Exception as e:
+                print(f"Error: {e} \nAttempt {attempts} of {self.num_retries} failed. Retrying...")
+                attempts += 1
+                if attempts > self.num_retries:
+                    raise RuntimeError("Maximum number of retries reached")
+    
+    def get_game_page_url(self):
+        return self.attempt_function(self.plugin.get_current_game_url,{"team_name": self.team})
+
+    def get_m3u8_url(self):
+        game_page_url = self.get_game_page_url()
+        return self.attempt_function(self.get_m3u8_url,{"game_page_url": game_page_url})
+
+    def get_m3u8_url_single_attempt(self,game_page_url: str) -> str:
         print("Finding a new M3U8 stream...")
         m3u8 = get_m3u8_url(url)
 
         if m3u8 is None:
             raise RuntimeError("Could not find M3U8 URL")
+        else:
+            return m3u8
 
-        stream = get_stream(m3u8)
+def restream_m3u8_playlist(m3u8_url: str):
+    try:
+        stream = get_stream(m3u8_url)
 
         if stream is None:
             raise RuntimeError("Could not find playable stream")
@@ -342,5 +370,9 @@ manager.write_m3u8_url("this is a test")
 #stream = get_stream(m3u8=m3u8)
 #save_stream_to_file(stream=stream)
 
+finder = m3u8_url_finder("reds")
+finder.get_m3u8_url()
+
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8900)
+    pass
+    #app.run(host="0.0.0.0", port=8900)

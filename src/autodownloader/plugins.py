@@ -90,8 +90,8 @@ class Sportsurge(Site_plugin):
             page.goto(self.get_base_url(team_name=team_name))
 
             #streaming_list_elem = page.locator("a").filter(has_text=team_name).first
-            with page.expect_navigation(wait_until="domcontentloaded"):
-                page.locator("a").filter(has_text=team_name).first.click()
+            with page.expect_navigation(wait_until="domcontentloaded",timeout=10000):
+                page.locator("a").filter(has_text=team_name).first.click(timeout=10000)
             #stream_list_appendix = streaming_list_elem.get_attribute("href")
             #stream_list_url = f"{self.base_url}/{stream_list_appendix}"
             #print(stream_list_url)
@@ -112,7 +112,7 @@ class Sportsurge(Site_plugin):
                 game_url = streaming_site_elems_search.first.get_attribute("data-href")
             else:
                 raise ValueError("could not find streaming site")
-            browser.close()
+                browser.close()
 
 
             return game_url
