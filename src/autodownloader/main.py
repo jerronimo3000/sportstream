@@ -114,20 +114,17 @@ def get_stream(m3u8_link: m3u8_link) -> Stream:
     session = streamlink.Streamlink()
 
     # Configure session options/headers to pass CDN checks
-    # session.set_option("http-headers", {
-    #     "Referer": m3u8.referer,
-    #     #"User-Agent": m3u8.user_agent,
-    #     #"Cookie": m3u8.cookies_header
-    # })
-    session.set_option(
-        "http-headers",
-        {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
-    )
+    session.set_option("http-headers", {
+        "Referer": m3u8_link.referer,
+        #"User-Agent": m3u8.user_agent,
+        #"Cookie": m3u8.cookies_header
+    })
+
     session.set_option("hls-live-restart", True)
 
     print(f"[+] Fetching stream tracks from manifest...")
     # Wrap with hlsvariant:// to force HLS parsing
-    streams = session.streams(f"hlsvariant://{m3u8_url}")
+    streams = session.streams(f"hlsvariant://{m3u8_link.url}")
     
     if "best" not in streams:
         print("[!] No valid stream variant found.")
@@ -175,7 +172,7 @@ class m3u8_url_finder:
     def get_game_page_url(self):
         return self.attempt_function(self.plugin.get_current_game_url,{"team_name": self.team})
 
-    def get_m3u8_url(self):
+    def get_m3u8_link(self):
         game_page_url = self.get_game_page_url()
         return self.attempt_function(self.get_m3u8_url_single_attempt,{"game_page_url": game_page_url})
 
