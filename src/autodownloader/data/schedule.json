@@ -715,7 +715,8 @@
                         "team_1": "cardinals",
                         "team_2": "giants",
                         "time_start": "2026-09-09T19:45:00+00:00",
-                        "time_end": "2026-09-09T22:45:00+00:00"
+                        "time_end": "2026-09-09T22:45:00+00:00",
+                        "m3u8_url": "https://edgestream2.pro/hls/ihfazugfyjcazich17.m3u8?st=kp4pSVybLp-XpiduQmN7SNmGpGsjFYcgWXxgrRY74vI&e=1788996744"
                     },
                     {
                         "team_1": "blue jays",

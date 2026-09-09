@@ -17,6 +17,7 @@ from functools import cached_property
 import json
 from zoneinfo import ZoneInfo
 from constants import Constants
+from curl
 
 app = Flask(__name__)
 
@@ -59,9 +60,9 @@ def get_network_requests(url: str):
 
 
 
-def get_m3u8_url(
-    url: str, timeout: int = 15000, raise_on_missing: bool = False
-) -> m3u8_link:
+def get_m3u8_link(
+    url: str, timeout: int = 20000, raise_on_missing: bool = False
+) -> str:
     with sync_playwright() as p:
         browser = p.chromium.launch(
             headless=False,  # Must be False so the player initializes
@@ -78,7 +79,7 @@ def get_m3u8_url(
         page = browser.new_page()
 
         try:
-            print("opening url and waiting for m3u8 request")
+            print(f"opening url and waiting for m3u8 request ({url})")
             with page.expect_request(lambda req: ".m3u8" in req.url, timeout=timeout) as request_info:
                 page.goto(url=url, wait_until="domcontentloaded")
                 page.wait_for_timeout(4000)
@@ -92,19 +93,20 @@ def get_m3u8_url(
 
             print(f"FOUND M3U8 ULR: {request.url}")
             return m3u8_link(
-                url=request.url,
+                url=request.url
                 referer=referer,
                 user_agent=user_agent,
                 cookies_header=cookie_str
             )
+            
         except Exception as e:
             print(f"[!] Error intercepting M3U8: {e}")
             return None
         finally:
             browser.close()
 
-def get_stream(m3u8: m3u8_link) -> Stream:
-    if not m3u8 or not m3u8.url:
+def get_stream(m3u8_link: m3u8_link) -> Stream:
+    if not m3u8_link:
         print("[!] Invalid stream object.")
         return
 
@@ -112,16 +114,20 @@ def get_stream(m3u8: m3u8_link) -> Stream:
     session = streamlink.Streamlink()
 
     # Configure session options/headers to pass CDN checks
-    session.set_option("http-headers", {
-        "Referer": m3u8.referer,
-        #"User-Agent": m3u8.user_agent,
-        #"Cookie": m3u8.cookies_header
-    })
+    # session.set_option("http-headers", {
+    #     "Referer": m3u8.referer,
+    #     #"User-Agent": m3u8.user_agent,
+    #     #"Cookie": m3u8.cookies_header
+    # })
+    session.set_option(
+        "http-headers",
+        {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"}
+    )
     session.set_option("hls-live-restart", True)
 
     print(f"[+] Fetching stream tracks from manifest...")
     # Wrap with hlsvariant:// to force HLS parsing
-    streams = session.streams(f"hlsvariant://{m3u8.url}")
+    streams = session.streams(f"hlsvariant://{m3u8_url}")
     
     if "best" not in streams:
         print("[!] No valid stream variant found.")
@@ -275,18 +281,23 @@ def find_m3u8_link(urls: str, num_retries: int = 5):
 @app.get("/<string:sport>/<int:channel_index>")
 def restream(sport: str, channel_index: int):
     print(f"This is the sport: {sport}", flush=True)
-    site = Sportsurge()
     game_retriever = Game_data_manager(sport,channel_index)
-    active_team = game_retriever.currently_playing_team()
+    active_team = game_retriever.currently_playing_team
     #active_team = "athletics"
     if not active_team:
         print(f"No active game found for {sport} on channel slot {channel_index}", flush=True)
         return Response("No active game scheduled right now.", status=404, mimetype="text/plain")
 
     print(f"{active_team} are playing {sport} right now", flush=True)
-    url = site.get_current_game_url(active_team)
-    print(url)
-    return Response(generate(url = url), mimetype="video/mp2t")
+
+    game_data_manager = Game_data_manager(sport,channel_index)
+    try:
+        m3u8_url = game_data_manager.get_cached_m3u8_url()
+    except:
+        m3u8_retriever = m3u8_url_finder(active_team)
+        m3u8_url = m3u8_retriever.get_m3u8_url()
+        game_data_manager.write_m3u8_url(m3u8_url=m3u8_url)
+    return Response(restream_m3u8_playlist(m3u8_url=m3u8_url), mimetype="video/mp2t")
 
 @app.route("/epg.xml", methods=["GET"])
 def get_epg():
@@ -343,7 +354,7 @@ class Game_data_manager:
 
     @cached_property
     def currently_playing_team(self) -> str:
-        game = self.active_game()
+        game = self.active_game
         return game["team_1"]
 
     def game_is_on_now(self,game: dict) -> bool:
@@ -364,9 +375,9 @@ class Game_data_manager:
 #stream = get_stream(m3u8=m3u8)
 #save_stream_to_file(stream=stream)
 
-finder = m3u8_url_finder("rangers")
-finder.get_m3u8_url()
+#finder = m3u8_url_finder("cardinals")
+#print(finder.get_m3u8_url())
 
 if __name__ == "__main__":
-    pass
-    #app.run(host="0.0.0.0", port=8900)
+    #pass
+    app.run(host="0.0.0.0", port=8900)
