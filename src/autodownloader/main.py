@@ -158,22 +158,24 @@ class m3u8_url_finder:
         while attempts <= self.num_retries:
             try:
                 function_return = function(**arguments)
+                return function_return
             except Exception as e:
                 print(f"Error: {e} \nAttempt {attempts} of {self.num_retries} failed. Retrying...")
                 attempts += 1
                 if attempts > self.num_retries:
                     raise RuntimeError("Maximum number of retries reached")
+            
     
     def get_game_page_url(self):
         return self.attempt_function(self.plugin.get_current_game_url,{"team_name": self.team})
 
     def get_m3u8_url(self):
         game_page_url = self.get_game_page_url()
-        return self.attempt_function(self.get_m3u8_url,{"game_page_url": game_page_url})
+        return self.attempt_function(self.get_m3u8_url_single_attempt,{"game_page_url": game_page_url})
 
     def get_m3u8_url_single_attempt(self,game_page_url: str) -> str:
         print("Finding a new M3U8 stream...")
-        m3u8 = get_m3u8_url(url)
+        m3u8 = get_m3u8_url(game_page_url)
 
         if m3u8 is None:
             raise RuntimeError("Could not find M3U8 URL")
@@ -354,14 +356,6 @@ class Game_data_manager:
         games = self.schedule[self.sport]["channels"][self.channel]["games"]
         return games
 
-
-manager = Game_data_manager(
-    "baseball",
-    3,
-    search_time=datetime(2026,9,6,11,30,0,tzinfo=ZoneInfo("America/Chicago"))
-)
-manager.write_m3u8_url("this is a test")
-
     
 #url = "https://v2.streameast.ga/mlb/philadelphia-phillies-vs-seattle-mariners-2/"
 #m3u8 = get_m3u8_url(url)
@@ -370,7 +364,7 @@ manager.write_m3u8_url("this is a test")
 #stream = get_stream(m3u8=m3u8)
 #save_stream_to_file(stream=stream)
 
-finder = m3u8_url_finder("reds")
+finder = m3u8_url_finder("rangers")
 finder.get_m3u8_url()
 
 if __name__ == "__main__":
