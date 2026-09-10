@@ -716,7 +716,14 @@
                         "team_2": "giants",
                         "time_start": "2026-09-09T19:45:00+00:00",
                         "time_end": "2026-09-09T22:45:00+00:00",
-                        "m3u8_url": "https://edgestream2.pro/hls/ihfazugfyjcazich17.m3u8?st=kp4pSVybLp-XpiduQmN7SNmGpGsjFYcgWXxgrRY74vI&e=1788996744"
+                        "m3u8_url": "https://edgestream2.pro/hls/ihfazugfyjcazich17.m3u8?st=kp4pSVybLp-XpiduQmN7SNmGpGsjFYcgWXxgrRY74vI&e=1788996744",
+                        "m3u8_info": {
+                            "url": "https://edgestream4.pro/hls/ihfazugfyjcazich17.m3u8?st=hsvaucBFkJLr_eZY2bqAQa6_d49VFRSJaSM0dOvx4X8&e=1789000576",
+                            "referer": "https://streame.center/",
+                            "cookies_header": "",
+                            "user_agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/151.0.0.0 Safari/537.36"
+                        },
+                        "game_page_url": "https://streameast.ga/mlb/st-louis-cardinals-vs-san-francisco-giants-2/"
                     },
                     {
                         "team_1": "blue jays",
@@ -986,7 +993,8 @@
                         "team_1": "reds",
                         "team_2": "dodgers",
                         "time_start": "2026-09-10T02:10:00+00:00",
-                        "time_end": "2026-09-10T05:10:00+00:00"
+                        "time_end": "2026-09-10T05:10:00+00:00",
+                        "game_page_url": "https://streameast.ga/mlb/cincinnati-reds-vs-los-angeles-dodgers-3/"
                     },
                     {
                         "team_1": "braves",
@@ -2776,7 +2784,8 @@
                         "team_1": "nationals",
                         "team_2": "padres",
                         "time_start": "2026-09-09T20:10:00+00:00",
-                        "time_end": "2026-09-09T23:10:00+00:00"
+                        "time_end": "2026-09-09T23:10:00+00:00",
+                        "game_page_url": "https://streameast.ga/mlb/washington-nationals-vs-san-diego-padres-2/"
                     },
                     {
                         "team_1": "tigers",
@@ -4705,7 +4714,8 @@
                         "team_1": "rangers",
                         "team_2": "mariners",
                         "time_start": "2026-09-09T20:10:00+00:00",
-                        "time_end": "2026-09-09T23:10:00+00:00"
+                        "time_end": "2026-09-09T23:10:00+00:00",
+                        "game_page_url": "https://streameast.ga/mlb/texas-rangers-vs-seattle-mariners-5/"
                     },
                     {
                         "team_1": "white sox",

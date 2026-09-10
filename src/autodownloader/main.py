@@ -7,7 +7,7 @@ import time
 import requests
 import streamlink
 from pathlib import Path
-from flask import Flask, Response, send_file
+from flask import Flask, Response, request,send_file
 from streamlink.stream.stream import Stream
 from plugins import Site_plugin,Sportsurge, Dudestream
 import os
@@ -17,7 +17,6 @@ from functools import cached_property
 import json
 from zoneinfo import ZoneInfo
 from constants import Constants
-from curl
 
 app = Flask(__name__)
 
@@ -93,7 +92,7 @@ def get_m3u8_link(
 
             print(f"FOUND M3U8 ULR: {request.url}")
             return m3u8_link(
-                url=request.url
+                url=request.url,
                 referer=referer,
                 user_agent=user_agent,
                 cookies_header=cookie_str
@@ -114,10 +113,11 @@ def get_stream(m3u8_link: m3u8_link) -> Stream:
     session = streamlink.Streamlink()
 
     # Configure session options/headers to pass CDN checks
+    session.set_option("http-no-ssl-verify", True)
     session.set_option("http-headers", {
         "Referer": m3u8_link.referer,
-        #"User-Agent": m3u8.user_agent,
-        #"Cookie": m3u8.cookies_header
+        "User-Agent": m3u8_link.user_agent,
+        "Cookie": m3u8_link.cookies_header
     })
 
     session.set_option("hls-live-restart", True)
@@ -133,7 +133,7 @@ def get_stream(m3u8_link: m3u8_link) -> Stream:
     stream = streams["best"]
     return stream
 
-def save_stream_to_file(stream: Stream, output_file: str = "output.mp4"):
+def save_stream_to_file(stream: Stream, output_file: str = "output.ts"):
     print(f"[+] Recording stream into '{output_file}'... Press Ctrl+C to stop.")
 
     try:
@@ -174,20 +174,20 @@ class m3u8_url_finder:
 
     def get_m3u8_link(self):
         game_page_url = self.get_game_page_url()
-        return self.attempt_function(self.get_m3u8_url_single_attempt,{"game_page_url": game_page_url})
+        return self.attempt_function(self.get_m3u8_link_single_attempt,{"game_page_url": game_page_url})
 
-    def get_m3u8_url_single_attempt(self,game_page_url: str) -> str:
+    def get_m3u8_link_single_attempt(self,game_page_url: str) -> str:
         print("Finding a new M3U8 stream...")
-        m3u8 = get_m3u8_url(game_page_url)
+        m3u8_link = get_m3u8_link(game_page_url)
 
-        if m3u8 is None:
+        if m3u8_link is None:
             raise RuntimeError("Could not find M3U8 URL")
         else:
-            return m3u8
+            return m3u8_link
 
-def restream_m3u8_playlist(m3u8_url: str):
+def restream_m3u8_playlist(m3u8_link: m3u8_link):
     try:
-        stream = get_stream(m3u8_url)
+        stream = get_stream(m3u8_link)
 
         if stream is None:
             raise RuntimeError("Could not find playable stream")
@@ -219,18 +219,18 @@ def restream_m3u8_playlist(m3u8_url: str):
 
 
 
-def generate(url: str):
+def generate(game_page_url: str):
     while True:
         stream_fd = None
 
         try:
             print("Finding a new M3U8 stream...")
-            m3u8 = get_m3u8_url(url)
+            m3u8_link = get_m3u8_link(game_page_url)
 
-            if m3u8 is None:
+            if m3u8_link is None:
                 raise RuntimeError("Could not find M3U8 URL")
 
-            stream = get_stream(m3u8)
+            stream = get_stream(m3u8_link)
 
             if stream is None:
                 raise RuntimeError("Could not find playable stream")
@@ -277,6 +277,8 @@ def find_m3u8_link(urls: str, num_retries: int = 5):
 
 @app.get("/<string:sport>/<int:channel_index>")
 def restream(sport: str, channel_index: int):
+    user_agent = request.headers.get("User-Agent", "")
+    print(f"USER AGENT: {user_agent}")
     print(f"This is the sport: {sport}", flush=True)
     game_retriever = Game_data_manager(sport,channel_index)
     active_team = game_retriever.currently_playing_team
@@ -289,12 +291,13 @@ def restream(sport: str, channel_index: int):
 
     game_data_manager = Game_data_manager(sport,channel_index)
     try:
-        m3u8_url = game_data_manager.get_cached_m3u8_url()
+        game_page_url = game_data_manager.get_cached_game_url()
     except:
         m3u8_retriever = m3u8_url_finder(active_team)
-        m3u8_url = m3u8_retriever.get_m3u8_url()
-        game_data_manager.write_m3u8_url(m3u8_url=m3u8_url)
-    return Response(restream_m3u8_playlist(m3u8_url=m3u8_url), mimetype="video/mp2t")
+        game_page_url = m3u8_retriever.get_game_page_url()
+        #m3u8_link = m3u8_retriever.get_m3u8_link()
+        game_data_manager.write_m3u8_info(game_page_url=game_page_url)
+    return Response(generate(game_page_url=game_page_url), mimetype="video/mp2t")
 
 @app.route("/epg.xml", methods=["GET"])
 def get_epg():
@@ -326,11 +329,18 @@ class Game_data_manager:
     def schedule(self):
         return get_schedule()
 
-    def get_cached_m3u8_url(self) -> str:
-        return self.active_game["m3u8_url"]
+    def get_cached_game_url(self) -> str:
+        return self.active_game["game_page_url"]
     
-    def write_m3u8_url(self,m3u8_url: str):
-        self.schedule[self.sport]["channels"][self.channel]["games"][self.active_game_index]["m3u8_url"] = m3u8_url
+    def write_m3u8_info(self,game_page_url: str):
+        # self.schedule[self.sport]["channels"][self.channel]["games"][self.active_game_index]["m3u8_info"] = {
+        #     "url": m3u8_link.url,
+        #     "referer": m3u8_link.referer,
+        #     "cookies_header": m3u8_link.cookies_header,
+        #     "user_agent": m3u8_link.user_agent
+        # }
+        self.schedule[self.sport]["channels"][self.channel]["games"][self.active_game_index]["game_page_url"] = game_page_url
+
         with open(Constants.schedule_file, "w") as f:
             json.dump(self.schedule, f, indent=4)
 
@@ -369,9 +379,10 @@ class Game_data_manager:
 #m3u8 = get_m3u8_url(url)
 #print(m3u8.referer)
 #print(m3u8.url)
-#stream = get_stream(m3u8=m3u8)
+#m3u8_retriever = m3u8_url_finder("nationals")
+#m3u8_link = m3u8_retriever.get_m3u8_link()
+#stream = get_stream(m3u8_link=m3u8_link)
 #save_stream_to_file(stream=stream)
-
 #finder = m3u8_url_finder("cardinals")
 #print(finder.get_m3u8_url())
 
