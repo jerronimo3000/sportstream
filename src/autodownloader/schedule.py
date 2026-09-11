@@ -299,8 +299,11 @@ class M3u_channel_string_creator:
         full_m3u_string = [m3u_line_1,m3u_line_2]
         return full_m3u_string
 
-scheduler = Schedule_generator_from_calendar_MLB()
-schedule = scheduler.generate_schedule_from_calendar()
+#scheduler = Schedule_generator_from_calendar_MLB()
+#schedule = scheduler.generate_schedule_from_calendar()
+
+with open(Path(__file__).resolve().parent / "data/schedule.json","r") as f:
+    schedule = json.load(f)
 
 m3u_creator = M3U_generator(schedule=schedule, host_ip_and_port="192.168.50.109:8900")
 m3u_creator.Write_m3u()
@@ -308,8 +311,8 @@ epg_creator = Epg_xml_generator(schedule)
 epg_creator.generate_epg_xml()
 
 #print(schedule[list(schedule)[0]])
-with open(Path(__file__).resolve().parent / "data/schedule.json","w") as f:
-    json.dump(schedule,f,indent=4)
+# with open(Path(__file__).resolve().parent / "data/schedule.json","w") as f:
+#     json.dump(schedule,f,indent=4)
 #for date in schedule:
     #print(len(schedule[date]["channels"]))
     # if len(schedule[date]["channels"]) == 2:

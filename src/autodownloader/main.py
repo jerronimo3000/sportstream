@@ -275,6 +275,18 @@ def find_m3u8_link(urls: str, num_retries: int = 5):
 
     return m3u8
 
+def attempt_function(function: callable,arguments: dict = {},num_retries: int = 10):
+        attempts = 1
+        while attempts <= num_retries:
+            try:
+                function_return = function(**arguments)
+                return function_return
+            except Exception as e:
+                print(f"Error: {e} \nAttempt {attempts} of {num_retries} failed. Retrying...")
+                attempts += 1
+                if attempts > self.num_retries:
+                    raise RuntimeError("Maximum number of retries reached")
+
 @app.get("/<string:sport>/<int:channel_index>")
 def restream(sport: str, channel_index: int):
     user_agent = request.headers.get("User-Agent", "")
@@ -290,14 +302,25 @@ def restream(sport: str, channel_index: int):
     print(f"{active_team} are playing {sport} right now", flush=True)
 
     game_data_manager = Game_data_manager(sport,channel_index)
+    m3u8_retriever = m3u8_url_finder(active_team)
     try:
         game_page_url = game_data_manager.get_cached_game_url()
     except:
-        m3u8_retriever = m3u8_url_finder(active_team)
         game_page_url = m3u8_retriever.get_game_page_url()
         #m3u8_link = m3u8_retriever.get_m3u8_link()
         game_data_manager.write_m3u8_info(game_page_url=game_page_url)
-    return Response(generate(game_page_url=game_page_url), mimetype="video/mp2t")
+    
+    if is_recording_request(user_agent):
+        print("Recording initiated. Saving to disk")
+        m3u8_link = m3u8_retriever.get_m3u8_link()
+        stream = attempt_function(get_stream,{"m3u8_link": m3u8_link})
+        save_stream_to_file(stream,"/run/media/system/Games/media_share/TV Shows/output.ts")
+    else:
+        return Response(generate(game_page_url=game_page_url), mimetype="video/mp2t")
+
+def is_recording_request(user_agent: str) -> bool:
+    return "JELLYFIN-SERVER" in user_agent.upper()
+
 
 @app.route("/epg.xml", methods=["GET"])
 def get_epg():
