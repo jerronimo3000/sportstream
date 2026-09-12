@@ -9,14 +9,14 @@ import streamlink
 from pathlib import Path
 from flask import Flask, Response, request,send_file
 from streamlink.stream.stream import Stream
-from plugins import Site_plugin,Sportsurge, Dudestream
+from .plugins import Site_plugin,Sportsurge, Dudestream
 import os
 from datetime import datetime,timedelta,timezone
 from zoneinfo import ZoneInfo
 from functools import cached_property
 import json
 from zoneinfo import ZoneInfo
-from constants import Constants
+from .constants import Constants
 
 app = Flask(__name__)
 
@@ -342,6 +342,16 @@ def get_schedule() -> dict:
         data = json.load(f)
     return data
 
+def get_team_data() -> dict:
+    with open(Constants.team_data, "r") as f:
+        data = json.load(f)
+    return data
+
+def get_sport_data() -> dict:
+    with open(Constants.sport_data, "r") as f:
+        data = json.load(f)
+    return data
+
 class Game_data_manager:
     def __init__(self,sport: str, channel: int, search_time: datetime | None = datetime.now(timezone.utc)):
         self.sport = sport
@@ -351,9 +361,13 @@ class Game_data_manager:
     @cached_property
     def schedule(self):
         return get_schedule()
+    
+    @cached_property
+    def team_data(self):
+        return get_team_data()
 
     def get_cached_game_url(self) -> str:
-        return self.active_game["game_page_url"]
+        return self.active_game.game_page_url
     
     def write_m3u8_info(self,game_page_url: str):
         # self.schedule[self.sport]["channels"][self.channel]["games"][self.active_game_index]["m3u8_info"] = {
@@ -380,12 +394,13 @@ class Game_data_manager:
         games = self.find_possible_games()
         for game in games:
             if self.game_is_on_now(game):
-                return game
+                league = self.team_data[game["team_1"]]
+                return Game(sport=self.sport,league=league,**game)
 
     @cached_property
     def currently_playing_team(self) -> str:
         game = self.active_game
-        return game["team_1"]
+        return game.team_1
 
     def game_is_on_now(self,game: dict) -> bool:
         time_start = datetime.fromisoformat(game["time_start"])
@@ -397,7 +412,69 @@ class Game_data_manager:
         games = self.schedule[self.sport]["channels"][self.channel]["games"]
         return games
 
+@dataclass
+class Team:
+    name: str
+    sport: str
+    league: str
+
+@dataclass
+class Game:
+    sport: str
+    league: str
+    team_1: str
+    team_2: str
+    time_start: datetime
+    time_end: datetime
+
+def convert_to_str_with_leading_zeroes(num: int,output_digits: int) -> str:
+    num_str = str(num)
+    if len(num_str) >= output_digits:
+        formatted_num = num_str
+    else:
+        leading_zeroes = ["0"]*(output_digits - len(num_str))
+        formatted_num = "".join([*leading_zeroes,num_str])
+    return formatted_num
+class Recording_writer:
+    def __init__(self,game: Game):
+        self.game = game
+
+    @cached_property
+    def sport_data(self):
+        return get_sport_data()
+
+    def recording_end_filepath(self) -> str:
+        season = self.get_season()
+        game_month= convert_to_str_with_leading_zeroes(self.game.time_start.month,2)
+        game_day = convert_to_str_with_leading_zeroes(self.game.time_start.day,2)
+        return f"{self.game.league} {self.game.sport}/Season {season}/{self.game.league} {self.game.sport} - S{season}E{game_month}{game_day} - {self.game.team_1} @ {self.game.team_2}.ts"
+
+
+    def get_season(self):
+        game_month = self.game.time_start.month
+        game_year = self.game.time_start.year
+
+        if self.season_crosses_years and game_month < self.league_month_end:
+            season = game_year - 1
+        else:
+            season = game_year
+        return season
+        
     
+    @cached_property    
+    def season_crosses_years(self):
+        return self.league_month_end <= self.league_month_start
+
+    @cached_property
+    def league_month_start(self) -> int:
+        return self.sport_data["sports"][self.game.sport]["leagues"][self.game.league]["month_start"]
+
+    @cached_property
+    def league_month_end(self) -> int:
+        return self.sport_data["sports"][self.game.sport]["leagues"][self.game.league]["month_end"]
+
+
+
 #url = "https://v2.streameast.ga/mlb/philadelphia-phillies-vs-seattle-mariners-2/"
 #m3u8 = get_m3u8_url(url)
 #print(m3u8.referer)
@@ -409,6 +486,6 @@ class Game_data_manager:
 #finder = m3u8_url_finder("cardinals")
 #print(finder.get_m3u8_url())
 
-if __name__ == "__main__":
+def start_server():
     #pass
     app.run(host="0.0.0.0", port=8900)
