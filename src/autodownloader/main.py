@@ -314,7 +314,10 @@ def restream(sport: str, channel_index: int):
         print("Recording initiated. Saving to disk")
         m3u8_link = m3u8_retriever.get_m3u8_link()
         stream = attempt_function(get_stream,{"m3u8_link": m3u8_link})
-        save_stream_to_file(stream,"/run/media/system/Games/media_share/TV Shows/output.ts")
+        recording_writer = Recording_writer(game_data_manager.active_game)
+
+        output_file = f"/run/media/system/Games/media_share/TV Shows/{recording_writer.recording_end_filepath()}"
+        save_stream_to_file(stream,output_file=output_file)
     else:
         return Response(generate(game_page_url=game_page_url), mimetype="video/mp2t")
 
