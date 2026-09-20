@@ -1,4 +1,5 @@
 {
     "NBA": "https://ics.ecal.com/ecal-sub/6a94676dc4b04900023be2a4/NBA.ics",
-    "MLB": "https://ics.ecal.com/ecal-sub/6a946609653e3a0002246dfd/MLB%20.ics"
+    "MLB": "https://ics.ecal.com/ecal-sub/6a946609653e3a0002246dfd/MLB%20.ics",
+    "NFL": "https://fancalendar.app/api/subscription/ec2f87a409995522.ics"
 }

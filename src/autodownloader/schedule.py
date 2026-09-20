@@ -6,7 +6,7 @@ from functools import cached_property
 from pathlib import Path
 from typing import ClassVar
 import json
-from datetime import datetime,timezone
+from datetime import datetime,timezone,timedelta
 import pytz
 import xmltv
 import xml.etree.ElementTree as ET
@@ -86,6 +86,53 @@ class Schedule_generator_from_calendar_MLB(Schedule_generator_from_calendar):
             if standard_team in team.lower():
                 return standard_team
 
+class Schedule_generator_from_calendar_NFL(Schedule_generator_from_calendar):
+    sport: ClassVar[str] = "football"
+    league: ClassVar[str] = "NFL"
+    
+    def __init__(self,calendar_file: Path | str = Path(__file__).resolve().parent / "data/NFL_cal.ics"):
+        self.calendar_file = calendar_file
+
+    @cached_property
+    def calendar(self):
+        with open(self.calendar_file,"rb") as cal:
+            return Calendar.from_ical(cal.read())
+
+    def get_time_end_from_component(self,component=Component) -> datetime:
+        time_start = datetime.fromisoformat(self.get_time_start_from_component(component=component))
+        time_end = time_start + timedelta(hours=4)
+        return datetime.isoformat(time_end)
+
+
+    def generate_schedule_from_calendar(self):
+        schedule = Schedule()
+        for component in self.calendar.walk():
+            if is_event(component):
+                game = self.create_game_from_calendar_event(component)
+                schedule.add_game(game)
+        return {self.sport: schedule.schedule}
+
+    def create_game_from_calendar_event(self,component: Component) -> dict:
+        game = {}
+        teams = self.get_teams_from_calendar_string(component["SUMMARY"])
+        game["team_1"] = teams[0]
+        game["team_2"] = teams[1]
+        game["time_start"] = self.get_time_start_from_component(component)
+        game["time_end"] = self.get_time_end_from_component(component)
+        return game
+
+    def get_teams_from_calendar_string(self,summary: str) -> list[str]:
+        teams = summary.split(" @ ")
+        standardized_teams = [self.get_standardized_team(team) for team in teams]
+        # if not all(team is None for team in standardized_teams):
+        #     print(standardized_teams)
+        return standardized_teams
+
+    def get_standardized_team(self,team: str) -> str:
+        all_teams = self.sport_data["sports"][self.sport]["leagues"][self.league]["teams"]
+        for standard_team in all_teams:
+            if standard_team in team.lower():
+                return standard_team
 
 
 class Schedule_generator_from_calendar_NBA(Schedule_generator_from_calendar):
@@ -299,11 +346,17 @@ class M3u_channel_string_creator:
         full_m3u_string = [m3u_line_1,m3u_line_2]
         return full_m3u_string
 
-#scheduler = Schedule_generator_from_calendar_MLB()
-#schedule = scheduler.generate_schedule_from_calendar()
+scheduler_MLB = Schedule_generator_from_calendar_MLB()
+schedule_MLB = scheduler_MLB.generate_schedule_from_calendar()
 
-with open(Path(__file__).resolve().parent / "data/schedule.json","r") as f:
-    schedule = json.load(f)
+scheduler_NFL = Schedule_generator_from_calendar_NFL()
+schedule_NFL = scheduler_NFL.generate_schedule_from_calendar()
+
+schedule = schedule_MLB | schedule_NFL
+#schedule=schedule_NFL
+
+with open(Path(__file__).resolve().parent / "data/schedule.json","w") as f:
+    json.dump(schedule,f,indent=4)
 
 m3u_creator = M3U_generator(schedule=schedule, host_ip_and_port="192.168.50.109:8900")
 m3u_creator.Write_m3u()
@@ -311,8 +364,6 @@ epg_creator = Epg_xml_generator(schedule)
 epg_creator.generate_epg_xml()
 
 #print(schedule[list(schedule)[0]])
-# with open(Path(__file__).resolve().parent / "data/schedule.json","w") as f:
-#     json.dump(schedule,f,indent=4)
 #for date in schedule:
     #print(len(schedule[date]["channels"]))
     # if len(schedule[date]["channels"]) == 2:

@@ -48,6 +48,51 @@
     <channel id="baseball_16">
         <display-name>baseball 16</display-name>
     </channel>
+    <channel id="football_1">
+        <display-name>football 1</display-name>
+    </channel>
+    <channel id="football_2">
+        <display-name>football 2</display-name>
+    </channel>
+    <channel id="football_3">
+        <display-name>football 3</display-name>
+    </channel>
+    <channel id="football_4">
+        <display-name>football 4</display-name>
+    </channel>
+    <channel id="football_5">
+        <display-name>football 5</display-name>
+    </channel>
+    <channel id="football_6">
+        <display-name>football 6</display-name>
+    </channel>
+    <channel id="football_7">
+        <display-name>football 7</display-name>
+    </channel>
+    <channel id="football_8">
+        <display-name>football 8</display-name>
+    </channel>
+    <channel id="football_9">
+        <display-name>football 9</display-name>
+    </channel>
+    <channel id="football_10">
+        <display-name>football 10</display-name>
+    </channel>
+    <channel id="football_11">
+        <display-name>football 11</display-name>
+    </channel>
+    <channel id="football_12">
+        <display-name>football 12</display-name>
+    </channel>
+    <channel id="football_13">
+        <display-name>football 13</display-name>
+    </channel>
+    <channel id="football_14">
+        <display-name>football 14</display-name>
+    </channel>
+    <channel id="football_15">
+        <display-name>football 15</display-name>
+    </channel>
     <programme start="20260914224000 +0000" stop="20260915014000 +0000" channel="baseball_1">
         <title lang="en">dodgers @ reds</title>
     </programme>
@@ -72,7 +117,7 @@
     <programme start="20270507083300 +0000" stop="20270507113300 +0000" channel="baseball_1">
         <title lang="en">brewers @ cardinals</title>
     </programme>
-    <programme start="20260909021000 +0000" stop="20260910065000 +0000" channel="baseball_1">
+    <programme start="20260909021000 +0000" stop="20260909051000 +0000" channel="baseball_1">
         <title lang="en">reds @ dodgers</title>
     </programme>
     <programme start="20260821001000 +0000" stop="20260821031000 +0000" channel="baseball_1">
@@ -5801,5 +5846,764 @@
     </programme>
     <programme start="20270622093300 +0000" stop="20270622123300 +0000" channel="baseball_16">
         <title lang="en">diamondbacks @ rockies</title>
+    </programme>
+    <programme start="20260913170000 +0000" stop="20260913210000 +0000" channel="football_1">
+        <title lang="en">falcons @ steelers</title>
+    </programme>
+    <programme start="20260914002000 +0000" stop="20260914042000 +0000" channel="football_1">
+        <title lang="en">cowboys @ giants</title>
+    </programme>
+    <programme start="20260915001500 +0000" stop="20260915041500 +0000" channel="football_1">
+        <title lang="en">broncos @ chiefs</title>
+    </programme>
+    <programme start="20260918001500 +0000" stop="20260918041500 +0000" channel="football_1">
+        <title lang="en">lions @ bills</title>
+    </programme>
+    <programme start="20260920170000 +0000" stop="20260920210000 +0000" channel="football_1">
+        <title lang="en">browns @ buccaneers</title>
+    </programme>
+    <programme start="20260921002000 +0000" stop="20260921042000 +0000" channel="football_1">
+        <title lang="en">colts @ chiefs</title>
+    </programme>
+    <programme start="20260922001500 +0000" stop="20260922041500 +0000" channel="football_1">
+        <title lang="en">giants @ rams</title>
+    </programme>
+    <programme start="20260925001500 +0000" stop="20260925041500 +0000" channel="football_1">
+        <title lang="en">falcons @ packers</title>
+    </programme>
+    <programme start="20260927170000 +0000" stop="20260927210000 +0000" channel="football_1">
+        <title lang="en">bengals @ steelers</title>
+    </programme>
+    <programme start="20260928002000 +0000" stop="20260928042000 +0000" channel="football_1">
+        <title lang="en">rams @ broncos</title>
+    </programme>
+    <programme start="20260929001500 +0000" stop="20260929041500 +0000" channel="football_1">
+        <title lang="en">eagles @ bears</title>
+    </programme>
+    <programme start="20261002001500 +0000" stop="20261002041500 +0000" channel="football_1">
+        <title lang="en">steelers @ browns</title>
+    </programme>
+    <programme start="20261004170000 +0000" stop="20261004210000 +0000" channel="football_1">
+        <title lang="en">rams @ eagles</title>
+    </programme>
+    <programme start="20261005002000 +0000" stop="20261005042000 +0000" channel="football_1">
+        <title lang="en">lions @ panthers</title>
+    </programme>
+    <programme start="20261006001500 +0000" stop="20261006041500 +0000" channel="football_1">
+        <title lang="en">falcons @ saints</title>
+    </programme>
+    <programme start="20261009001500 +0000" stop="20261009041500 +0000" channel="football_1">
+        <title lang="en">buccaneers @ cowboys</title>
+    </programme>
+    <programme start="20261011133000 +0000" stop="20261011173000 +0000" channel="football_1">
+        <title lang="en">eagles @ jaguars</title>
+    </programme>
+    <programme start="20261011200500 +0000" stop="20261012000500 +0000" channel="football_1">
+        <title lang="en">broncos @ chargers</title>
+    </programme>
+    <programme start="20261012002000 +0000" stop="20261012042000 +0000" channel="football_1">
+        <title lang="en">ravens @ falcons</title>
+    </programme>
+    <programme start="20261013001500 +0000" stop="20261013041500 +0000" channel="football_1">
+        <title lang="en">bills @ rams</title>
+    </programme>
+    <programme start="20261016001500 +0000" stop="20261016041500 +0000" channel="football_1">
+        <title lang="en">seahawks @ broncos</title>
+    </programme>
+    <programme start="20261018133000 +0000" stop="20261018173000 +0000" channel="football_1">
+        <title lang="en">texans @ jaguars</title>
+    </programme>
+    <programme start="20261018200500 +0000" stop="20261019000500 +0000" channel="football_1">
+        <title lang="en">cardinals @ rams</title>
+    </programme>
+    <programme start="20261019002000 +0000" stop="20261019042000 +0000" channel="football_1">
+        <title lang="en">cowboys @ packers</title>
+    </programme>
+    <programme start="20261023001500 +0000" stop="20261023041500 +0000" channel="football_1">
+        <title lang="en">patriots @ bears</title>
+    </programme>
+    <programme start="20261025133000 +0000" stop="20261025173000 +0000" channel="football_1">
+        <title lang="en">steelers @ saints</title>
+    </programme>
+    <programme start="20261025200500 +0000" stop="20261026000500 +0000" channel="football_1">
+        <title lang="en">broncos @ cardinals</title>
+    </programme>
+    <programme start="20261026002000 +0000" stop="20261026042000 +0000" channel="football_1">
+        <title lang="en">chiefs @ seahawks</title>
+    </programme>
+    <programme start="20261027001500 +0000" stop="20261027041500 +0000" channel="football_1">
+        <title lang="en">cowboys @ eagles</title>
+    </programme>
+    <programme start="20261030001500 +0000" stop="20261030041500 +0000" channel="football_1">
+        <title lang="en">panthers @ packers</title>
+    </programme>
+    <programme start="20261101180000 +0000" stop="20261101220000 +0000" channel="football_1">
+        <title lang="en">titans @ bengals</title>
+    </programme>
+    <programme start="20261103011500 +0000" stop="20261103051500 +0000" channel="football_1">
+        <title lang="en">bears @ seahawks</title>
+    </programme>
+    <programme start="20261106011500 +0000" stop="20261106051500 +0000" channel="football_1">
+        <title lang="en">jaguars @ ravens</title>
+    </programme>
+    <programme start="20261108143000 +0000" stop="20261108183000 +0000" channel="football_1">
+        <title lang="en">bengals @ falcons</title>
+    </programme>
+    <programme start="20261108210500 +0000" stop="20261109010500 +0000" channel="football_1">
+        <title lang="en">raiders @ 49ers</title>
+    </programme>
+    <programme start="20261109012000 +0000" stop="20261109052000 +0000" channel="football_1">
+        <title lang="en">buccaneers @ bears</title>
+    </programme>
+    <programme start="20261110011500 +0000" stop="20261110051500 +0000" channel="football_1">
+        <title lang="en">bills @ vikings</title>
+    </programme>
+    <programme start="20261115143000 +0000" stop="20261115183000 +0000" channel="football_1">
+        <title lang="en">patriots @ lions</title>
+    </programme>
+    <programme start="20261115210500 +0000" stop="20261116010500 +0000" channel="football_1">
+        <title lang="en">seahawks @ raiders</title>
+    </programme>
+    <programme start="20261116012000 +0000" stop="20261116052000 +0000" channel="football_1">
+        <title lang="en">steelers @ bengals</title>
+    </programme>
+    <programme start="20261117011500 +0000" stop="20261117051500 +0000" channel="football_1">
+        <title lang="en">chargers @ ravens</title>
+    </programme>
+    <programme start="20261120011500 +0000" stop="20261120051500 +0000" channel="football_1">
+        <title lang="en">colts @ texans</title>
+    </programme>
+    <programme start="20261122180000 +0000" stop="20261122220000 +0000" channel="football_1">
+        <title lang="en">cardinals @ chiefs</title>
+    </programme>
+    <programme start="20261123012000 +0000" stop="20261123052000 +0000" channel="football_1">
+        <title lang="en">vikings @ 49ers</title>
+    </programme>
+    <programme start="20261126010000 +0000" stop="20261126050000 +0000" channel="football_1">
+        <title lang="en">packers @ rams</title>
+    </programme>
+    <programme start="20261126180000 +0000" stop="20261126220000 +0000" channel="football_1">
+        <title lang="en">bears @ lions</title>
+    </programme>
+    <programme start="20261127012000 +0000" stop="20261127052000 +0000" channel="football_1">
+        <title lang="en">chiefs @ bills</title>
+    </programme>
+    <programme start="20261127200000 +0000" stop="20261128000000 +0000" channel="football_1">
+        <title lang="en">broncos @ steelers</title>
+    </programme>
+    <programme start="20261129180000 +0000" stop="20261129220000 +0000" channel="football_1">
+        <title lang="en">falcons @ vikings</title>
+    </programme>
+    <programme start="20261130012000 +0000" stop="20261130052000 +0000" channel="football_1">
+        <title lang="en">patriots @ chargers</title>
+    </programme>
+    <programme start="20261201011500 +0000" stop="20261201051500 +0000" channel="football_1">
+        <title lang="en">panthers @ buccaneers</title>
+    </programme>
+    <programme start="20261204011500 +0000" stop="20261204051500 +0000" channel="football_1">
+        <title lang="en">chiefs @ rams</title>
+    </programme>
+    <programme start="20261206180000 +0000" stop="20261206220000 +0000" channel="football_1">
+        <title lang="en">chargers @ buccaneers</title>
+    </programme>
+    <programme start="20261207012000 +0000" stop="20261207052000 +0000" channel="football_1">
+        <title lang="en">texans @ steelers</title>
+    </programme>
+    <programme start="20261208011500 +0000" stop="20261208051500 +0000" channel="football_1">
+        <title lang="en">cowboys @ seahawks</title>
+    </programme>
+    <programme start="20261211011500 +0000" stop="20261211051500 +0000" channel="football_1">
+        <title lang="en">vikings @ patriots</title>
+    </programme>
+    <programme start="20261213180000 +0000" stop="20261213220000 +0000" channel="football_1">
+        <title lang="en">colts @ eagles</title>
+    </programme>
+    <programme start="20261214012000 +0000" stop="20261214052000 +0000" channel="football_1">
+        <title lang="en">bills @ packers</title>
+    </programme>
+    <programme start="20261215011500 +0000" stop="20261215051500 +0000" channel="football_1">
+        <title lang="en">steelers @ jaguars</title>
+    </programme>
+    <programme start="20261218011500 +0000" stop="20261218051500 +0000" channel="football_1">
+        <title lang="en">49ers @ chargers</title>
+    </programme>
+    <programme start="20261219220000 +0000" stop="20261220020000 +0000" channel="football_1">
+        <title lang="en">seahawks @ eagles</title>
+    </programme>
+    <programme start="20261220180000 +0000" stop="20261220220000 +0000" channel="football_1">
+        <title lang="en">bengals @ panthers</title>
+    </programme>
+    <programme start="20261221012000 +0000" stop="20261221052000 +0000" channel="football_1">
+        <title lang="en">lions @ vikings</title>
+    </programme>
+    <programme start="20261222011500 +0000" stop="20261222051500 +0000" channel="football_1">
+        <title lang="en">patriots @ chiefs</title>
+    </programme>
+    <programme start="20261225011500 +0000" stop="20261225051500 +0000" channel="football_1">
+        <title lang="en">texans @ eagles</title>
+    </programme>
+    <programme start="20261225180000 +0000" stop="20261225220000 +0000" channel="football_1">
+        <title lang="en">packers @ bears</title>
+    </programme>
+    <programme start="20261226011500 +0000" stop="20261226051500 +0000" channel="football_1">
+        <title lang="en">rams @ seahawks</title>
+    </programme>
+    <programme start="20261227050000 +0000" stop="20261227090000 +0000" channel="football_1">
+        <title lang="en">bengals @ colts</title>
+    </programme>
+    <programme start="20261227180000 +0000" stop="20261227220000 +0000" channel="football_1">
+        <title lang="en">chargers @ dolphins</title>
+    </programme>
+    <programme start="20261228012000 +0000" stop="20261228052000 +0000" channel="football_1">
+        <title lang="en">jaguars @ cowboys</title>
+    </programme>
+    <programme start="20261229011500 +0000" stop="20261229051500 +0000" channel="football_1">
+        <title lang="en">giants @ lions</title>
+    </programme>
+    <programme start="20270101011500 +0000" stop="20270101051500 +0000" channel="football_1">
+        <title lang="en">ravens @ bengals</title>
+    </programme>
+    <programme start="20270103050000 +0000" stop="20270103090000 +0000" channel="football_1">
+        <title lang="en">chiefs @ chargers</title>
+    </programme>
+    <programme start="20270103180000 +0000" stop="20270103220000 +0000" channel="football_1">
+        <title lang="en">giants @ cowboys</title>
+    </programme>
+    <programme start="20270104012000 +0000" stop="20270104052000 +0000" channel="football_1">
+        <title lang="en">eagles @ 49ers</title>
+    </programme>
+    <programme start="20270105011500 +0000" stop="20270105051500 +0000" channel="football_1">
+        <title lang="en">texans @ packers</title>
+    </programme>
+    <programme start="20270110050000 +0000" stop="20270110090000 +0000" channel="football_1">
+        <title lang="en">titans @ texans</title>
+    </programme>
+    <programme start="20260913170000 +0000" stop="20260913210000 +0000" channel="football_2">
+        <title lang="en">buccaneers @ bengals</title>
+    </programme>
+    <programme start="20260920170000 +0000" stop="20260920210000 +0000" channel="football_2">
+        <title lang="en">vikings @ bears</title>
+    </programme>
+    <programme start="20260927170000 +0000" stop="20260927210000 +0000" channel="football_2">
+        <title lang="en">chargers @ bills</title>
+    </programme>
+    <programme start="20261004170000 +0000" stop="20261004210000 +0000" channel="football_2">
+        <title lang="en">cardinals @ giants</title>
+    </programme>
+    <programme start="20261011170000 +0000" stop="20261011210000 +0000" channel="football_2">
+        <title lang="en">raiders @ patriots</title>
+    </programme>
+    <programme start="20261018170000 +0000" stop="20261018210000 +0000" channel="football_2">
+        <title lang="en">ravens @ browns</title>
+    </programme>
+    <programme start="20261025170000 +0000" stop="20261025210000 +0000" channel="football_2">
+        <title lang="en">dolphins @ jets</title>
+    </programme>
+    <programme start="20261101180000 +0000" stop="20261101220000 +0000" channel="football_2">
+        <title lang="en">colts @ jaguars</title>
+    </programme>
+    <programme start="20261108180000 +0000" stop="20261108220000 +0000" channel="football_2">
+        <title lang="en">broncos @ panthers</title>
+    </programme>
+    <programme start="20261115180000 +0000" stop="20261115220000 +0000" channel="football_2">
+        <title lang="en">dolphins @ colts</title>
+    </programme>
+    <programme start="20261122180000 +0000" stop="20261122220000 +0000" channel="football_2">
+        <title lang="en">buccaneers @ lions</title>
+    </programme>
+    <programme start="20261126213000 +0000" stop="20261127013000 +0000" channel="football_2">
+        <title lang="en">eagles @ cowboys</title>
+    </programme>
+    <programme start="20261129180000 +0000" stop="20261129220000 +0000" channel="football_2">
+        <title lang="en">jets @ dolphins</title>
+    </programme>
+    <programme start="20261206180000 +0000" stop="20261206220000 +0000" channel="football_2">
+        <title lang="en">packers @ saints</title>
+    </programme>
+    <programme start="20261213180000 +0000" stop="20261213220000 +0000" channel="football_2">
+        <title lang="en">saints @ panthers</title>
+    </programme>
+    <programme start="20261220012000 +0000" stop="20261220052000 +0000" channel="football_2">
+        <title lang="en">bears @ bills</title>
+    </programme>
+    <programme start="20261220180000 +0000" stop="20261220220000 +0000" channel="football_2">
+        <title lang="en">ravens @ steelers</title>
+    </programme>
+    <programme start="20261225213000 +0000" stop="20261226013000 +0000" channel="football_2">
+        <title lang="en">bills @ broncos</title>
+    </programme>
+    <programme start="20261227050000 +0000" stop="20261227090000 +0000" channel="football_2">
+        <title lang="en">panthers @ steelers</title>
+    </programme>
+    <programme start="20261227180000 +0000" stop="20261227220000 +0000" channel="football_2">
+        <title lang="en">browns @ ravens</title>
+    </programme>
+    <programme start="20270103050000 +0000" stop="20270103090000 +0000" channel="football_2">
+        <title lang="en">rams @ buccaneers</title>
+    </programme>
+    <programme start="20270103180000 +0000" stop="20270103220000 +0000" channel="football_2">
+        <title lang="en">bills @ dolphins</title>
+    </programme>
+    <programme start="20270110050000 +0000" stop="20270110090000 +0000" channel="football_2">
+        <title lang="en">lions @ packers</title>
+    </programme>
+    <programme start="20260913170000 +0000" stop="20260913210000 +0000" channel="football_3">
+        <title lang="en">jets @ titans</title>
+    </programme>
+    <programme start="20260920170000 +0000" stop="20260920210000 +0000" channel="football_3">
+        <title lang="en">saints @ ravens</title>
+    </programme>
+    <programme start="20260927170000 +0000" stop="20260927210000 +0000" channel="football_3">
+        <title lang="en">patriots @ jaguars</title>
+    </programme>
+    <programme start="20261004170000 +0000" stop="20261004210000 +0000" channel="football_3">
+        <title lang="en">packers @ buccaneers</title>
+    </programme>
+    <programme start="20261011170000 +0000" stop="20261011210000 +0000" channel="football_3">
+        <title lang="en">browns @ jets</title>
+    </programme>
+    <programme start="20261018170000 +0000" stop="20261018210000 +0000" channel="football_3">
+        <title lang="en">steelers @ buccaneers</title>
+    </programme>
+    <programme start="20261025170000 +0000" stop="20261025210000 +0000" channel="football_3">
+        <title lang="en">bengals @ ravens</title>
+    </programme>
+    <programme start="20261101180000 +0000" stop="20261101220000 +0000" channel="football_3">
+        <title lang="en">cardinals @ cowboys</title>
+    </programme>
+    <programme start="20261108180000 +0000" stop="20261108220000 +0000" channel="football_3">
+        <title lang="en">cowboys @ colts</title>
+    </programme>
+    <programme start="20261115180000 +0000" stop="20261115220000 +0000" channel="football_3">
+        <title lang="en">panthers @ saints</title>
+    </programme>
+    <programme start="20261122180000 +0000" stop="20261122220000 +0000" channel="football_3">
+        <title lang="en">jaguars @ giants</title>
+    </programme>
+    <programme start="20261129180000 +0000" stop="20261129220000 +0000" channel="football_3">
+        <title lang="en">raiders @ browns</title>
+    </programme>
+    <programme start="20261206180000 +0000" stop="20261206220000 +0000" channel="football_3">
+        <title lang="en">lions @ falcons</title>
+    </programme>
+    <programme start="20261213180000 +0000" stop="20261213220000 +0000" channel="football_3">
+        <title lang="en">broncos @ jets</title>
+    </programme>
+    <programme start="20261220180000 +0000" stop="20261220220000 +0000" channel="football_3">
+        <title lang="en">saints @ buccaneers</title>
+    </programme>
+    <programme start="20261227050000 +0000" stop="20261227090000 +0000" channel="football_3">
+        <title lang="en">buccaneers @ falcons</title>
+    </programme>
+    <programme start="20261227180000 +0000" stop="20261227220000 +0000" channel="football_3">
+        <title lang="en">cardinals @ saints</title>
+    </programme>
+    <programme start="20270103050000 +0000" stop="20270103090000 +0000" channel="football_3">
+        <title lang="en">broncos @ patriots</title>
+    </programme>
+    <programme start="20270103180000 +0000" stop="20270103220000 +0000" channel="football_3">
+        <title lang="en">vikings @ jets</title>
+    </programme>
+    <programme start="20270110050000 +0000" stop="20270110090000 +0000" channel="football_3">
+        <title lang="en">browns @ bengals</title>
+    </programme>
+    <programme start="20260913170000 +0000" stop="20260913210000 +0000" channel="football_4">
+        <title lang="en">ravens @ colts</title>
+    </programme>
+    <programme start="20260920170000 +0000" stop="20260920210000 +0000" channel="football_4">
+        <title lang="en">eagles @ titans</title>
+    </programme>
+    <programme start="20260927170000 +0000" stop="20260927210000 +0000" channel="football_4">
+        <title lang="en">texans @ colts</title>
+    </programme>
+    <programme start="20261004170000 +0000" stop="20261004210000 +0000" channel="football_4">
+        <title lang="en">patriots @ bills</title>
+    </programme>
+    <programme start="20261011170000 +0000" stop="20261011210000 +0000" channel="football_4">
+        <title lang="en">vikings @ saints</title>
+    </programme>
+    <programme start="20261018170000 +0000" stop="20261018210000 +0000" channel="football_4">
+        <title lang="en">titans @ colts</title>
+    </programme>
+    <programme start="20261025170000 +0000" stop="20261025210000 +0000" channel="football_4">
+        <title lang="en">giants @ texans</title>
+    </programme>
+    <programme start="20261101180000 +0000" stop="20261101220000 +0000" channel="football_4">
+        <title lang="en">falcons @ buccaneers</title>
+    </programme>
+    <programme start="20261108180000 +0000" stop="20261108220000 +0000" channel="football_4">
+        <title lang="en">jets @ chiefs</title>
+    </programme>
+    <programme start="20261115180000 +0000" stop="20261115220000 +0000" channel="football_4">
+        <title lang="en">bills @ jets</title>
+    </programme>
+    <programme start="20261122180000 +0000" stop="20261122220000 +0000" channel="football_4">
+        <title lang="en">ravens @ panthers</title>
+    </programme>
+    <programme start="20261129180000 +0000" stop="20261129220000 +0000" channel="football_4">
+        <title lang="en">giants @ colts</title>
+    </programme>
+    <programme start="20261206180000 +0000" stop="20261206220000 +0000" channel="football_4">
+        <title lang="en">jaguars @ bears</title>
+    </programme>
+    <programme start="20261213180000 +0000" stop="20261213220000 +0000" channel="football_4">
+        <title lang="en">falcons @ browns</title>
+    </programme>
+    <programme start="20261220180000 +0000" stop="20261220220000 +0000" channel="football_4">
+        <title lang="en">colts @ titans</title>
+    </programme>
+    <programme start="20261227180000 +0000" stop="20261227220000 +0000" channel="football_4">
+        <title lang="en">patriots @ jets</title>
+    </programme>
+    <programme start="20270103180000 +0000" stop="20270103220000 +0000" channel="football_4">
+        <title lang="en">colts @ browns</title>
+    </programme>
+    <programme start="20270110050000 +0000" stop="20270110090000 +0000" channel="football_4">
+        <title lang="en">seahawks @ rams</title>
+    </programme>
+    <programme start="20260913170000 +0000" stop="20260913210000 +0000" channel="football_5">
+        <title lang="en">bears @ panthers</title>
+    </programme>
+    <programme start="20260920170000 +0000" stop="20260920210000 +0000" channel="football_5">
+        <title lang="en">packers @ jets</title>
+    </programme>
+    <programme start="20260927170000 +0000" stop="20260927210000 +0000" channel="football_5">
+        <title lang="en">jets @ lions</title>
+    </programme>
+    <programme start="20261004170000 +0000" stop="20261004210000 +0000" channel="football_5">
+        <title lang="en">cowboys @ texans</title>
+    </programme>
+    <programme start="20261011170000 +0000" stop="20261011210000 +0000" channel="football_5">
+        <title lang="en">colts @ steelers</title>
+    </programme>
+    <programme start="20261018170000 +0000" stop="20261018210000 +0000" channel="football_5">
+        <title lang="en">saints @ giants</title>
+    </programme>
+    <programme start="20261025170000 +0000" stop="20261025210000 +0000" channel="football_5">
+        <title lang="en">colts @ vikings</title>
+    </programme>
+    <programme start="20261101180000 +0000" stop="20261101220000 +0000" channel="football_5">
+        <title lang="en">raiders @ jets</title>
+    </programme>
+    <programme start="20261108180000 +0000" stop="20261108220000 +0000" channel="football_5">
+        <title lang="en">browns @ saints</title>
+    </programme>
+    <programme start="20261115180000 +0000" stop="20261115220000 +0000" channel="football_5">
+        <title lang="en">vikings @ packers</title>
+    </programme>
+    <programme start="20261122180000 +0000" stop="20261122220000 +0000" channel="football_5">
+        <title lang="en">dolphins @ bills</title>
+    </programme>
+    <programme start="20261129180000 +0000" stop="20261129220000 +0000" channel="football_5">
+        <title lang="en">ravens @ texans</title>
+    </programme>
+    <programme start="20261206180000 +0000" stop="20261206220000 +0000" channel="football_5">
+        <title lang="en">bengals @ browns</title>
+    </programme>
+    <programme start="20261213180000 +0000" stop="20261213220000 +0000" channel="football_5">
+        <title lang="en">bears @ dolphins</title>
+    </programme>
+    <programme start="20261220180000 +0000" stop="20261220220000 +0000" channel="football_5">
+        <title lang="en">dolphins @ packers</title>
+    </programme>
+    <programme start="20261227210500 +0000" stop="20261228010500 +0000" channel="football_5">
+        <title lang="en">titans @ raiders</title>
+    </programme>
+    <programme start="20270103180000 +0000" stop="20270103220000 +0000" channel="football_5">
+        <title lang="en">steelers @ titans</title>
+    </programme>
+    <programme start="20270110050000 +0000" stop="20270110090000 +0000" channel="football_5">
+        <title lang="en">jaguars @ colts</title>
+    </programme>
+    <programme start="20260913170000 +0000" stop="20260913210000 +0000" channel="football_6">
+        <title lang="en">browns @ jaguars</title>
+    </programme>
+    <programme start="20260920170000 +0000" stop="20260920210000 +0000" channel="football_6">
+        <title lang="en">panthers @ falcons</title>
+    </programme>
+    <programme start="20260927170000 +0000" stop="20260927210000 +0000" channel="football_6">
+        <title lang="en">panthers @ browns</title>
+    </programme>
+    <programme start="20261004170000 +0000" stop="20261004210000 +0000" channel="football_6">
+        <title lang="en">jets @ bears</title>
+    </programme>
+    <programme start="20261011170000 +0000" stop="20261011210000 +0000" channel="football_6">
+        <title lang="en">texans @ titans</title>
+    </programme>
+    <programme start="20261018170000 +0000" stop="20261018210000 +0000" channel="football_6">
+        <title lang="en">bears @ falcons</title>
+    </programme>
+    <programme start="20261025170000 +0000" stop="20261025210000 +0000" channel="football_6">
+        <title lang="en">49ers @ falcons</title>
+    </programme>
+    <programme start="20261101180000 +0000" stop="20261101220000 +0000" channel="football_6">
+        <title lang="en">vikings @ lions</title>
+    </programme>
+    <programme start="20261108180000 +0000" stop="20261108220000 +0000" channel="football_6">
+        <title lang="en">giants @ eagles</title>
+    </programme>
+    <programme start="20261115180000 +0000" stop="20261115220000 +0000" channel="football_6">
+        <title lang="en">texans @ browns</title>
+    </programme>
+    <programme start="20261122180000 +0000" stop="20261122220000 +0000" channel="football_6">
+        <title lang="en">saints @ bears</title>
+    </programme>
+    <programme start="20261129180000 +0000" stop="20261129220000 +0000" channel="football_6">
+        <title lang="en">saints @ bengals</title>
+    </programme>
+    <programme start="20261206180000 +0000" stop="20261206220000 +0000" channel="football_6">
+        <title lang="en">49ers @ giants</title>
+    </programme>
+    <programme start="20261213180000 +0000" stop="20261213220000 +0000" channel="football_6">
+        <title lang="en">buccaneers @ ravens</title>
+    </programme>
+    <programme start="20261220180000 +0000" stop="20261220220000 +0000" channel="football_6">
+        <title lang="en">browns @ giants</title>
+    </programme>
+    <programme start="20261227212500 +0000" stop="20261228012500 +0000" channel="football_6">
+        <title lang="en">49ers @ chiefs</title>
+    </programme>
+    <programme start="20270103180000 +0000" stop="20270103220000 +0000" channel="football_6">
+        <title lang="en">saints @ falcons</title>
+    </programme>
+    <programme start="20270110050000 +0000" stop="20270110090000 +0000" channel="football_6">
+        <title lang="en">dolphins @ patriots</title>
+    </programme>
+    <programme start="20260913170000 +0000" stop="20260913210000 +0000" channel="football_7">
+        <title lang="en">saints @ lions</title>
+    </programme>
+    <programme start="20260920170000 +0000" stop="20260920210000 +0000" channel="football_7">
+        <title lang="en">steelers @ patriots</title>
+    </programme>
+    <programme start="20260927170000 +0000" stop="20260927210000 +0000" channel="football_7">
+        <title lang="en">chiefs @ dolphins</title>
+    </programme>
+    <programme start="20261004170000 +0000" stop="20261004210000 +0000" channel="football_7">
+        <title lang="en">jaguars @ bengals</title>
+    </programme>
+    <programme start="20261011170000 +0000" stop="20261011210000 +0000" channel="football_7">
+        <title lang="en">bengals @ dolphins</title>
+    </programme>
+    <programme start="20261018170000 +0000" stop="20261018210000 +0000" channel="football_7">
+        <title lang="en">jets @ patriots</title>
+    </programme>
+    <programme start="20261025170000 +0000" stop="20261025210000 +0000" channel="football_7">
+        <title lang="en">browns @ titans</title>
+    </programme>
+    <programme start="20261101180000 +0000" stop="20261101220000 +0000" channel="football_7">
+        <title lang="en">browns @ steelers</title>
+    </programme>
+    <programme start="20261108180000 +0000" stop="20261108220000 +0000" channel="football_7">
+        <title lang="en">lions @ dolphins</title>
+    </programme>
+    <programme start="20261115180000 +0000" stop="20261115220000 +0000" channel="football_7">
+        <title lang="en">jaguars @ titans</title>
+    </programme>
+    <programme start="20261122180000 +0000" stop="20261122220000 +0000" channel="football_7">
+        <title lang="en">titans @ cowboys</title>
+    </programme>
+    <programme start="20261129210500 +0000" stop="20261130010500 +0000" channel="football_7">
+        <title lang="en">titans @ jaguars</title>
+    </programme>
+    <programme start="20261206210500 +0000" stop="20261207010500 +0000" channel="football_7">
+        <title lang="en">dolphins @ broncos</title>
+    </programme>
+    <programme start="20261213180000 +0000" stop="20261213220000 +0000" channel="football_7">
+        <title lang="en">titans @ lions</title>
+    </programme>
+    <programme start="20261220180000 +0000" stop="20261220220000 +0000" channel="football_7">
+        <title lang="en">jaguars @ texans</title>
+    </programme>
+    <programme start="20270103180000 +0000" stop="20270103220000 +0000" channel="football_7">
+        <title lang="en">seahawks @ panthers</title>
+    </programme>
+    <programme start="20270110050000 +0000" stop="20270110090000 +0000" channel="football_7">
+        <title lang="en">chargers @ broncos</title>
+    </programme>
+    <programme start="20260913170000 +0000" stop="20260913210000 +0000" channel="football_8">
+        <title lang="en">bills @ texans</title>
+    </programme>
+    <programme start="20260920170000 +0000" stop="20260920210000 +0000" channel="football_8">
+        <title lang="en">bengals @ texans</title>
+    </programme>
+    <programme start="20260927170000 +0000" stop="20260927210000 +0000" channel="football_8">
+        <title lang="en">titans @ giants</title>
+    </programme>
+    <programme start="20261004170000 +0000" stop="20261004210000 +0000" channel="football_8">
+        <title lang="en">titans @ ravens</title>
+    </programme>
+    <programme start="20261011202500 +0000" stop="20261012002500 +0000" channel="football_8">
+        <title lang="en">bears @ packers</title>
+    </programme>
+    <programme start="20261018170000 +0000" stop="20261018210000 +0000" channel="football_8">
+        <title lang="en">panthers @ eagles</title>
+    </programme>
+    <programme start="20261025170000 +0000" stop="20261025210000 +0000" channel="football_8">
+        <title lang="en">buccaneers @ panthers</title>
+    </programme>
+    <programme start="20261101180000 +0000" stop="20261101220000 +0000" channel="football_8">
+        <title lang="en">ravens @ bills</title>
+    </programme>
+    <programme start="20261108210500 +0000" stop="20261109010500 +0000" channel="football_8">
+        <title lang="en">texans @ chargers</title>
+    </programme>
+    <programme start="20261115180000 +0000" stop="20261115220000 +0000" channel="football_8">
+        <title lang="en">chiefs @ falcons</title>
+    </programme>
+    <programme start="20261122210500 +0000" stop="20261123010500 +0000" channel="football_8">
+        <title lang="en">jets @ chargers</title>
+    </programme>
+    <programme start="20261129212500 +0000" stop="20261130012500 +0000" channel="football_8">
+        <title lang="en">seahawks @ 49ers</title>
+    </programme>
+    <programme start="20261206210500 +0000" stop="20261207010500 +0000" channel="football_8">
+        <title lang="en">eagles @ cardinals</title>
+    </programme>
+    <programme start="20261213210500 +0000" stop="20261214010500 +0000" channel="football_8">
+        <title lang="en">chargers @ raiders</title>
+    </programme>
+    <programme start="20261220210500 +0000" stop="20261221010500 +0000" channel="football_8">
+        <title lang="en">jets @ cardinals</title>
+    </programme>
+    <programme start="20270103210500 +0000" stop="20270104010500 +0000" channel="football_8">
+        <title lang="en">raiders @ cardinals</title>
+    </programme>
+    <programme start="20270110050000 +0000" stop="20270110090000 +0000" channel="football_8">
+        <title lang="en">eagles @ giants</title>
+    </programme>
+    <programme start="20260913202500 +0000" stop="20260914002500 +0000" channel="football_9">
+        <title lang="en">dolphins @ raiders</title>
+    </programme>
+    <programme start="20260920200500 +0000" stop="20260921000500 +0000" channel="football_9">
+        <title lang="en">raiders @ chargers</title>
+    </programme>
+    <programme start="20260927200500 +0000" stop="20260928000500 +0000" channel="football_9">
+        <title lang="en">vikings @ buccaneers</title>
+    </programme>
+    <programme start="20261004200500 +0000" stop="20261005000500 +0000" channel="football_9">
+        <title lang="en">dolphins @ vikings</title>
+    </programme>
+    <programme start="20261011202500 +0000" stop="20261012002500 +0000" channel="football_9">
+        <title lang="en">49ers @ seahawks</title>
+    </programme>
+    <programme start="20261018202500 +0000" stop="20261019002500 +0000" channel="football_9">
+        <title lang="en">bills @ raiders</title>
+    </programme>
+    <programme start="20261025202500 +0000" stop="20261026002500 +0000" channel="football_9">
+        <title lang="en">rams @ raiders</title>
+    </programme>
+    <programme start="20261101210500 +0000" stop="20261102010500 +0000" channel="football_9">
+        <title lang="en">chargers @ rams</title>
+    </programme>
+    <programme start="20261108212500 +0000" stop="20261109012500 +0000" channel="football_9">
+        <title lang="en">packers @ patriots</title>
+    </programme>
+    <programme start="20261115210500 +0000" stop="20261116010500 +0000" channel="football_9">
+        <title lang="en">rams @ cardinals</title>
+    </programme>
+    <programme start="20261122212500 +0000" stop="20261123012500 +0000" channel="football_9">
+        <title lang="en">raiders @ broncos</title>
+    </programme>
+    <programme start="20261206212500 +0000" stop="20261207012500 +0000" channel="football_9">
+        <title lang="en">bills @ patriots</title>
+    </programme>
+    <programme start="20261213212500 +0000" stop="20261214012500 +0000" channel="football_9">
+        <title lang="en">chiefs @ bengals</title>
+    </programme>
+    <programme start="20261220212500 +0000" stop="20261221012500 +0000" channel="football_9">
+        <title lang="en">cowboys @ rams</title>
+    </programme>
+    <programme start="20270103212500 +0000" stop="20270104012500 +0000" channel="football_9">
+        <title lang="en">lions @ bears</title>
+    </programme>
+    <programme start="20270110050000 +0000" stop="20270110090000 +0000" channel="football_9">
+        <title lang="en">49ers @ cardinals</title>
+    </programme>
+    <programme start="20260913202500 +0000" stop="20260914002500 +0000" channel="football_10">
+        <title lang="en">packers @ vikings</title>
+    </programme>
+    <programme start="20260920200500 +0000" stop="20260921000500 +0000" channel="football_10">
+        <title lang="en">jaguars @ broncos</title>
+    </programme>
+    <programme start="20260927200500 +0000" stop="20260928000500 +0000" channel="football_10">
+        <title lang="en">cardinals @ 49ers</title>
+    </programme>
+    <programme start="20261004202500 +0000" stop="20261005002500 +0000" channel="football_10">
+        <title lang="en">broncos @ 49ers</title>
+    </programme>
+    <programme start="20261011202500 +0000" stop="20261012002500 +0000" channel="football_10">
+        <title lang="en">lions @ cardinals</title>
+    </programme>
+    <programme start="20261018202500 +0000" stop="20261019002500 +0000" channel="football_10">
+        <title lang="en">chargers @ chiefs</title>
+    </programme>
+    <programme start="20261025202500 +0000" stop="20261026002500 +0000" channel="football_10">
+        <title lang="en">packers @ lions</title>
+    </programme>
+    <programme start="20261101212500 +0000" stop="20261102012500 +0000" channel="football_10">
+        <title lang="en">chiefs @ broncos</title>
+    </programme>
+    <programme start="20261108212500 +0000" stop="20261109012500 +0000" channel="football_10">
+        <title lang="en">cardinals @ seahawks</title>
+    </programme>
+    <programme start="20261115212500 +0000" stop="20261116012500 +0000" channel="football_10">
+        <title lang="en">49ers @ cowboys</title>
+    </programme>
+    <programme start="20261122212500 +0000" stop="20261123012500 +0000" channel="football_10">
+        <title lang="en">steelers @ eagles</title>
+    </programme>
+    <programme start="20261206212500 +0000" stop="20261207012500 +0000" channel="football_10">
+        <title lang="en">panthers @ vikings</title>
+    </programme>
+    <programme start="20261213212500 +0000" stop="20261214012500 +0000" channel="football_10">
+        <title lang="en">rams @ 49ers</title>
+    </programme>
+    <programme start="20261220212500 +0000" stop="20261221012500 +0000" channel="football_10">
+        <title lang="en">broncos @ raiders</title>
+    </programme>
+    <programme start="20270110050000 +0000" stop="20270110090000 +0000" channel="football_10">
+        <title lang="en">jets @ bills</title>
+    </programme>
+    <programme start="20260913202500 +0000" stop="20260914002500 +0000" channel="football_11">
+        <title lang="en">cardinals @ chargers</title>
+    </programme>
+    <programme start="20260920202500 +0000" stop="20260921002500 +0000" channel="football_11">
+        <title lang="en">seahawks @ cardinals</title>
+    </programme>
+    <programme start="20260927202500 +0000" stop="20260928002500 +0000" channel="football_11">
+        <title lang="en">ravens @ cowboys</title>
+    </programme>
+    <programme start="20261004202500 +0000" stop="20261005002500 +0000" channel="football_11">
+        <title lang="en">chargers @ seahawks</title>
+    </programme>
+    <programme start="20261101212500 +0000" stop="20261102012500 +0000" channel="football_11">
+        <title lang="en">patriots @ dolphins</title>
+    </programme>
+    <programme start="20261213212500 +0000" stop="20261214012500 +0000" channel="football_11">
+        <title lang="en">giants @ seahawks</title>
+    </programme>
+    <programme start="20270110050000 +0000" stop="20270110090000 +0000" channel="football_11">
+        <title lang="en">raiders @ chiefs</title>
+    </programme>
+    <programme start="20260920202500 +0000" stop="20260921002500 +0000" channel="football_12">
+        <title lang="en">dolphins @ 49ers</title>
+    </programme>
+    <programme start="20260927202500 +0000" stop="20260928002500 +0000" channel="football_12">
+        <title lang="en">raiders @ saints</title>
+    </programme>
+    <programme start="20261004202500 +0000" stop="20261005002500 +0000" channel="football_12">
+        <title lang="en">chiefs @ raiders</title>
+    </programme>
+    <programme start="20270110050000 +0000" stop="20270110090000 +0000" channel="football_12">
+        <title lang="en">bears @ vikings</title>
+    </programme>
+    <programme start="20270110050000 +0000" stop="20270110090000 +0000" channel="football_13">
+        <title lang="en">steelers @ ravens</title>
+    </programme>
+    <programme start="20270110050000 +0000" stop="20270110090000 +0000" channel="football_14">
+        <title lang="en">falcons @ panthers</title>
+    </programme>
+    <programme start="20270110050000 +0000" stop="20270110090000 +0000" channel="football_15">
+        <title lang="en">buccaneers @ saints</title>
     </programme>
 </tv>

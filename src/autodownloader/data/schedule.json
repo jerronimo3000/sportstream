@@ -55,7 +55,7 @@
                         "team_1": "reds",
                         "team_2": "dodgers",
                         "time_start": "2026-09-09T02:10:00+00:00",
-                        "time_end": "2026-09-10T06:50:00+00:00"
+                        "time_end": "2026-09-09T05:10:00+00:00"
                     },
                     {
                         "team_1": "angels",
@@ -985,8 +985,7 @@
                         "team_1": "reds",
                         "team_2": "dodgers",
                         "time_start": "2026-09-10T02:10:00+00:00",
-                        "time_end": "2026-09-10T05:10:00+00:00",
-                        "game_page_url": "https://streameast.ga/mlb/cincinnati-reds-vs-los-angeles-dodgers-3/"
+                        "time_end": "2026-09-10T05:10:00+00:00"
                     },
                     {
                         "team_1": "braves",
@@ -1938,8 +1937,7 @@
                         "team_1": "rays",
                         "team_2": "braves",
                         "time_start": "2026-09-10T16:15:00+00:00",
-                        "time_end": "2026-09-10T19:15:00+00:00",
-                        "game_page_url": "https://streameast.ga/mlb/tampa-bay-rays-vs-atlanta-braves-6/"
+                        "time_end": "2026-09-10T19:15:00+00:00"
                     },
                     {
                         "team_1": "dodgers",
@@ -11572,6 +11570,1590 @@
                         "team_2": "rockies",
                         "time_start": "2027-06-22T09:33:00+00:00",
                         "time_end": "2027-06-22T12:33:00+00:00"
+                    }
+                ]
+            }
+        }
+    },
+    "football": {
+        "channels": {
+            "1": {
+                "games": [
+                    {
+                        "team_1": "falcons",
+                        "team_2": "steelers",
+                        "time_start": "2026-09-13T17:00:00+00:00",
+                        "time_end": "2026-09-13T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "cowboys",
+                        "team_2": "giants",
+                        "time_start": "2026-09-14T00:20:00+00:00",
+                        "time_end": "2026-09-14T04:20:00+00:00"
+                    },
+                    {
+                        "team_1": "broncos",
+                        "team_2": "chiefs",
+                        "time_start": "2026-09-15T00:15:00+00:00",
+                        "time_end": "2026-09-15T04:15:00+00:00"
+                    },
+                    {
+                        "team_1": "lions",
+                        "team_2": "bills",
+                        "time_start": "2026-09-18T00:15:00+00:00",
+                        "time_end": "2026-09-18T04:15:00+00:00"
+                    },
+                    {
+                        "team_1": "browns",
+                        "team_2": "buccaneers",
+                        "time_start": "2026-09-20T17:00:00+00:00",
+                        "time_end": "2026-09-20T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "colts",
+                        "team_2": "chiefs",
+                        "time_start": "2026-09-21T00:20:00+00:00",
+                        "time_end": "2026-09-21T04:20:00+00:00"
+                    },
+                    {
+                        "team_1": "giants",
+                        "team_2": "rams",
+                        "time_start": "2026-09-22T00:15:00+00:00",
+                        "time_end": "2026-09-22T04:15:00+00:00"
+                    },
+                    {
+                        "team_1": "falcons",
+                        "team_2": "packers",
+                        "time_start": "2026-09-25T00:15:00+00:00",
+                        "time_end": "2026-09-25T04:15:00+00:00"
+                    },
+                    {
+                        "team_1": "bengals",
+                        "team_2": "steelers",
+                        "time_start": "2026-09-27T17:00:00+00:00",
+                        "time_end": "2026-09-27T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "rams",
+                        "team_2": "broncos",
+                        "time_start": "2026-09-28T00:20:00+00:00",
+                        "time_end": "2026-09-28T04:20:00+00:00"
+                    },
+                    {
+                        "team_1": "eagles",
+                        "team_2": "bears",
+                        "time_start": "2026-09-29T00:15:00+00:00",
+                        "time_end": "2026-09-29T04:15:00+00:00"
+                    },
+                    {
+                        "team_1": "steelers",
+                        "team_2": "browns",
+                        "time_start": "2026-10-02T00:15:00+00:00",
+                        "time_end": "2026-10-02T04:15:00+00:00"
+                    },
+                    {
+                        "team_1": "rams",
+                        "team_2": "eagles",
+                        "time_start": "2026-10-04T17:00:00+00:00",
+                        "time_end": "2026-10-04T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "lions",
+                        "team_2": "panthers",
+                        "time_start": "2026-10-05T00:20:00+00:00",
+                        "time_end": "2026-10-05T04:20:00+00:00"
+                    },
+                    {
+                        "team_1": "falcons",
+                        "team_2": "saints",
+                        "time_start": "2026-10-06T00:15:00+00:00",
+                        "time_end": "2026-10-06T04:15:00+00:00"
+                    },
+                    {
+                        "team_1": "buccaneers",
+                        "team_2": "cowboys",
+                        "time_start": "2026-10-09T00:15:00+00:00",
+                        "time_end": "2026-10-09T04:15:00+00:00"
+                    },
+                    {
+                        "team_1": "eagles",
+                        "team_2": "jaguars",
+                        "time_start": "2026-10-11T13:30:00+00:00",
+                        "time_end": "2026-10-11T17:30:00+00:00"
+                    },
+                    {
+                        "team_1": "broncos",
+                        "team_2": "chargers",
+                        "time_start": "2026-10-11T20:05:00+00:00",
+                        "time_end": "2026-10-12T00:05:00+00:00"
+                    },
+                    {
+                        "team_1": "ravens",
+                        "team_2": "falcons",
+                        "time_start": "2026-10-12T00:20:00+00:00",
+                        "time_end": "2026-10-12T04:20:00+00:00"
+                    },
+                    {
+                        "team_1": "bills",
+                        "team_2": "rams",
+                        "time_start": "2026-10-13T00:15:00+00:00",
+                        "time_end": "2026-10-13T04:15:00+00:00"
+                    },
+                    {
+                        "team_1": "seahawks",
+                        "team_2": "broncos",
+                        "time_start": "2026-10-16T00:15:00+00:00",
+                        "time_end": "2026-10-16T04:15:00+00:00"
+                    },
+                    {
+                        "team_1": "texans",
+                        "team_2": "jaguars",
+                        "time_start": "2026-10-18T13:30:00+00:00",
+                        "time_end": "2026-10-18T17:30:00+00:00"
+                    },
+                    {
+                        "team_1": "cardinals",
+                        "team_2": "rams",
+                        "time_start": "2026-10-18T20:05:00+00:00",
+                        "time_end": "2026-10-19T00:05:00+00:00"
+                    },
+                    {
+                        "team_1": "cowboys",
+                        "team_2": "packers",
+                        "time_start": "2026-10-19T00:20:00+00:00",
+                        "time_end": "2026-10-19T04:20:00+00:00"
+                    },
+                    {
+                        "team_1": "patriots",
+                        "team_2": "bears",
+                        "time_start": "2026-10-23T00:15:00+00:00",
+                        "time_end": "2026-10-23T04:15:00+00:00"
+                    },
+                    {
+                        "team_1": "steelers",
+                        "team_2": "saints",
+                        "time_start": "2026-10-25T13:30:00+00:00",
+                        "time_end": "2026-10-25T17:30:00+00:00"
+                    },
+                    {
+                        "team_1": "broncos",
+                        "team_2": "cardinals",
+                        "time_start": "2026-10-25T20:05:00+00:00",
+                        "time_end": "2026-10-26T00:05:00+00:00"
+                    },
+                    {
+                        "team_1": "chiefs",
+                        "team_2": "seahawks",
+                        "time_start": "2026-10-26T00:20:00+00:00",
+                        "time_end": "2026-10-26T04:20:00+00:00"
+                    },
+                    {
+                        "team_1": "cowboys",
+                        "team_2": "eagles",
+                        "time_start": "2026-10-27T00:15:00+00:00",
+                        "time_end": "2026-10-27T04:15:00+00:00"
+                    },
+                    {
+                        "team_1": "panthers",
+                        "team_2": "packers",
+                        "time_start": "2026-10-30T00:15:00+00:00",
+                        "time_end": "2026-10-30T04:15:00+00:00"
+                    },
+                    {
+                        "team_1": "titans",
+                        "team_2": "bengals",
+                        "time_start": "2026-11-01T18:00:00+00:00",
+                        "time_end": "2026-11-01T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "bears",
+                        "team_2": "seahawks",
+                        "time_start": "2026-11-03T01:15:00+00:00",
+                        "time_end": "2026-11-03T05:15:00+00:00"
+                    },
+                    {
+                        "team_1": "jaguars",
+                        "team_2": "ravens",
+                        "time_start": "2026-11-06T01:15:00+00:00",
+                        "time_end": "2026-11-06T05:15:00+00:00"
+                    },
+                    {
+                        "team_1": "bengals",
+                        "team_2": "falcons",
+                        "time_start": "2026-11-08T14:30:00+00:00",
+                        "time_end": "2026-11-08T18:30:00+00:00"
+                    },
+                    {
+                        "team_1": "raiders",
+                        "team_2": "49ers",
+                        "time_start": "2026-11-08T21:05:00+00:00",
+                        "time_end": "2026-11-09T01:05:00+00:00"
+                    },
+                    {
+                        "team_1": "buccaneers",
+                        "team_2": "bears",
+                        "time_start": "2026-11-09T01:20:00+00:00",
+                        "time_end": "2026-11-09T05:20:00+00:00"
+                    },
+                    {
+                        "team_1": "bills",
+                        "team_2": "vikings",
+                        "time_start": "2026-11-10T01:15:00+00:00",
+                        "time_end": "2026-11-10T05:15:00+00:00"
+                    },
+                    {
+                        "team_1": "patriots",
+                        "team_2": "lions",
+                        "time_start": "2026-11-15T14:30:00+00:00",
+                        "time_end": "2026-11-15T18:30:00+00:00"
+                    },
+                    {
+                        "team_1": "seahawks",
+                        "team_2": "raiders",
+                        "time_start": "2026-11-15T21:05:00+00:00",
+                        "time_end": "2026-11-16T01:05:00+00:00"
+                    },
+                    {
+                        "team_1": "steelers",
+                        "team_2": "bengals",
+                        "time_start": "2026-11-16T01:20:00+00:00",
+                        "time_end": "2026-11-16T05:20:00+00:00"
+                    },
+                    {
+                        "team_1": "chargers",
+                        "team_2": "ravens",
+                        "time_start": "2026-11-17T01:15:00+00:00",
+                        "time_end": "2026-11-17T05:15:00+00:00"
+                    },
+                    {
+                        "team_1": "colts",
+                        "team_2": "texans",
+                        "time_start": "2026-11-20T01:15:00+00:00",
+                        "time_end": "2026-11-20T05:15:00+00:00"
+                    },
+                    {
+                        "team_1": "cardinals",
+                        "team_2": "chiefs",
+                        "time_start": "2026-11-22T18:00:00+00:00",
+                        "time_end": "2026-11-22T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "vikings",
+                        "team_2": "49ers",
+                        "time_start": "2026-11-23T01:20:00+00:00",
+                        "time_end": "2026-11-23T05:20:00+00:00"
+                    },
+                    {
+                        "team_1": "packers",
+                        "team_2": "rams",
+                        "time_start": "2026-11-26T01:00:00+00:00",
+                        "time_end": "2026-11-26T05:00:00+00:00"
+                    },
+                    {
+                        "team_1": "bears",
+                        "team_2": "lions",
+                        "time_start": "2026-11-26T18:00:00+00:00",
+                        "time_end": "2026-11-26T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "chiefs",
+                        "team_2": "bills",
+                        "time_start": "2026-11-27T01:20:00+00:00",
+                        "time_end": "2026-11-27T05:20:00+00:00"
+                    },
+                    {
+                        "team_1": "broncos",
+                        "team_2": "steelers",
+                        "time_start": "2026-11-27T20:00:00+00:00",
+                        "time_end": "2026-11-28T00:00:00+00:00"
+                    },
+                    {
+                        "team_1": "falcons",
+                        "team_2": "vikings",
+                        "time_start": "2026-11-29T18:00:00+00:00",
+                        "time_end": "2026-11-29T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "patriots",
+                        "team_2": "chargers",
+                        "time_start": "2026-11-30T01:20:00+00:00",
+                        "time_end": "2026-11-30T05:20:00+00:00"
+                    },
+                    {
+                        "team_1": "panthers",
+                        "team_2": "buccaneers",
+                        "time_start": "2026-12-01T01:15:00+00:00",
+                        "time_end": "2026-12-01T05:15:00+00:00"
+                    },
+                    {
+                        "team_1": "chiefs",
+                        "team_2": "rams",
+                        "time_start": "2026-12-04T01:15:00+00:00",
+                        "time_end": "2026-12-04T05:15:00+00:00"
+                    },
+                    {
+                        "team_1": "chargers",
+                        "team_2": "buccaneers",
+                        "time_start": "2026-12-06T18:00:00+00:00",
+                        "time_end": "2026-12-06T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "texans",
+                        "team_2": "steelers",
+                        "time_start": "2026-12-07T01:20:00+00:00",
+                        "time_end": "2026-12-07T05:20:00+00:00"
+                    },
+                    {
+                        "team_1": "cowboys",
+                        "team_2": "seahawks",
+                        "time_start": "2026-12-08T01:15:00+00:00",
+                        "time_end": "2026-12-08T05:15:00+00:00"
+                    },
+                    {
+                        "team_1": "vikings",
+                        "team_2": "patriots",
+                        "time_start": "2026-12-11T01:15:00+00:00",
+                        "time_end": "2026-12-11T05:15:00+00:00"
+                    },
+                    {
+                        "team_1": "colts",
+                        "team_2": "eagles",
+                        "time_start": "2026-12-13T18:00:00+00:00",
+                        "time_end": "2026-12-13T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "bills",
+                        "team_2": "packers",
+                        "time_start": "2026-12-14T01:20:00+00:00",
+                        "time_end": "2026-12-14T05:20:00+00:00"
+                    },
+                    {
+                        "team_1": "steelers",
+                        "team_2": "jaguars",
+                        "time_start": "2026-12-15T01:15:00+00:00",
+                        "time_end": "2026-12-15T05:15:00+00:00"
+                    },
+                    {
+                        "team_1": "49ers",
+                        "team_2": "chargers",
+                        "time_start": "2026-12-18T01:15:00+00:00",
+                        "time_end": "2026-12-18T05:15:00+00:00"
+                    },
+                    {
+                        "team_1": "seahawks",
+                        "team_2": "eagles",
+                        "time_start": "2026-12-19T22:00:00+00:00",
+                        "time_end": "2026-12-20T02:00:00+00:00"
+                    },
+                    {
+                        "team_1": "bengals",
+                        "team_2": "panthers",
+                        "time_start": "2026-12-20T18:00:00+00:00",
+                        "time_end": "2026-12-20T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "lions",
+                        "team_2": "vikings",
+                        "time_start": "2026-12-21T01:20:00+00:00",
+                        "time_end": "2026-12-21T05:20:00+00:00"
+                    },
+                    {
+                        "team_1": "patriots",
+                        "team_2": "chiefs",
+                        "time_start": "2026-12-22T01:15:00+00:00",
+                        "time_end": "2026-12-22T05:15:00+00:00"
+                    },
+                    {
+                        "team_1": "texans",
+                        "team_2": "eagles",
+                        "time_start": "2026-12-25T01:15:00+00:00",
+                        "time_end": "2026-12-25T05:15:00+00:00"
+                    },
+                    {
+                        "team_1": "packers",
+                        "team_2": "bears",
+                        "time_start": "2026-12-25T18:00:00+00:00",
+                        "time_end": "2026-12-25T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "rams",
+                        "team_2": "seahawks",
+                        "time_start": "2026-12-26T01:15:00+00:00",
+                        "time_end": "2026-12-26T05:15:00+00:00"
+                    },
+                    {
+                        "team_1": "bengals",
+                        "team_2": "colts",
+                        "time_start": "2026-12-27T05:00:00+00:00",
+                        "time_end": "2026-12-27T09:00:00+00:00"
+                    },
+                    {
+                        "team_1": "chargers",
+                        "team_2": "dolphins",
+                        "time_start": "2026-12-27T18:00:00+00:00",
+                        "time_end": "2026-12-27T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "jaguars",
+                        "team_2": "cowboys",
+                        "time_start": "2026-12-28T01:20:00+00:00",
+                        "time_end": "2026-12-28T05:20:00+00:00"
+                    },
+                    {
+                        "team_1": "giants",
+                        "team_2": "lions",
+                        "time_start": "2026-12-29T01:15:00+00:00",
+                        "time_end": "2026-12-29T05:15:00+00:00"
+                    },
+                    {
+                        "team_1": "ravens",
+                        "team_2": "bengals",
+                        "time_start": "2027-01-01T01:15:00+00:00",
+                        "time_end": "2027-01-01T05:15:00+00:00"
+                    },
+                    {
+                        "team_1": "chiefs",
+                        "team_2": "chargers",
+                        "time_start": "2027-01-03T05:00:00+00:00",
+                        "time_end": "2027-01-03T09:00:00+00:00"
+                    },
+                    {
+                        "team_1": "giants",
+                        "team_2": "cowboys",
+                        "time_start": "2027-01-03T18:00:00+00:00",
+                        "time_end": "2027-01-03T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "eagles",
+                        "team_2": "49ers",
+                        "time_start": "2027-01-04T01:20:00+00:00",
+                        "time_end": "2027-01-04T05:20:00+00:00"
+                    },
+                    {
+                        "team_1": "texans",
+                        "team_2": "packers",
+                        "time_start": "2027-01-05T01:15:00+00:00",
+                        "time_end": "2027-01-05T05:15:00+00:00"
+                    },
+                    {
+                        "team_1": "titans",
+                        "team_2": "texans",
+                        "time_start": "2027-01-10T05:00:00+00:00",
+                        "time_end": "2027-01-10T09:00:00+00:00"
+                    }
+                ]
+            },
+            "2": {
+                "games": [
+                    {
+                        "team_1": "buccaneers",
+                        "team_2": "bengals",
+                        "time_start": "2026-09-13T17:00:00+00:00",
+                        "time_end": "2026-09-13T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "vikings",
+                        "team_2": "bears",
+                        "time_start": "2026-09-20T17:00:00+00:00",
+                        "time_end": "2026-09-20T21:00:00+00:00",
+                        "game_page_url": "https://streameast.ga/nfl/minnesota-vikings-vs-chicago-bears/"
+                    },
+                    {
+                        "team_1": "chargers",
+                        "team_2": "bills",
+                        "time_start": "2026-09-27T17:00:00+00:00",
+                        "time_end": "2026-09-27T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "cardinals",
+                        "team_2": "giants",
+                        "time_start": "2026-10-04T17:00:00+00:00",
+                        "time_end": "2026-10-04T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "raiders",
+                        "team_2": "patriots",
+                        "time_start": "2026-10-11T17:00:00+00:00",
+                        "time_end": "2026-10-11T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "ravens",
+                        "team_2": "browns",
+                        "time_start": "2026-10-18T17:00:00+00:00",
+                        "time_end": "2026-10-18T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "dolphins",
+                        "team_2": "jets",
+                        "time_start": "2026-10-25T17:00:00+00:00",
+                        "time_end": "2026-10-25T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "colts",
+                        "team_2": "jaguars",
+                        "time_start": "2026-11-01T18:00:00+00:00",
+                        "time_end": "2026-11-01T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "broncos",
+                        "team_2": "panthers",
+                        "time_start": "2026-11-08T18:00:00+00:00",
+                        "time_end": "2026-11-08T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "dolphins",
+                        "team_2": "colts",
+                        "time_start": "2026-11-15T18:00:00+00:00",
+                        "time_end": "2026-11-15T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "buccaneers",
+                        "team_2": "lions",
+                        "time_start": "2026-11-22T18:00:00+00:00",
+                        "time_end": "2026-11-22T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "eagles",
+                        "team_2": "cowboys",
+                        "time_start": "2026-11-26T21:30:00+00:00",
+                        "time_end": "2026-11-27T01:30:00+00:00"
+                    },
+                    {
+                        "team_1": "jets",
+                        "team_2": "dolphins",
+                        "time_start": "2026-11-29T18:00:00+00:00",
+                        "time_end": "2026-11-29T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "packers",
+                        "team_2": "saints",
+                        "time_start": "2026-12-06T18:00:00+00:00",
+                        "time_end": "2026-12-06T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "saints",
+                        "team_2": "panthers",
+                        "time_start": "2026-12-13T18:00:00+00:00",
+                        "time_end": "2026-12-13T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "bears",
+                        "team_2": "bills",
+                        "time_start": "2026-12-20T01:20:00+00:00",
+                        "time_end": "2026-12-20T05:20:00+00:00"
+                    },
+                    {
+                        "team_1": "ravens",
+                        "team_2": "steelers",
+                        "time_start": "2026-12-20T18:00:00+00:00",
+                        "time_end": "2026-12-20T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "bills",
+                        "team_2": "broncos",
+                        "time_start": "2026-12-25T21:30:00+00:00",
+                        "time_end": "2026-12-26T01:30:00+00:00"
+                    },
+                    {
+                        "team_1": "panthers",
+                        "team_2": "steelers",
+                        "time_start": "2026-12-27T05:00:00+00:00",
+                        "time_end": "2026-12-27T09:00:00+00:00"
+                    },
+                    {
+                        "team_1": "browns",
+                        "team_2": "ravens",
+                        "time_start": "2026-12-27T18:00:00+00:00",
+                        "time_end": "2026-12-27T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "rams",
+                        "team_2": "buccaneers",
+                        "time_start": "2027-01-03T05:00:00+00:00",
+                        "time_end": "2027-01-03T09:00:00+00:00"
+                    },
+                    {
+                        "team_1": "bills",
+                        "team_2": "dolphins",
+                        "time_start": "2027-01-03T18:00:00+00:00",
+                        "time_end": "2027-01-03T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "lions",
+                        "team_2": "packers",
+                        "time_start": "2027-01-10T05:00:00+00:00",
+                        "time_end": "2027-01-10T09:00:00+00:00"
+                    }
+                ]
+            },
+            "3": {
+                "games": [
+                    {
+                        "team_1": "jets",
+                        "team_2": "titans",
+                        "time_start": "2026-09-13T17:00:00+00:00",
+                        "time_end": "2026-09-13T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "saints",
+                        "team_2": "ravens",
+                        "time_start": "2026-09-20T17:00:00+00:00",
+                        "time_end": "2026-09-20T21:00:00+00:00",
+                        "game_page_url": "https://streameast.ga/nfl/new-orleans-saints-vs-baltimore-ravens/"
+                    },
+                    {
+                        "team_1": "patriots",
+                        "team_2": "jaguars",
+                        "time_start": "2026-09-27T17:00:00+00:00",
+                        "time_end": "2026-09-27T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "packers",
+                        "team_2": "buccaneers",
+                        "time_start": "2026-10-04T17:00:00+00:00",
+                        "time_end": "2026-10-04T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "browns",
+                        "team_2": "jets",
+                        "time_start": "2026-10-11T17:00:00+00:00",
+                        "time_end": "2026-10-11T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "steelers",
+                        "team_2": "buccaneers",
+                        "time_start": "2026-10-18T17:00:00+00:00",
+                        "time_end": "2026-10-18T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "bengals",
+                        "team_2": "ravens",
+                        "time_start": "2026-10-25T17:00:00+00:00",
+                        "time_end": "2026-10-25T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "cardinals",
+                        "team_2": "cowboys",
+                        "time_start": "2026-11-01T18:00:00+00:00",
+                        "time_end": "2026-11-01T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "cowboys",
+                        "team_2": "colts",
+                        "time_start": "2026-11-08T18:00:00+00:00",
+                        "time_end": "2026-11-08T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "panthers",
+                        "team_2": "saints",
+                        "time_start": "2026-11-15T18:00:00+00:00",
+                        "time_end": "2026-11-15T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "jaguars",
+                        "team_2": "giants",
+                        "time_start": "2026-11-22T18:00:00+00:00",
+                        "time_end": "2026-11-22T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "raiders",
+                        "team_2": "browns",
+                        "time_start": "2026-11-29T18:00:00+00:00",
+                        "time_end": "2026-11-29T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "lions",
+                        "team_2": "falcons",
+                        "time_start": "2026-12-06T18:00:00+00:00",
+                        "time_end": "2026-12-06T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "broncos",
+                        "team_2": "jets",
+                        "time_start": "2026-12-13T18:00:00+00:00",
+                        "time_end": "2026-12-13T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "saints",
+                        "team_2": "buccaneers",
+                        "time_start": "2026-12-20T18:00:00+00:00",
+                        "time_end": "2026-12-20T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "buccaneers",
+                        "team_2": "falcons",
+                        "time_start": "2026-12-27T05:00:00+00:00",
+                        "time_end": "2026-12-27T09:00:00+00:00"
+                    },
+                    {
+                        "team_1": "cardinals",
+                        "team_2": "saints",
+                        "time_start": "2026-12-27T18:00:00+00:00",
+                        "time_end": "2026-12-27T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "broncos",
+                        "team_2": "patriots",
+                        "time_start": "2027-01-03T05:00:00+00:00",
+                        "time_end": "2027-01-03T09:00:00+00:00"
+                    },
+                    {
+                        "team_1": "vikings",
+                        "team_2": "jets",
+                        "time_start": "2027-01-03T18:00:00+00:00",
+                        "time_end": "2027-01-03T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "browns",
+                        "team_2": "bengals",
+                        "time_start": "2027-01-10T05:00:00+00:00",
+                        "time_end": "2027-01-10T09:00:00+00:00"
+                    }
+                ]
+            },
+            "4": {
+                "games": [
+                    {
+                        "team_1": "ravens",
+                        "team_2": "colts",
+                        "time_start": "2026-09-13T17:00:00+00:00",
+                        "time_end": "2026-09-13T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "eagles",
+                        "team_2": "titans",
+                        "time_start": "2026-09-20T17:00:00+00:00",
+                        "time_end": "2026-09-20T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "texans",
+                        "team_2": "colts",
+                        "time_start": "2026-09-27T17:00:00+00:00",
+                        "time_end": "2026-09-27T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "patriots",
+                        "team_2": "bills",
+                        "time_start": "2026-10-04T17:00:00+00:00",
+                        "time_end": "2026-10-04T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "vikings",
+                        "team_2": "saints",
+                        "time_start": "2026-10-11T17:00:00+00:00",
+                        "time_end": "2026-10-11T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "titans",
+                        "team_2": "colts",
+                        "time_start": "2026-10-18T17:00:00+00:00",
+                        "time_end": "2026-10-18T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "giants",
+                        "team_2": "texans",
+                        "time_start": "2026-10-25T17:00:00+00:00",
+                        "time_end": "2026-10-25T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "falcons",
+                        "team_2": "buccaneers",
+                        "time_start": "2026-11-01T18:00:00+00:00",
+                        "time_end": "2026-11-01T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "jets",
+                        "team_2": "chiefs",
+                        "time_start": "2026-11-08T18:00:00+00:00",
+                        "time_end": "2026-11-08T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "bills",
+                        "team_2": "jets",
+                        "time_start": "2026-11-15T18:00:00+00:00",
+                        "time_end": "2026-11-15T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "ravens",
+                        "team_2": "panthers",
+                        "time_start": "2026-11-22T18:00:00+00:00",
+                        "time_end": "2026-11-22T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "giants",
+                        "team_2": "colts",
+                        "time_start": "2026-11-29T18:00:00+00:00",
+                        "time_end": "2026-11-29T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "jaguars",
+                        "team_2": "bears",
+                        "time_start": "2026-12-06T18:00:00+00:00",
+                        "time_end": "2026-12-06T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "falcons",
+                        "team_2": "browns",
+                        "time_start": "2026-12-13T18:00:00+00:00",
+                        "time_end": "2026-12-13T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "colts",
+                        "team_2": "titans",
+                        "time_start": "2026-12-20T18:00:00+00:00",
+                        "time_end": "2026-12-20T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "patriots",
+                        "team_2": "jets",
+                        "time_start": "2026-12-27T18:00:00+00:00",
+                        "time_end": "2026-12-27T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "colts",
+                        "team_2": "browns",
+                        "time_start": "2027-01-03T18:00:00+00:00",
+                        "time_end": "2027-01-03T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "seahawks",
+                        "team_2": "rams",
+                        "time_start": "2027-01-10T05:00:00+00:00",
+                        "time_end": "2027-01-10T09:00:00+00:00"
+                    }
+                ]
+            },
+            "5": {
+                "games": [
+                    {
+                        "team_1": "bears",
+                        "team_2": "panthers",
+                        "time_start": "2026-09-13T17:00:00+00:00",
+                        "time_end": "2026-09-13T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "packers",
+                        "team_2": "jets",
+                        "time_start": "2026-09-20T17:00:00+00:00",
+                        "time_end": "2026-09-20T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "jets",
+                        "team_2": "lions",
+                        "time_start": "2026-09-27T17:00:00+00:00",
+                        "time_end": "2026-09-27T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "cowboys",
+                        "team_2": "texans",
+                        "time_start": "2026-10-04T17:00:00+00:00",
+                        "time_end": "2026-10-04T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "colts",
+                        "team_2": "steelers",
+                        "time_start": "2026-10-11T17:00:00+00:00",
+                        "time_end": "2026-10-11T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "saints",
+                        "team_2": "giants",
+                        "time_start": "2026-10-18T17:00:00+00:00",
+                        "time_end": "2026-10-18T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "colts",
+                        "team_2": "vikings",
+                        "time_start": "2026-10-25T17:00:00+00:00",
+                        "time_end": "2026-10-25T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "raiders",
+                        "team_2": "jets",
+                        "time_start": "2026-11-01T18:00:00+00:00",
+                        "time_end": "2026-11-01T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "browns",
+                        "team_2": "saints",
+                        "time_start": "2026-11-08T18:00:00+00:00",
+                        "time_end": "2026-11-08T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "vikings",
+                        "team_2": "packers",
+                        "time_start": "2026-11-15T18:00:00+00:00",
+                        "time_end": "2026-11-15T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "dolphins",
+                        "team_2": "bills",
+                        "time_start": "2026-11-22T18:00:00+00:00",
+                        "time_end": "2026-11-22T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "ravens",
+                        "team_2": "texans",
+                        "time_start": "2026-11-29T18:00:00+00:00",
+                        "time_end": "2026-11-29T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "bengals",
+                        "team_2": "browns",
+                        "time_start": "2026-12-06T18:00:00+00:00",
+                        "time_end": "2026-12-06T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "bears",
+                        "team_2": "dolphins",
+                        "time_start": "2026-12-13T18:00:00+00:00",
+                        "time_end": "2026-12-13T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "dolphins",
+                        "team_2": "packers",
+                        "time_start": "2026-12-20T18:00:00+00:00",
+                        "time_end": "2026-12-20T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "titans",
+                        "team_2": "raiders",
+                        "time_start": "2026-12-27T21:05:00+00:00",
+                        "time_end": "2026-12-28T01:05:00+00:00"
+                    },
+                    {
+                        "team_1": "steelers",
+                        "team_2": "titans",
+                        "time_start": "2027-01-03T18:00:00+00:00",
+                        "time_end": "2027-01-03T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "jaguars",
+                        "team_2": "colts",
+                        "time_start": "2027-01-10T05:00:00+00:00",
+                        "time_end": "2027-01-10T09:00:00+00:00"
+                    }
+                ]
+            },
+            "6": {
+                "games": [
+                    {
+                        "team_1": "browns",
+                        "team_2": "jaguars",
+                        "time_start": "2026-09-13T17:00:00+00:00",
+                        "time_end": "2026-09-13T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "panthers",
+                        "team_2": "falcons",
+                        "time_start": "2026-09-20T17:00:00+00:00",
+                        "time_end": "2026-09-20T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "panthers",
+                        "team_2": "browns",
+                        "time_start": "2026-09-27T17:00:00+00:00",
+                        "time_end": "2026-09-27T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "jets",
+                        "team_2": "bears",
+                        "time_start": "2026-10-04T17:00:00+00:00",
+                        "time_end": "2026-10-04T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "texans",
+                        "team_2": "titans",
+                        "time_start": "2026-10-11T17:00:00+00:00",
+                        "time_end": "2026-10-11T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "bears",
+                        "team_2": "falcons",
+                        "time_start": "2026-10-18T17:00:00+00:00",
+                        "time_end": "2026-10-18T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "49ers",
+                        "team_2": "falcons",
+                        "time_start": "2026-10-25T17:00:00+00:00",
+                        "time_end": "2026-10-25T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "vikings",
+                        "team_2": "lions",
+                        "time_start": "2026-11-01T18:00:00+00:00",
+                        "time_end": "2026-11-01T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "giants",
+                        "team_2": "eagles",
+                        "time_start": "2026-11-08T18:00:00+00:00",
+                        "time_end": "2026-11-08T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "texans",
+                        "team_2": "browns",
+                        "time_start": "2026-11-15T18:00:00+00:00",
+                        "time_end": "2026-11-15T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "saints",
+                        "team_2": "bears",
+                        "time_start": "2026-11-22T18:00:00+00:00",
+                        "time_end": "2026-11-22T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "saints",
+                        "team_2": "bengals",
+                        "time_start": "2026-11-29T18:00:00+00:00",
+                        "time_end": "2026-11-29T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "49ers",
+                        "team_2": "giants",
+                        "time_start": "2026-12-06T18:00:00+00:00",
+                        "time_end": "2026-12-06T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "buccaneers",
+                        "team_2": "ravens",
+                        "time_start": "2026-12-13T18:00:00+00:00",
+                        "time_end": "2026-12-13T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "browns",
+                        "team_2": "giants",
+                        "time_start": "2026-12-20T18:00:00+00:00",
+                        "time_end": "2026-12-20T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "49ers",
+                        "team_2": "chiefs",
+                        "time_start": "2026-12-27T21:25:00+00:00",
+                        "time_end": "2026-12-28T01:25:00+00:00"
+                    },
+                    {
+                        "team_1": "saints",
+                        "team_2": "falcons",
+                        "time_start": "2027-01-03T18:00:00+00:00",
+                        "time_end": "2027-01-03T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "dolphins",
+                        "team_2": "patriots",
+                        "time_start": "2027-01-10T05:00:00+00:00",
+                        "time_end": "2027-01-10T09:00:00+00:00"
+                    }
+                ]
+            },
+            "7": {
+                "games": [
+                    {
+                        "team_1": "saints",
+                        "team_2": "lions",
+                        "time_start": "2026-09-13T17:00:00+00:00",
+                        "time_end": "2026-09-13T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "steelers",
+                        "team_2": "patriots",
+                        "time_start": "2026-09-20T17:00:00+00:00",
+                        "time_end": "2026-09-20T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "chiefs",
+                        "team_2": "dolphins",
+                        "time_start": "2026-09-27T17:00:00+00:00",
+                        "time_end": "2026-09-27T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "jaguars",
+                        "team_2": "bengals",
+                        "time_start": "2026-10-04T17:00:00+00:00",
+                        "time_end": "2026-10-04T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "bengals",
+                        "team_2": "dolphins",
+                        "time_start": "2026-10-11T17:00:00+00:00",
+                        "time_end": "2026-10-11T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "jets",
+                        "team_2": "patriots",
+                        "time_start": "2026-10-18T17:00:00+00:00",
+                        "time_end": "2026-10-18T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "browns",
+                        "team_2": "titans",
+                        "time_start": "2026-10-25T17:00:00+00:00",
+                        "time_end": "2026-10-25T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "browns",
+                        "team_2": "steelers",
+                        "time_start": "2026-11-01T18:00:00+00:00",
+                        "time_end": "2026-11-01T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "lions",
+                        "team_2": "dolphins",
+                        "time_start": "2026-11-08T18:00:00+00:00",
+                        "time_end": "2026-11-08T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "jaguars",
+                        "team_2": "titans",
+                        "time_start": "2026-11-15T18:00:00+00:00",
+                        "time_end": "2026-11-15T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "titans",
+                        "team_2": "cowboys",
+                        "time_start": "2026-11-22T18:00:00+00:00",
+                        "time_end": "2026-11-22T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "titans",
+                        "team_2": "jaguars",
+                        "time_start": "2026-11-29T21:05:00+00:00",
+                        "time_end": "2026-11-30T01:05:00+00:00"
+                    },
+                    {
+                        "team_1": "dolphins",
+                        "team_2": "broncos",
+                        "time_start": "2026-12-06T21:05:00+00:00",
+                        "time_end": "2026-12-07T01:05:00+00:00"
+                    },
+                    {
+                        "team_1": "titans",
+                        "team_2": "lions",
+                        "time_start": "2026-12-13T18:00:00+00:00",
+                        "time_end": "2026-12-13T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "jaguars",
+                        "team_2": "texans",
+                        "time_start": "2026-12-20T18:00:00+00:00",
+                        "time_end": "2026-12-20T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "seahawks",
+                        "team_2": "panthers",
+                        "time_start": "2027-01-03T18:00:00+00:00",
+                        "time_end": "2027-01-03T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "chargers",
+                        "team_2": "broncos",
+                        "time_start": "2027-01-10T05:00:00+00:00",
+                        "time_end": "2027-01-10T09:00:00+00:00"
+                    }
+                ]
+            },
+            "8": {
+                "games": [
+                    {
+                        "team_1": "bills",
+                        "team_2": "texans",
+                        "time_start": "2026-09-13T17:00:00+00:00",
+                        "time_end": "2026-09-13T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "bengals",
+                        "team_2": "texans",
+                        "time_start": "2026-09-20T17:00:00+00:00",
+                        "time_end": "2026-09-20T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "titans",
+                        "team_2": "giants",
+                        "time_start": "2026-09-27T17:00:00+00:00",
+                        "time_end": "2026-09-27T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "titans",
+                        "team_2": "ravens",
+                        "time_start": "2026-10-04T17:00:00+00:00",
+                        "time_end": "2026-10-04T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "bears",
+                        "team_2": "packers",
+                        "time_start": "2026-10-11T20:25:00+00:00",
+                        "time_end": "2026-10-12T00:25:00+00:00"
+                    },
+                    {
+                        "team_1": "panthers",
+                        "team_2": "eagles",
+                        "time_start": "2026-10-18T17:00:00+00:00",
+                        "time_end": "2026-10-18T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "buccaneers",
+                        "team_2": "panthers",
+                        "time_start": "2026-10-25T17:00:00+00:00",
+                        "time_end": "2026-10-25T21:00:00+00:00"
+                    },
+                    {
+                        "team_1": "ravens",
+                        "team_2": "bills",
+                        "time_start": "2026-11-01T18:00:00+00:00",
+                        "time_end": "2026-11-01T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "texans",
+                        "team_2": "chargers",
+                        "time_start": "2026-11-08T21:05:00+00:00",
+                        "time_end": "2026-11-09T01:05:00+00:00"
+                    },
+                    {
+                        "team_1": "chiefs",
+                        "team_2": "falcons",
+                        "time_start": "2026-11-15T18:00:00+00:00",
+                        "time_end": "2026-11-15T22:00:00+00:00"
+                    },
+                    {
+                        "team_1": "jets",
+                        "team_2": "chargers",
+                        "time_start": "2026-11-22T21:05:00+00:00",
+                        "time_end": "2026-11-23T01:05:00+00:00"
+                    },
+                    {
+                        "team_1": "seahawks",
+                        "team_2": "49ers",
+                        "time_start": "2026-11-29T21:25:00+00:00",
+                        "time_end": "2026-11-30T01:25:00+00:00"
+                    },
+                    {
+                        "team_1": "eagles",
+                        "team_2": "cardinals",
+                        "time_start": "2026-12-06T21:05:00+00:00",
+                        "time_end": "2026-12-07T01:05:00+00:00"
+                    },
+                    {
+                        "team_1": "chargers",
+                        "team_2": "raiders",
+                        "time_start": "2026-12-13T21:05:00+00:00",
+                        "time_end": "2026-12-14T01:05:00+00:00"
+                    },
+                    {
+                        "team_1": "jets",
+                        "team_2": "cardinals",
+                        "time_start": "2026-12-20T21:05:00+00:00",
+                        "time_end": "2026-12-21T01:05:00+00:00"
+                    },
+                    {
+                        "team_1": "raiders",
+                        "team_2": "cardinals",
+                        "time_start": "2027-01-03T21:05:00+00:00",
+                        "time_end": "2027-01-04T01:05:00+00:00"
+                    },
+                    {
+                        "team_1": "eagles",
+                        "team_2": "giants",
+                        "time_start": "2027-01-10T05:00:00+00:00",
+                        "time_end": "2027-01-10T09:00:00+00:00"
+                    }
+                ]
+            },
+            "9": {
+                "games": [
+                    {
+                        "team_1": "dolphins",
+                        "team_2": "raiders",
+                        "time_start": "2026-09-13T20:25:00+00:00",
+                        "time_end": "2026-09-14T00:25:00+00:00"
+                    },
+                    {
+                        "team_1": "raiders",
+                        "team_2": "chargers",
+                        "time_start": "2026-09-20T20:05:00+00:00",
+                        "time_end": "2026-09-21T00:05:00+00:00"
+                    },
+                    {
+                        "team_1": "vikings",
+                        "team_2": "buccaneers",
+                        "time_start": "2026-09-27T20:05:00+00:00",
+                        "time_end": "2026-09-28T00:05:00+00:00"
+                    },
+                    {
+                        "team_1": "dolphins",
+                        "team_2": "vikings",
+                        "time_start": "2026-10-04T20:05:00+00:00",
+                        "time_end": "2026-10-05T00:05:00+00:00"
+                    },
+                    {
+                        "team_1": "49ers",
+                        "team_2": "seahawks",
+                        "time_start": "2026-10-11T20:25:00+00:00",
+                        "time_end": "2026-10-12T00:25:00+00:00"
+                    },
+                    {
+                        "team_1": "bills",
+                        "team_2": "raiders",
+                        "time_start": "2026-10-18T20:25:00+00:00",
+                        "time_end": "2026-10-19T00:25:00+00:00"
+                    },
+                    {
+                        "team_1": "rams",
+                        "team_2": "raiders",
+                        "time_start": "2026-10-25T20:25:00+00:00",
+                        "time_end": "2026-10-26T00:25:00+00:00"
+                    },
+                    {
+                        "team_1": "chargers",
+                        "team_2": "rams",
+                        "time_start": "2026-11-01T21:05:00+00:00",
+                        "time_end": "2026-11-02T01:05:00+00:00"
+                    },
+                    {
+                        "team_1": "packers",
+                        "team_2": "patriots",
+                        "time_start": "2026-11-08T21:25:00+00:00",
+                        "time_end": "2026-11-09T01:25:00+00:00"
+                    },
+                    {
+                        "team_1": "rams",
+                        "team_2": "cardinals",
+                        "time_start": "2026-11-15T21:05:00+00:00",
+                        "time_end": "2026-11-16T01:05:00+00:00"
+                    },
+                    {
+                        "team_1": "raiders",
+                        "team_2": "broncos",
+                        "time_start": "2026-11-22T21:25:00+00:00",
+                        "time_end": "2026-11-23T01:25:00+00:00"
+                    },
+                    {
+                        "team_1": "bills",
+                        "team_2": "patriots",
+                        "time_start": "2026-12-06T21:25:00+00:00",
+                        "time_end": "2026-12-07T01:25:00+00:00"
+                    },
+                    {
+                        "team_1": "chiefs",
+                        "team_2": "bengals",
+                        "time_start": "2026-12-13T21:25:00+00:00",
+                        "time_end": "2026-12-14T01:25:00+00:00"
+                    },
+                    {
+                        "team_1": "cowboys",
+                        "team_2": "rams",
+                        "time_start": "2026-12-20T21:25:00+00:00",
+                        "time_end": "2026-12-21T01:25:00+00:00"
+                    },
+                    {
+                        "team_1": "lions",
+                        "team_2": "bears",
+                        "time_start": "2027-01-03T21:25:00+00:00",
+                        "time_end": "2027-01-04T01:25:00+00:00"
+                    },
+                    {
+                        "team_1": "49ers",
+                        "team_2": "cardinals",
+                        "time_start": "2027-01-10T05:00:00+00:00",
+                        "time_end": "2027-01-10T09:00:00+00:00"
+                    }
+                ]
+            },
+            "10": {
+                "games": [
+                    {
+                        "team_1": "packers",
+                        "team_2": "vikings",
+                        "time_start": "2026-09-13T20:25:00+00:00",
+                        "time_end": "2026-09-14T00:25:00+00:00"
+                    },
+                    {
+                        "team_1": "jaguars",
+                        "team_2": "broncos",
+                        "time_start": "2026-09-20T20:05:00+00:00",
+                        "time_end": "2026-09-21T00:05:00+00:00"
+                    },
+                    {
+                        "team_1": "cardinals",
+                        "team_2": "49ers",
+                        "time_start": "2026-09-27T20:05:00+00:00",
+                        "time_end": "2026-09-28T00:05:00+00:00"
+                    },
+                    {
+                        "team_1": "broncos",
+                        "team_2": "49ers",
+                        "time_start": "2026-10-04T20:25:00+00:00",
+                        "time_end": "2026-10-05T00:25:00+00:00"
+                    },
+                    {
+                        "team_1": "lions",
+                        "team_2": "cardinals",
+                        "time_start": "2026-10-11T20:25:00+00:00",
+                        "time_end": "2026-10-12T00:25:00+00:00"
+                    },
+                    {
+                        "team_1": "chargers",
+                        "team_2": "chiefs",
+                        "time_start": "2026-10-18T20:25:00+00:00",
+                        "time_end": "2026-10-19T00:25:00+00:00"
+                    },
+                    {
+                        "team_1": "packers",
+                        "team_2": "lions",
+                        "time_start": "2026-10-25T20:25:00+00:00",
+                        "time_end": "2026-10-26T00:25:00+00:00"
+                    },
+                    {
+                        "team_1": "chiefs",
+                        "team_2": "broncos",
+                        "time_start": "2026-11-01T21:25:00+00:00",
+                        "time_end": "2026-11-02T01:25:00+00:00"
+                    },
+                    {
+                        "team_1": "cardinals",
+                        "team_2": "seahawks",
+                        "time_start": "2026-11-08T21:25:00+00:00",
+                        "time_end": "2026-11-09T01:25:00+00:00"
+                    },
+                    {
+                        "team_1": "49ers",
+                        "team_2": "cowboys",
+                        "time_start": "2026-11-15T21:25:00+00:00",
+                        "time_end": "2026-11-16T01:25:00+00:00"
+                    },
+                    {
+                        "team_1": "steelers",
+                        "team_2": "eagles",
+                        "time_start": "2026-11-22T21:25:00+00:00",
+                        "time_end": "2026-11-23T01:25:00+00:00"
+                    },
+                    {
+                        "team_1": "panthers",
+                        "team_2": "vikings",
+                        "time_start": "2026-12-06T21:25:00+00:00",
+                        "time_end": "2026-12-07T01:25:00+00:00"
+                    },
+                    {
+                        "team_1": "rams",
+                        "team_2": "49ers",
+                        "time_start": "2026-12-13T21:25:00+00:00",
+                        "time_end": "2026-12-14T01:25:00+00:00"
+                    },
+                    {
+                        "team_1": "broncos",
+                        "team_2": "raiders",
+                        "time_start": "2026-12-20T21:25:00+00:00",
+                        "time_end": "2026-12-21T01:25:00+00:00"
+                    },
+                    {
+                        "team_1": "jets",
+                        "team_2": "bills",
+                        "time_start": "2027-01-10T05:00:00+00:00",
+                        "time_end": "2027-01-10T09:00:00+00:00"
+                    }
+                ]
+            },
+            "11": {
+                "games": [
+                    {
+                        "team_1": "cardinals",
+                        "team_2": "chargers",
+                        "time_start": "2026-09-13T20:25:00+00:00",
+                        "time_end": "2026-09-14T00:25:00+00:00"
+                    },
+                    {
+                        "team_1": "seahawks",
+                        "team_2": "cardinals",
+                        "time_start": "2026-09-20T20:25:00+00:00",
+                        "time_end": "2026-09-21T00:25:00+00:00"
+                    },
+                    {
+                        "team_1": "ravens",
+                        "team_2": "cowboys",
+                        "time_start": "2026-09-27T20:25:00+00:00",
+                        "time_end": "2026-09-28T00:25:00+00:00"
+                    },
+                    {
+                        "team_1": "chargers",
+                        "team_2": "seahawks",
+                        "time_start": "2026-10-04T20:25:00+00:00",
+                        "time_end": "2026-10-05T00:25:00+00:00"
+                    },
+                    {
+                        "team_1": "patriots",
+                        "team_2": "dolphins",
+                        "time_start": "2026-11-01T21:25:00+00:00",
+                        "time_end": "2026-11-02T01:25:00+00:00"
+                    },
+                    {
+                        "team_1": "giants",
+                        "team_2": "seahawks",
+                        "time_start": "2026-12-13T21:25:00+00:00",
+                        "time_end": "2026-12-14T01:25:00+00:00"
+                    },
+                    {
+                        "team_1": "raiders",
+                        "team_2": "chiefs",
+                        "time_start": "2027-01-10T05:00:00+00:00",
+                        "time_end": "2027-01-10T09:00:00+00:00"
+                    }
+                ]
+            },
+            "12": {
+                "games": [
+                    {
+                        "team_1": "dolphins",
+                        "team_2": "49ers",
+                        "time_start": "2026-09-20T20:25:00+00:00",
+                        "time_end": "2026-09-21T00:25:00+00:00"
+                    },
+                    {
+                        "team_1": "raiders",
+                        "team_2": "saints",
+                        "time_start": "2026-09-27T20:25:00+00:00",
+                        "time_end": "2026-09-28T00:25:00+00:00"
+                    },
+                    {
+                        "team_1": "chiefs",
+                        "team_2": "raiders",
+                        "time_start": "2026-10-04T20:25:00+00:00",
+                        "time_end": "2026-10-05T00:25:00+00:00"
+                    },
+                    {
+                        "team_1": "bears",
+                        "team_2": "vikings",
+                        "time_start": "2027-01-10T05:00:00+00:00",
+                        "time_end": "2027-01-10T09:00:00+00:00"
+                    }
+                ]
+            },
+            "13": {
+                "games": [
+                    {
+                        "team_1": "steelers",
+                        "team_2": "ravens",
+                        "time_start": "2027-01-10T05:00:00+00:00",
+                        "time_end": "2027-01-10T09:00:00+00:00"
+                    }
+                ]
+            },
+            "14": {
+                "games": [
+                    {
+                        "team_1": "falcons",
+                        "team_2": "panthers",
+                        "time_start": "2027-01-10T05:00:00+00:00",
+                        "time_end": "2027-01-10T09:00:00+00:00"
+                    }
+                ]
+            },
+            "15": {
+                "games": [
+                    {
+                        "team_1": "buccaneers",
+                        "team_2": "saints",
+                        "time_start": "2027-01-10T05:00:00+00:00",
+                        "time_end": "2027-01-10T09:00:00+00:00"
                     }
                 ]
             }

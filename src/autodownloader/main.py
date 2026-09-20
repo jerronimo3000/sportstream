@@ -60,7 +60,7 @@ def get_network_requests(url: str):
 
 
 def get_m3u8_link(
-    url: str, timeout: int = 20000, raise_on_missing: bool = False
+    url: str, timeout: int = 30000, raise_on_missing: bool = False
 ) -> str:
     with sync_playwright() as p:
         browser = p.chromium.launch(
@@ -135,7 +135,7 @@ def get_stream(m3u8_link: m3u8_link) -> Stream:
 
 def save_stream_to_file(stream: Stream, output_file: str = "output.ts"):
     print(f"[+] Recording stream into '{output_file}'... Press Ctrl+C to stop.")
-
+    Path(output_file).parent.mkdir(parents=True, exist_ok=True)
     try:
         with stream.open() as stream_fd, open(output_file, "wb") as out_file:
             while True:
@@ -275,7 +275,7 @@ def find_m3u8_link(urls: str, num_retries: int = 5):
 
     return m3u8
 
-def attempt_function(function: callable,arguments: dict = {},num_retries: int = 10):
+def attempt_function(function: callable,arguments: dict = {},num_retries: int = 10,sleep_time: int = 0):
         attempts = 1
         while attempts <= num_retries:
             try:
@@ -284,8 +284,10 @@ def attempt_function(function: callable,arguments: dict = {},num_retries: int = 
             except Exception as e:
                 print(f"Error: {e} \nAttempt {attempts} of {num_retries} failed. Retrying...")
                 attempts += 1
-                if attempts > self.num_retries:
+                if attempts > num_retries:
                     raise RuntimeError("Maximum number of retries reached")
+                else:
+                    time.sleep(sleep_time)
 
 @app.get("/<string:sport>/<int:channel_index>")
 def restream(sport: str, channel_index: int):
@@ -293,33 +295,39 @@ def restream(sport: str, channel_index: int):
     print(f"USER AGENT: {user_agent}")
     print(f"This is the sport: {sport}", flush=True)
     game_retriever = Game_data_manager(sport,channel_index)
-    active_team = game_retriever.currently_playing_team
-    #active_team = "athletics"
-    if not active_team:
-        print(f"No active game found for {sport} on channel slot {channel_index}", flush=True)
-        return Response("No active game scheduled right now.", status=404, mimetype="text/plain")
-
-    print(f"{active_team} are playing {sport} right now", flush=True)
-
-    game_data_manager = Game_data_manager(sport,channel_index)
-    m3u8_retriever = m3u8_url_finder(active_team)
     try:
-        game_page_url = game_data_manager.get_cached_game_url()
-    except:
-        game_page_url = m3u8_retriever.get_game_page_url()
-        #m3u8_link = m3u8_retriever.get_m3u8_link()
-        game_data_manager.write_m3u8_info(game_page_url=game_page_url)
-    
-    if is_recording_request(user_agent):
-        print("Recording initiated. Saving to disk")
-        m3u8_link = m3u8_retriever.get_m3u8_link()
-        stream = attempt_function(get_stream,{"m3u8_link": m3u8_link})
-        recording_writer = Recording_writer(game_data_manager.active_game)
+        active_team = game_retriever.currently_playing_team
+        #active_team = "athletics"
+        if not active_team:
+            print(f"No active game found for {sport} on channel slot {channel_index}", flush=True)
+            return Response("No active game scheduled right now.", status=404, mimetype="text/plain")
 
-        output_file = f"/run/media/system/Games/media_share/TV Shows/{recording_writer.recording_end_filepath()}"
-        save_stream_to_file(stream,output_file=output_file)
-    else:
-        return Response(generate(game_page_url=game_page_url), mimetype="video/mp2t")
+        print(f"{active_team} are playing {sport} right now", flush=True)
+
+        game_data_manager = Game_data_manager(sport,channel_index)
+        m3u8_retriever = m3u8_url_finder(active_team)
+
+        if not game_data_manager.get_cached_game_url() == "":
+            game_page_url = game_data_manager.get_cached_game_url()
+        else:
+            game_page_url = m3u8_retriever.get_game_page_url()
+            #m3u8_link = m3u8_retriever.get_m3u8_link()
+            game_data_manager.write_m3u8_info(game_page_url=game_page_url)
+        
+        if is_recording_request(user_agent):
+            print(f"Attempting to record {active_team}")
+            m3u8_link = m3u8_retriever.get_m3u8_link()
+            stream = attempt_function(get_stream,{"m3u8_link": m3u8_link},sleep_time=5)
+            recording_writer = Recording_writer(game_data_manager.active_game)
+
+            output_file = f"/run/media/system/Games/media_share/TV Shows/{recording_writer.recording_end_filepath()}"
+            save_stream_to_file(stream,output_file=output_file)
+        else:
+            return Response(generate(game_page_url=game_page_url), mimetype="video/mp2t")
+
+    except Exception as e:
+        print(f"ERROR: {e}")
+        return Response("Not Found", status=404)
 
 def is_recording_request(user_agent: str) -> bool:
     return "JELLYFIN-SERVER" in user_agent.upper()
@@ -397,7 +405,7 @@ class Game_data_manager:
         games = self.find_possible_games()
         for game in games:
             if self.game_is_on_now(game):
-                league = self.team_data[game["team_1"]]
+                league = self.team_data[game["team_1"]]["league"]
                 return Game(sport=self.sport,league=league,**game)
 
     @cached_property
@@ -429,6 +437,7 @@ class Game:
     team_2: str
     time_start: datetime
     time_end: datetime
+    game_page_url: str = ""
 
 def convert_to_str_with_leading_zeroes(num: int,output_digits: int) -> str:
     num_str = str(num)
@@ -448,14 +457,14 @@ class Recording_writer:
 
     def recording_end_filepath(self) -> str:
         season = self.get_season()
-        game_month= convert_to_str_with_leading_zeroes(self.game.time_start.month,2)
-        game_day = convert_to_str_with_leading_zeroes(self.game.time_start.day,2)
+        game_month= convert_to_str_with_leading_zeroes(datetime.fromisoformat(self.game.time_start).month,2)
+        game_day = convert_to_str_with_leading_zeroes(datetime.fromisoformat(self.game.time_start).day,2)
         return f"{self.game.league} {self.game.sport}/Season {season}/{self.game.league} {self.game.sport} - S{season}E{game_month}{game_day} - {self.game.team_1} @ {self.game.team_2}.ts"
 
 
     def get_season(self):
-        game_month = self.game.time_start.month
-        game_year = self.game.time_start.year
+        game_month = datetime.fromisoformat(self.game.time_start).month
+        game_year = datetime.fromisoformat(self.game.time_start).year
 
         if self.season_crosses_years and game_month < self.league_month_end:
             season = game_year - 1
@@ -491,4 +500,4 @@ class Recording_writer:
 
 def start_server():
     #pass
-    app.run(host="0.0.0.0", port=8900)
+    app.run(host="0.0.0.0", port=8900, threaded=True)

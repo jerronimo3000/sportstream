@@ -2,6 +2,7 @@ from pytest import fixture
 from autodownloader import *
 from datetime import datetime
 from pathlib import Path
+import pytz
 
 @fixture
 def schedule():
@@ -13,8 +14,8 @@ def schedule():
                         {
                             "team_1": "dodgers",
                             "team_2": "reds",
-                            "time_start": "2026-09-14T22:40:00+00:00",
-                            "time_end": "2026-09-15T01:40:00+00:00"
+                            "time_start": "2026-09-10T22:40:00+00:00",
+                            "time_end": "2026-11-15T01:40:00+00:00"
                         }
                     ]
                 }
@@ -46,9 +47,15 @@ def game():
         league="MLB",
         team_1="dodgers",
         team_2="reds",
-        time_start=datetime.fromisoformat("2026-09-14T22:40:00+00:00"),
-        time_end=datetime.fromisoformat("2026-09-15T01:40:00+00:00")
+        time_start=datetime.fromisoformat("2026-09-10T22:40:00+00:00"),
+        time_end=datetime.fromisoformat("2026-11-15T01:40:00+00:00")
     )
+
+
+def test_active_game_data(schedule):
+    game_manager = Game_data_manager("baseball",4)
+    assert game_manager.active_game.team_1 == "rockies"
+    assert game_manager.active_game.league == "MLB"
 
 def test_sport_recording_directory(recorder,game):
     print(recorder.game.time_start)

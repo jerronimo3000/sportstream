@@ -1,3 +1,4 @@
-from autodownloader import start_server
+from autodownloader import *
 
 start_server()
+

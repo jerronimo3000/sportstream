@@ -1,9 +1,125 @@
 {
+    "49ers": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "bears": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "bengals": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "bills": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "broncos": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "browns": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "buccaneers": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "cardinals": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
     "chargers": {
         "sport": "football",
         "league": "NFL"
     },
+    "chiefs": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "colts": {
+        "sport": "football",
+        "league": "NFL"
+    },
     "commanders": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "cowboys": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "dolphins": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "eagles": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "falcons": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "giants": {
+        "sport": "baseball",
+        "league": "MLB"
+    },
+    "jaguars": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "jets": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "lions": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "packers": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "panthers": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "patriots": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "raiders": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "rams": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "ravens": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "saints": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "seahawks": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "steelers": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "texans": {
+        "sport": "football",
+        "league": "NFL"
+    },
+    "titans": {
         "sport": "football",
         "league": "NFL"
     },
@@ -155,10 +271,6 @@
         "sport": "baseball",
         "league": "MLB"
     },
-    "cardinals": {
-        "sport": "baseball",
-        "league": "MLB"
-    },
     "cubs": {
         "sport": "baseball",
         "league": "MLB"
@@ -168,10 +280,6 @@
         "league": "MLB"
     },
     "dodgers": {
-        "sport": "baseball",
-        "league": "MLB"
-    },
-    "giants": {
         "sport": "baseball",
         "league": "MLB"
     },
