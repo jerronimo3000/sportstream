@@ -89,30 +89,44 @@ class Sportsurge(Site_plugin):
 
             page.goto(self.get_base_url(team_name=team_name))
 
-            #streaming_list_elem = page.locator("a").filter(has_text=team_name).first
             with page.expect_navigation(wait_until="domcontentloaded",timeout=10000):
                 page.locator("a").filter(has_text=team_name).first.click(timeout=10000)
-            #stream_list_appendix = streaming_list_elem.get_attribute("href")
-            #stream_list_url = f"{self.base_url}/{stream_list_appendix}"
-            #print(stream_list_url)
 
-            #page.goto(stream_list_url)
-
-            # if provider is None:
-            #     game_url = []
-            #     for site in self.preferred_sites[sport]:
-            #         streaming_site_elems_search = page.locator("div.stream-item").filter(has_text=site)
-            #         if streaming_site_elems_search.count() > 0:
-            #             game_url.append(streaming_site_elems_search.first.get_attribute("data-href"))
-            #         else:
-            #             raise ValueError("could not find streaming site")
-            # else:
             streaming_site_elems_search = page.locator("div.stream-item").filter(has_text=provider)
             if streaming_site_elems_search.count() > 0:
                 game_url = streaming_site_elems_search.first.get_attribute("data-href")
             else:
                 raise ValueError("could not find streaming site")
                 browser.close()
+            return game_url
 
 
+
+    def get_current_game_url_all(self,team_name: str,provider: str = None,retries: int = 10) -> str:
+         with sync_playwright() as p:
+            browser = p.chromium.launch(
+                headless=False,  # Must be False so the player initializes
+                args=[
+                    "--disable-blink-features=AutomationControlled",
+                    "--no-sandbox"
+                ]
+            )
+            context = browser.new_context(
+                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+                viewport={"width": 3840, "height": 2160}
+            )
+
+            page = browser.new_page()
+
+            page.goto(self.get_base_url(team_name=team_name))
+
+            with page.expect_navigation(wait_until="domcontentloaded",timeout=10000):
+                page.locator("a").filter(has_text=team_name).first.click(timeout=10000)
+
+            streaming_site_elems_search = page.locator("div.stream-item").filter(has_text=provider)
+            if streaming_site_elems_search.count() > 0:
+                game_url = [elem.get_attribute("data-href") for elem in streaming_site_elems_search.all()]
+            else:
+                raise ValueError("could not find streaming site")
+                browser.close()
             return game_url

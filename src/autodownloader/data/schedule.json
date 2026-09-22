@@ -11613,13 +11613,15 @@
                         "team_1": "colts",
                         "team_2": "chiefs",
                         "time_start": "2026-09-21T00:20:00+00:00",
-                        "time_end": "2026-09-21T04:20:00+00:00"
+                        "time_end": "2026-09-21T04:20:00+00:00",
+                        "game_page_url": "https://streameast.ga/nfl/indianapolis-colts-vs-kansas-city-chiefs-1/"
                     },
                     {
                         "team_1": "giants",
                         "team_2": "rams",
                         "time_start": "2026-09-22T00:15:00+00:00",
-                        "time_end": "2026-09-22T04:15:00+00:00"
+                        "time_end": "2026-09-22T04:15:00+00:00",
+                        "game_page_url": "https://streameast.ga/mlb/minnesota-twins-vs-san-francisco-giants/"
                     },
                     {
                         "team_1": "falcons",
@@ -12971,7 +12973,8 @@
                         "team_1": "jaguars",
                         "team_2": "broncos",
                         "time_start": "2026-09-20T20:05:00+00:00",
-                        "time_end": "2026-09-21T00:05:00+00:00"
+                        "time_end": "2026-09-21T00:05:00+00:00",
+                        "game_page_url": "https://streameast.ga/nfl/jacksonville-jaguars-vs-denver-broncos-1/"
                     },
                     {
                         "team_1": "cardinals",
@@ -13065,7 +13068,8 @@
                         "team_1": "seahawks",
                         "team_2": "cardinals",
                         "time_start": "2026-09-20T20:25:00+00:00",
-                        "time_end": "2026-09-21T00:25:00+00:00"
+                        "time_end": "2026-09-21T00:25:00+00:00",
+                        "game_page_url": "https://streameast.ga/nfl/seattle-seahawks-vs-arizona-cardinals/"
                     },
                     {
                         "team_1": "ravens",
@@ -13105,7 +13109,8 @@
                         "team_1": "dolphins",
                         "team_2": "49ers",
                         "time_start": "2026-09-20T20:25:00+00:00",
-                        "time_end": "2026-09-21T00:25:00+00:00"
+                        "time_end": "2026-09-21T00:25:00+00:00",
+                        "game_page_url": "https://streameast.ga/nfl/miami-dolphins-vs-san-francisco-49ers/"
                     },
                     {
                         "team_1": "raiders",

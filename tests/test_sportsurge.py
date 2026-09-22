@@ -1,17 +1,15 @@
-from autodownloader import Sportsurge
+from autodownloader import *
+from pytest import fixture
 
-def test_base_url_from_team_NFL():
-    site = Sportsurge()
-    assert site.get_base_url(team_name="vikings") == "https://v2.sportsurge.net/watch-nfl-streams/"
+@fixture
+def team() -> str:
+    return "vikings"
 
-def test_base_url_from_team_NBA():
-    site = Sportsurge()
-    assert site.get_base_url(team_name="thunder") == "https://v2.sportsurge.net/watch-basketball-streams/"
+@fixture
+def site():
+    return Sportsurge()
 
-def test_get_game_url_team_NFL():
-    site = Sportsurge()
-    url = site.get_current_game_url(team_name="commanders")
-    print(f"This is the URL: {url}")
-    assert url is not None
-
-test_get_game_url_team_NFL()
+def test_get_all_possible_urls(site,team):
+    game_urls = site.get_current_game_url_all(team)
+    print('\n'.join(game_urls))
+    assert len(game_urls) > 1
