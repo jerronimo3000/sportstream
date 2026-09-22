@@ -60,7 +60,7 @@ def get_network_requests(url: str):
 
 
 def get_m3u8_link(
-    url: str, timeout: int = 30000, raise_on_missing: bool = False
+    webpage_url: str, timeout: int = 30000, raise_on_missing: bool = False
 ) -> str:
     with sync_playwright() as p:
         browser = p.chromium.launch(
@@ -78,13 +78,13 @@ def get_m3u8_link(
         page = browser.new_page()
 
         try:
-            print(f"opening url and waiting for m3u8 request ({url})")
+            print(f"opening url and waiting for m3u8 request ({webpage_url})")
             with page.expect_request(lambda req: ".m3u8" in req.url, timeout=timeout) as request_info:
-                page.goto(url=url, wait_until="domcontentloaded")
+                page.goto(url=webpage_url, wait_until="domcontentloaded")
                 page.wait_for_timeout(4000)
 
             request = request_info.value
-            referer = request.headers.get("referer", url)
+            referer = request.headers.get("referer", webpage_url)
             user_agent = request.headers.get("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0")
 
             cookies = context.cookies()
@@ -264,7 +264,7 @@ def find_m3u8_link(urls: str, num_retries: int = 5):
     print("Finding a new M3U8 stream...")
     for url in urls:
         for i in range(3):
-            m3u8 = get_m3u8_url(url,timeout=5000)
+            m3u8 = get_m3u8_link(url,timeout=5000)
             if m3u8 is not None:
                 break
         if m3u8 is not None:
