@@ -447,6 +447,7 @@ def convert_to_str_with_leading_zeroes(num: int,output_digits: int) -> str:
         leading_zeroes = ["0"]*(output_digits - len(num_str))
         formatted_num = "".join([*leading_zeroes,num_str])
     return formatted_num
+
 class Recording_writer:
     def __init__(self,game: Game):
         self.game = game
