@@ -1511,7 +1511,8 @@
                         "team_1": "brewers",
                         "team_2": "phillies",
                         "time_start": "2026-09-22T22:40:00+00:00",
-                        "time_end": "2026-09-23T01:40:00+00:00"
+                        "time_end": "2026-09-23T01:40:00+00:00",
+                        "game_page_url": "https://streameast.ga/mlb/milwaukee-brewers-vs-philadelphia-phillies/"
                     },
                     {
                         "team_1": "red sox",
@@ -3349,7 +3350,8 @@
                         "team_1": "cardinals",
                         "team_2": "pirates",
                         "time_start": "2026-09-22T22:40:00+00:00",
-                        "time_end": "2026-09-23T01:40:00+00:00"
+                        "time_end": "2026-09-23T01:40:00+00:00",
+                        "game_page_url": "https://streameast.ga/mlb/st-louis-cardinals-vs-pittsburgh-pirates-5/"
                     },
                     {
                         "team_1": "giants",
@@ -4241,7 +4243,8 @@
                         "team_1": "nationals",
                         "team_2": "tigers",
                         "time_start": "2026-09-22T22:40:00+00:00",
-                        "time_end": "2026-09-23T01:40:00+00:00"
+                        "time_end": "2026-09-23T01:40:00+00:00",
+                        "game_page_url": "https://streameast.ga/mlb/washington-nationals-vs-detroit-tigers-1/"
                     },
                     {
                         "team_1": "reds",

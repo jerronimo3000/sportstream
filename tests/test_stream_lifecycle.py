@@ -15,14 +15,26 @@ def m3u8_link(livestream_site) -> str:
 def stream_manager(m3u8_link):
     return Stream_manager(m3u8_link)
 
-
-
-def test_stream_metadata_acquisition(stream_manager):
-    for i in range(6):
-        stream_manager.update_cached_streams()
-        time.sleep(3)
-
 def test_stream_connection_state_transition(stream_manager):
     stream_manager.update_cached_streams()
     stream_manager.stream()
     stream_manager.close_all_streams()
+
+def test_stream_warmer(stream_manager):
+    start_time = time.perf_counter() 
+    while time.perf_counter() - start_time < 10:
+        pass
+    stream_manager._stream()
+    stream_manager.stop_threading()
+    assert stream_manager.cached_streams is not None
+
+def test_stream_on_demand_fetch(stream_manager):
+    stream_manager.stream()
+    stream_manager.close_all_streams()
+    assert stream_manager.cached_streams is not None
+
+def test_stream(stream_manager):
+    time_start = time.perf_counter()
+    while time.perf_counter() - time_start < 5:
+        data = stream_manager.stream()
+        assert data is not None
