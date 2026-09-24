@@ -4,7 +4,7 @@ import time
 
 @fixture
 def livestream_site() -> str:
-    return "https://abc.com/watch-live/784b058c-3aee-4ec9-a6d3-754ba6e4dbac"
+    return "https://www.earthcam.com/usa/texas/dallas/reuniontower/?cam=reuniontower"
     #return "https://v2.streameast.ga/mlb/tampa-bay-rays-vs-new-york-yankees-4/"
 @fixture
 def m3u8_link(livestream_site) -> str:
@@ -12,8 +12,8 @@ def m3u8_link(livestream_site) -> str:
     return m3u8_link
 
 @fixture
-def stream_manager(m3u8_link):
-    return Stream_manager(m3u8_link)
+def stream_manager(livestream_site):
+    return Stream_manager(game_page_url=livestream_site)
 
 def test_stream_connection_state_transition(stream_manager):
     stream_manager.update_cached_streams()
@@ -36,5 +36,17 @@ def test_stream_on_demand_fetch(stream_manager):
 def test_stream(stream_manager):
     time_start = time.perf_counter()
     while time.perf_counter() - time_start < 5:
-        data = stream_manager.stream()
+        stream = stream_manager.stream()
+        data = next(stream)
         assert data is not None
+
+@fixture
+def stream_coordinator():
+    return Stream_coordinator()
+
+def test_stream_game(stream_coordinator,stream_manager):
+    stream_coordinator.add_stream_manager(stream_manager,1)
+    stream = stream_coordinator.stream(game_id=1)
+    data = next(stream)
+    print(data)
+    assert data is not None

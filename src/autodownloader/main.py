@@ -6,6 +6,7 @@ import subprocess
 import time
 import requests
 import streamlink
+from streamlink import Streamlink
 from pathlib import Path
 from flask import Flask, Response, request,send_file
 from streamlink.stream.stream import Stream
@@ -17,6 +18,8 @@ from functools import cached_property
 import json
 from zoneinfo import ZoneInfo
 from .constants import Constants
+from enum import StrEnum
+import threading
 
 app = Flask(__name__)
 
@@ -60,7 +63,7 @@ def get_network_requests(url: str):
 
 
 def get_m3u8_link(
-    webpage_url: str, timeout: int = 30000, raise_on_missing: bool = False
+    webpage_url: str, timeout: int = 30000, num_retries: int = 3, raise_on_missing: bool = False
 ) -> str:
     with sync_playwright() as p:
         browser = p.chromium.launch(
@@ -77,32 +80,38 @@ def get_m3u8_link(
 
         page = browser.new_page()
 
-        try:
-            print(f"opening url and waiting for m3u8 request ({webpage_url})")
-            with page.expect_request(lambda req: ".m3u8" in req.url, timeout=timeout) as request_info:
-                page.goto(url=webpage_url, wait_until="domcontentloaded")
-                page.wait_for_timeout(4000)
+        for i in range(num_retries):
+            attempt = i+1
+            try:
+                print(f"opening url and waiting for m3u8 request ({webpage_url})")
+                with page.expect_request(lambda req: ".m3u8" in req.url, timeout=timeout) as request_info:
+                    page.goto(url=webpage_url, wait_until="domcontentloaded")
+                    page.wait_for_timeout(4000)
 
-            request = request_info.value
-            referer = request.headers.get("referer", webpage_url)
-            user_agent = request.headers.get("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0")
+                request = request_info.value
+                referer = request.headers.get("referer", webpage_url)
+                user_agent = request.headers.get("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0")
 
-            cookies = context.cookies()
-            cookie_str = "; ".join([f"{c['name']}={c['value']}" for c in cookies])
+                cookies = context.cookies()
+                cookie_str = "; ".join([f"{c['name']}={c['value']}" for c in cookies])
 
-            print(f"FOUND M3U8 ULR: {request.url}")
-            return m3u8_link(
-                url=request.url,
-                referer=referer,
-                user_agent=user_agent,
-                cookies_header=cookie_str
-            )
-            
-        except Exception as e:
-            print(f"[!] Error intercepting M3U8: {e}")
-            return None
-        finally:
-            browser.close()
+                print(f"FOUND M3U8 ULR: {request.url}")
+                return m3u8_link(
+                    url=request.url,
+                    referer=referer,
+                    user_agent=user_agent,
+                    cookies_header=cookie_str
+                )
+                
+            except Exception as e:
+                print(f"[!] Error intercepting M3U8: {e}")
+                if attempt < num_retries:
+                    print(f"Retrying...({attempt+1} of {num_retries})")
+                else:
+                    browser.close()
+                    return None
+        browser.close()
+
 
 def get_stream(m3u8_link: m3u8_link) -> Stream:
     if not m3u8_link:
@@ -289,46 +298,172 @@ def attempt_function(function: callable,arguments: dict = {},num_retries: int = 
                 else:
                     time.sleep(sleep_time)
 
+
+class Stream_manager:
+    def __init__(self,game_page_url: str, m3u8_link: m3u8_link = None):
+        self.game_page_url = game_page_url
+        self.initialize_m3u8_variables(m3u8_link)
+        self.initialize_stream_variables()
+        self.initialize_session()
+        self.initialize_threading()
+    def initialize_m3u8_variables(self,m3u8_link: m3u8_link):
+        if m3u8_link is None:
+            self.get_m3u8_link()
+        self.update_hls_url()
+    def initialize_stream_variables(self):
+        self.stream_fd: dict[str,StreamIO] = {}
+        self.cached_streams: dict[str,str] | None = None
+        self.streaming = False
+    def initialize_session(self):
+        session = self.session = Streamlink()
+        session.set_option("hls-playlist-reload-attempts",5)
+        session.set_option("http-headers", {
+            "User-Agent": self.m3u8_link.user_agent,
+            "Referer": self.m3u8_link.referer
+        })
+    def initialize_threading(self):
+        self.lock = threading.Lock()
+        self.warmer_thread = warmer_thread = threading.Thread(target=self.warm_stream, daemon=True)
+        warmer_thread.start()
+    def stop_threading(self):
+        if self.warmer_thread and self.warmer_thread.is_alive():
+            self.warmer_thread.join(timeout=2)
+    def get_m3u8_link(self):
+        self.m3u8_link = get_m3u8_link(self.game_page_url)
+    def update_hls_url(self):
+        m3u8_url = self.m3u8_link.url
+        self.hls_url = m3u8_url if m3u8_url.startswith("hls://") else f"hls://{m3u8_url}"
+
+    def update_cached_streams(self):
+        streams = self.session.streams(self.hls_url)
+        with self.lock:
+            self.cached_streams = streams
+    def warm_stream(self):
+        while True:
+            with self.lock:
+                if self.streaming:
+                    break
+            try:
+                self.update_cached_streams()
+                time.sleep(5)
+            except Exception as e:
+                print(e)
+                self.get_m3u8_link()
+                self.update_hls_url()
+
+    def open_stream(self,quality: str):
+        self.stream_fd[quality] = self.cached_streams[quality].open()
+
+    def close_stream(self,quality: str):
+        if quality in self.stream_fd:
+            http_timeout = self.session.get_option("http-timeout")
+            stream_timeout = self.session.get_option("stream-timeout")
+            self.session.set_option("http-timeout", 0.1)
+            self.session.set_option("stream-timeout", 0.1)
+            self.stream_fd[quality].close()
+            self.session.set_option("http-timeout", http_timeout)
+            self.session.set_option("stream-timeout", stream_timeout)
+        else:
+            print(f"'{quality}' not in open stream set. Skipping...")
+
+    def close_all_streams(self):
+        for stream_qualtiy in self.stream_fd:           
+            self.close_stream(stream_qualtiy)
+
+    def get_stream_chunk(self,quality: str,bytes: int = 64 * 1024):
+        return self.stream_fd[quality].read(bytes)
+    
+    def stream(self):
+        if not self.cached_streams:
+            self.update_cached_streams()
+        for i in range(4): 
+            try:
+                yield from self._stream()
+            except Exception as e:
+                print(e)
+                print("Attempting to update m3u8 url ({i+1} of {3})")
+                self.get_m3u8_link()
+                self.update_hls_url()
+                self.update_cached_streams()
+
+
+
+    def _stream(self):
+        self.streaming = True
+        self.open_stream("best")
+        try:
+            while True:
+                data = self.get_stream_chunk("best")
+                if not data:
+                    print("Stream has ended")
+                    break
+                yield data
+        finally:
+            print("closing stream")
+            self.close_all_streams()
+            self.streaming = False
+
+
+
+class Stream_coordinator:
+    def __init__(self):
+        self.stream_managers: dict[str, Stream_manager] = {}
+
+    def add_stream_manager(self,stream_manager: Stream_manager, game_id: str):
+        if not game_id in self.stream_managers:
+            self.stream_managers[game_id] = stream_manager
+
+    def stream(self,game_id: str):
+        yield from self.stream_managers[game_id].stream()
+
+
+    
+
+COORDINATOR = Stream_coordinator()
+
 @app.get("/<string:sport>/<int:channel_index>")
 def restream(sport: str, channel_index: int):
-    user_agent = request.headers.get("User-Agent", "")
-    print(f"USER AGENT: {user_agent}")
-    print(f"This is the sport: {sport}", flush=True)
-    game_retriever = Game_data_manager(sport,channel_index)
-    try:
-        active_team = game_retriever.currently_playing_team
-        #active_team = "athletics"
-        if not active_team:
-            print(f"No active game found for {sport} on channel slot {channel_index}", flush=True)
-            return Response("No active game scheduled right now.", status=404, mimetype="text/plain")
+    #user_agent = request.headers.get("User-Agent", "")
+    #print(f"USER AGENT: {user_agent}")
+    #print(f"This is the sport: {sport}", flush=True)
+    #game_retriever = Game_data_manager(sport,channel_index)
+    #try:
+        #active_team = game_retriever.currently_playing_team
+        ##active_team = "athletics"
+        #if not active_team:
+            #print(f"No active game found for {sport} on channel slot {channel_index}", flush=True)
+            #return Response("No active game scheduled right now.", status=404, mimetype="text/plain")
 
-        print(f"{active_team} are playing {sport} right now", flush=True)
+        #print(f"{active_team} are playing {sport} right now", flush=True)
 
-        game_data_manager = Game_data_manager(sport,channel_index)
-        m3u8_retriever = m3u8_url_finder(active_team)
+        #game_data_manager = Game_data_manager(sport,channel_index)
+        #m3u8_retriever = m3u8_url_finder(active_team)
 
-        if not game_data_manager.get_cached_game_url() == "":
-            game_page_url = game_data_manager.get_cached_game_url()
-        else:
-            game_page_url = m3u8_retriever.get_game_page_url()
-            #m3u8_link = m3u8_retriever.get_m3u8_link()
-            game_data_manager.write_m3u8_info(game_page_url=game_page_url)
+        #if not game_data_manager.get_cached_game_url() == "":
+            #game_page_url = game_data_manager.get_cached_game_url()
+        #else:
+            #game_page_url = m3u8_retriever.get_game_page_url()
+            ##m3u8_link = m3u8_retriever.get_m3u8_link()
+            #game_data_manager.write_m3u8_info(game_page_url=game_page_url)
         
-        if is_recording_request(user_agent):
-            print(f"Attempting to record {active_team}")
-            m3u8_link = m3u8_retriever.get_m3u8_link()
-            stream = attempt_function(get_stream,{"m3u8_link": m3u8_link},sleep_time=5)
-            recording_writer = Recording_writer(game_data_manager.active_game)
+        #if is_recording_request(user_agent):
+            #print(f"Attempting to record {active_team}")
+            #m3u8_link = m3u8_retriever.get_m3u8_link()
+            #stream = attempt_function(get_stream,{"m3u8_link": m3u8_link},sleep_time=5)
+            #recording_writer = Recording_writer(game_data_manager.active_game)
 
-            output_file = f"/run/media/system/Games/media_share/TV Shows/{recording_writer.recording_end_filepath()}"
-            save_stream_to_file(stream,output_file=output_file)
-        else:
-            return Response(generate(game_page_url=game_page_url), mimetype="video/mp2t")
+            #output_file = f"/run/media/system/Games/media_share/TV Shows/{recording_writer.recording_end_filepath()}"
+            #save_stream_to_file(stream,output_file=output_file)
+        #else:
+            #return Response(generate(game_page_url=game_page_url), mimetype="video/mp2t")
 
-    except Exception as e:
-        print(f"ERROR: {e}")
-        return Response("Not Found", status=404)
-
+    #except Exception as e:
+        #print(f"ERROR: {e}")
+        #return Response("Not Found", status=404)
+    if not "1" in COORDINATOR.stream_managers:
+        stream = Stream_manager(game_page_url="https://www.earthcam.com/usa/texas/dallas/reuniontower/?cam=reuniontower")
+        COORDINATOR.add_stream_manager(stream,"1")
+    return Response(COORDINATOR.stream("1"), mimetype="video/mp2t")
 def is_recording_request(user_agent: str) -> bool:
     return "JELLYFIN-SERVER" in user_agent.upper()
 

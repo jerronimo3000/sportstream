@@ -92,3 +92,18 @@ class Stream_manager:
             print("closing stream")
             self.close_all_streams()
             self.streaming = False
+
+
+
+class Stream_coordinator:
+    def __init__(self):
+        self.stream_managers: dict[str, Stream_manager] = {}
+
+    def add_stream_manager(self,stream_manager: Stream_manager, game_id: str):
+        self.stream_managers[game_id] = stream_manager
+
+    def stream(self,game_id: str):
+        yield from self.stream_managers[game_id].stream()
+
+
+    
