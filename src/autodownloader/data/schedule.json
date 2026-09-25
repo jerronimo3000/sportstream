@@ -2455,7 +2455,8 @@
                         "team_2": "dodgers",
                         "time_start": "2026-09-25T02:10:00+00:00",
                         "time_end": "2026-09-25T05:10:00+00:00",
-                        "id": "222609250210"
+                        "id": "222609250210",
+                        "game_page_url": "https://streameast.ga/mlb/san-diego-padres-vs-los-angeles-dodgers-7/"
                     },
                     {
                         "team_1": "blue jays",

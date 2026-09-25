@@ -525,7 +525,7 @@ def restream(sport: str, channel_index: int):
         print(f"{active_team} are playing {sport} right now", flush=True)
 
         game_data_manager = Game_data_manager(sport,channel_index)
-        m3u8_retriever = 
+        m3u8_retriever = m3u8_url_finder(team=active_team)
         if not game_data_manager.get_cached_game_url() == "":
             game_page_url = game_data_manager.get_cached_game_url()
         else:
@@ -535,7 +535,7 @@ def restream(sport: str, channel_index: int):
         if not game.id in COORDINATOR.stream_managers:
             stream = Stream_manager(game_page_url=game_page_url)
             COORDINATOR.add_stream_manager(stream,game.id)
-        client_id = COORDINATOR.get_next_available_client_id("1")
+        client_id = COORDINATOR.get_next_available_client_id(game.id)
         COORDINATOR.add_client(game.id,client_id)   
         if is_recording_request(user_agent):
             print(f"Attempting to record {active_team}")
