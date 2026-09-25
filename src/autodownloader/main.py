@@ -511,51 +511,47 @@ COORDINATOR = Stream_coordinator()
 def restream(sport: str, channel_index: int):
     if request.method == "HEAD":
         return Response(status=200, mimetype="video/mp2t")
-    #user_agent = request.headers.get("User-Agent", "")
-    #print(f"USER AGENT: {user_agent}")
-    #print(f"This is the sport: {sport}", flush=True)
-    #game_retriever = Game_data_manager(sport,channel_index)
-    #try:
-        #active_team = game_retriever.currently_playing_team
-        ##active_team = "athletics"
-        #if not active_team:
-            #print(f"No active game found for {sport} on channel slot {channel_index}", flush=True)
-            #return Response("No active game scheduled right now.", status=404, mimetype="text/plain")
+    user_agent = request.headers.get("User-Agent", "")
+    print(f"USER AGENT: {user_agent}")
+    print(f"This is the sport: {sport}", flush=True)
+    game_retriever = Game_data_manager(sport,channel_index)
+    try:
+        active_team = game_retriever.currently_playing_team
+        #active_team = "athletics"
+        if not active_team:
+            print(f"No active game found for {sport} on channel slot {channel_index}", flush=True)
+            return Response("No active game scheduled right now.", status=404, mimetype="text/plain")
 
-        #print(f"{active_team} are playing {sport} right now", flush=True)
+        print(f"{active_team} are playing {sport} right now", flush=True)
 
-        #game_data_manager = Game_data_manager(sport,channel_index)
-        #m3u8_retriever = m3u8_url_finder(active_team)
+        game_data_manager = Game_data_manager(sport,channel_index)
+        m3u8_retriever = 
+        if not game_data_manager.get_cached_game_url() == "":
+            game_page_url = game_data_manager.get_cached_game_url()
+        else:
+            game_page_url = m3u8_retriever.get_game_page_url()
+            game_data_manager.write_m3u8_info(game_page_url=game_page_url)
+        game = game_data_manager.active_game
+        if not game.id in COORDINATOR.stream_managers:
+            stream = Stream_manager(game_page_url=game_page_url)
+            COORDINATOR.add_stream_manager(stream,game.id)
+        client_id = COORDINATOR.get_next_available_client_id("1")
+        COORDINATOR.add_client(game.id,client_id)   
+        if is_recording_request(user_agent):
+            print(f"Attempting to record {active_team}")
+            m3u8_link = m3u8_retriever.get_m3u8_link()
+            stream = attempt_function(get_stream,{"m3u8_link": m3u8_link},sleep_time=5)
+            recording_writer = Recording_writer(game_data_manager.active_game)
 
-        #if not game_data_manager.get_cached_game_url() == "":
-            #game_page_url = game_data_manager.get_cached_game_url()
-        #else:
-            #game_page_url = m3u8_retriever.get_game_page_url()
-            ##m3u8_link = m3u8_retriever.get_m3u8_link()
-            #game_data_manager.write_m3u8_info(game_page_url=game_page_url)
-        
-        #if is_recording_request(user_agent):
-            #print(f"Attempting to record {active_team}")
-            #m3u8_link = m3u8_retriever.get_m3u8_link()
-            #stream = attempt_function(get_stream,{"m3u8_link": m3u8_link},sleep_time=5)
-            #recording_writer = Recording_writer(game_data_manager.active_game)
+            output_file = f"/run/media/system/Games/media_share/TV Shows/{recording_writer.recording_end_filepath()}"
+            save_stream_to_file(stream,output_file=output_file)
+        else:
+            return Response(COORDINATOR.stream(game.id,client_id), mimetype="video/mp2t")
 
-            #output_file = f"/run/media/system/Games/media_share/TV Shows/{recording_writer.recording_end_filepath()}"
-            #save_stream_to_file(stream,output_file=output_file)
-        #else:
-            #return Response(generate(game_page_url=game_page_url), mimetype="video/mp2t")
-
-    #except Exception as e:
-        #print(f"ERROR: {e}")
-        #return Response("Not Found", status=404)
-    if not "1" in COORDINATOR.stream_managers:
-        #stream = Stream_manager(game_page_url="https://www.earthcam.com/usa/texas/dallas/reuniontower/?cam=reuniontower")
-        #stream = Stream_manager(game_page_url="https://kick.com/kiaa6")
-        stream = Stream_manager(game_page_url="https://kick.com/yodhaleague")
-        COORDINATOR.add_stream_manager(stream,"1")
-    client_id = COORDINATOR.get_next_available_client_id("1")
-    COORDINATOR.add_client("1",client_id)
-    return Response(COORDINATOR.stream("1",client_id), mimetype="video/mp2t")
+    except Exception as e:
+        print(f"ERROR: {e}")
+        return Response("Not Found", status=404)
+    
 def is_recording_request(user_agent: str) -> bool:
     return "JELLYFIN-SERVER" in user_agent.upper()
 
@@ -589,6 +585,24 @@ def get_sport_data() -> dict:
     with open(Constants.sport_data, "r") as f:
         data = json.load(f)
     return data
+
+@dataclass
+class Team:
+    name: str
+    sport: str
+    league: str
+
+@dataclass
+class Game:
+    sport: str
+    league: str
+    team_1: str
+    team_2: str
+    time_start: datetime
+    time_end: datetime
+    id: str
+    game_page_url: str = ""
+
 
 class Game_data_manager:
     def __init__(self,sport: str, channel: int, search_time: datetime | None = datetime.now(timezone.utc)):
@@ -627,7 +641,7 @@ class Game_data_manager:
                 return i
        
     @cached_property
-    def active_game(self) -> dict:
+    def active_game(self) -> Game:
         print(f"finding team playing {self.sport} on channel {self.channel}")
         games = self.find_possible_games()
         for game in games:
@@ -649,22 +663,6 @@ class Game_data_manager:
     def find_possible_games(self):
         games = self.schedule[self.sport]["channels"][self.channel]["games"]
         return games
-
-@dataclass
-class Team:
-    name: str
-    sport: str
-    league: str
-
-@dataclass
-class Game:
-    sport: str
-    league: str
-    team_1: str
-    team_2: str
-    time_start: datetime
-    time_end: datetime
-    game_page_url: str = ""
 
 def convert_to_str_with_leading_zeroes(num: int,output_digits: int) -> str:
     num_str = str(num)

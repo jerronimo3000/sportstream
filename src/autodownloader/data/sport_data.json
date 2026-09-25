@@ -1,8 +1,10 @@
 {
     "sports": {
         "football": {
+            "sport_id": 0,
             "leagues": {
                 "NFL": {
+                    "league_id": 0,
                     "month_start": 9,
                     "month_end": 2,
                     "teams": [
@@ -43,8 +45,10 @@
             }
         },
         "basketball": {
+            "sport_id": 1,
             "leagues": {
                 "NBA": {
+                    "league_id": 1,
                     "month_start": 10,
                     "month_end": 7,
                     "teams": [
@@ -83,8 +87,10 @@
             }
         },
         "baseball": {
+            "sport_id": 2,
             "leagues": {
                 "MLB": {
+                    "league_id": 2,
                     "month_start": 3,
                     "month_end": 11,
                     "teams": [

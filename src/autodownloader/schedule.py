@@ -43,6 +43,25 @@ class Schedule_generator_from_calendar(ABC):
 
         return dt_utc
 
+    def get_sport_id(self) -> str:
+        return self.sport_data["sports"][self.sport]["sport_id"]
+    def get_league_id(self) -> str:
+        return self.sport_data["sports"][self.sport]["leagues"][self.league]["league_id"]
+
+    def construct_game_id(self,game_time_start: str) -> str:
+        time = datetime.fromisoformat(game_time_start)
+        time_str = time.strftime(r"%y%m%d%H%M")
+        return f"{self.get_sport_id()}{self.get_league_id()}{time_str}"
+    def create_game_from_calendar_event(self,component: Component) -> dict:
+        game = {}
+        teams = self.get_teams_from_calendar_string(component["SUMMARY"])
+        game["team_1"] = teams[0]
+        game["team_2"] = teams[1]
+        game["time_start"] = self.get_time_start_from_component(component)
+        game["time_end"] = self.get_time_end_from_component(component)
+        game["id"] = self.construct_game_id(game["time_start"])
+        return game
+
 
 class Schedule_generator_from_calendar_MLB(Schedule_generator_from_calendar):
     sport: ClassVar[str] = "baseball"
@@ -63,15 +82,6 @@ class Schedule_generator_from_calendar_MLB(Schedule_generator_from_calendar):
                 game = self.create_game_from_calendar_event(component)
                 schedule.add_game(game)
         return {self.sport: schedule.schedule}
-
-    def create_game_from_calendar_event(self,component: Component) -> dict:
-        game = {}
-        teams = self.get_teams_from_calendar_string(component["SUMMARY"])
-        game["team_1"] = teams[0]
-        game["team_2"] = teams[1]
-        game["time_start"] = self.get_time_start_from_component(component)
-        game["time_end"] = self.get_time_end_from_component(component)
-        return game
 
     def get_teams_from_calendar_string(self,summary: str) -> list[str]:
         teams = summary.split(" @ ")
@@ -112,15 +122,6 @@ class Schedule_generator_from_calendar_NFL(Schedule_generator_from_calendar):
                 schedule.add_game(game)
         return {self.sport: schedule.schedule}
 
-    def create_game_from_calendar_event(self,component: Component) -> dict:
-        game = {}
-        teams = self.get_teams_from_calendar_string(component["SUMMARY"])
-        game["team_1"] = teams[0]
-        game["team_2"] = teams[1]
-        game["time_start"] = self.get_time_start_from_component(component)
-        game["time_end"] = self.get_time_end_from_component(component)
-        return game
-
     def get_teams_from_calendar_string(self,summary: str) -> list[str]:
         teams = summary.split(" @ ")
         standardized_teams = [self.get_standardized_team(team) for team in teams]
@@ -154,15 +155,6 @@ class Schedule_generator_from_calendar_NBA(Schedule_generator_from_calendar):
                 game = self.create_game_from_calendar_event(component)
                 schedule.add_game(game)
         return {self.sport: schedule.schedule}
-
-    def create_game_from_calendar_event(self,component: Component) -> dict:
-        game = {}
-        teams = self.get_teams_from_calendar_string(component["SUMMARY"])
-        game["team_1"] = teams[0]
-        game["team_2"] = teams[1]
-        game["time_start"] = self.get_time_start_from_component(component)
-        game["time_end"] = self.get_time_end_from_component(component)
-        return game
 
     def get_teams_from_calendar_string(self,summary: str) -> list[str]:
         teams = summary.split(" @ ")
