@@ -20,6 +20,7 @@ from zoneinfo import ZoneInfo
 from .constants import Constants
 from enum import StrEnum
 import threading
+import queue
 
 app = Flask(__name__)
 
@@ -358,8 +359,8 @@ class Stream_manager:
         if quality in self.stream_fd:
             http_timeout = self.session.get_option("http-timeout")
             stream_timeout = self.session.get_option("stream-timeout")
-            self.session.set_option("http-timeout", 0.1)
-            self.session.set_option("stream-timeout", 0.1)
+            self.session.set_option("http-timeout", 5)
+            self.session.set_option("stream-timeout", 5)
             self.stream_fd[quality].close()
             self.session.set_option("http-timeout", http_timeout)
             self.session.set_option("stream-timeout", stream_timeout)
@@ -369,53 +370,138 @@ class Stream_manager:
     def close_all_streams(self):
         for stream_qualtiy in self.stream_fd:           
             self.close_stream(stream_qualtiy)
+        self.streaming = False
+        print("All streams closed")
 
     def get_stream_chunk(self,quality: str,bytes: int = 64 * 1024):
         return self.stream_fd[quality].read(bytes)
     
     def stream(self):
+        self.streaming = True
         if not self.cached_streams:
             self.update_cached_streams()
-        for i in range(4): 
+        attempts = 1
+        while attempts <= 3 and self.streaming:
             try:
                 yield from self._stream()
             except Exception as e:
                 print(e)
-                print("Attempting to update m3u8 url ({i+1} of {3})")
+                print(f"Attempting to update m3u8 url ({attempts} of {3})")
+                attempts += 1
                 self.get_m3u8_link()
                 self.update_hls_url()
                 self.update_cached_streams()
+            
 
 
 
     def _stream(self):
-        self.streaming = True
         self.open_stream("best")
-        try:
-            while True:
-                data = self.get_stream_chunk("best")
-                if not data:
-                    print("Stream has ended")
-                    break
-                yield data
-        finally:
-            print("closing stream")
-            self.close_all_streams()
-            self.streaming = False
+        while True:
+            data = self.get_stream_chunk("best")
+            if not data:
+                print("Stream has ended")
+                self.streaming = False
+                break
+            yield data
 
 
 
 class Stream_coordinator:
     def __init__(self):
         self.stream_managers: dict[str, Stream_manager] = {}
+        self.stream_clients: dict[int,dict[int,queue.Queue]] = {}
+        self.threads: dict[int,threading.Thread] = {}
+        self.lock = threading.Lock()
+    def add_stream_manager(self,stream_manager: Stream_manager, stream_id: str):
+        with self.lock:
+            if not stream_id in self.stream_managers:
+                self.stream_managers[stream_id] = stream_manager
+            if not stream_id in self.stream_clients:
+                self.stream_clients[stream_id] = {}
+    def get_client_queues(self,stream_id: int):
+        return self.stream_clients[stream_id]
+    def get_client_queue_single(self,stream_id: int, client_id: int) -> queue.Queue:
+        with self.lock:
+            client_queue = self.get_client_queues(stream_id)[client_id]
+        return client_queue
+    def get_next_available_stream_id(self) -> int:
+        with self.lock:
+            if len(self.stream_managers) == 0:
+                avaialbe_id = 0
+            else:
+                avaialbe_id = max(self.stream_managers.keys()) + 1
+        return avaialbe_id
+    def get_next_available_client_id(self,stream_id: int) -> int:
+        with self.lock:
+            if not stream_id in self.stream_clients:
+                avaialbe_id = 0
+            elif len(self.stream_clients[stream_id]) == 0:
+                avaialbe_id = 0
+            else:
+                avaialbe_id = max(self.stream_clients[stream_id].keys()) + 1
+        return avaialbe_id
+    def add_client(self,stream_id: str, client_id: int):
+        with self.lock:
+            first_client = len(self.stream_clients[stream_id]) == 0
+            self.stream_clients[stream_id][client_id] = queue.Queue()
+        if first_client:
+            fill_thread = threading.Thread(
+                    target=self.fill_client_queues,
+                    args=(stream_id,),
+                    name=f"queue_fill_{stream_id}",
+                    daemon=True
+                )
+            self.threads[stream_id] = fill_thread
+            fill_thread.start()
+        
+    def remove_client(self,stream_id: int, client_id: int):
+        with self.lock:
+            self.stream_clients[stream_id].pop(client_id,None)
 
-    def add_stream_manager(self,stream_manager: Stream_manager, game_id: str):
-        if not game_id in self.stream_managers:
-            self.stream_managers[game_id] = stream_manager
+    def fill_client_queues(self,stream_id: int):
+        with self.lock:
+            stream_manager = self.stream_managers[stream_id]
+        try:
+            for chunk in stream_manager.stream():
+                with self.lock:
+                    client_queues = self.get_client_queues(stream_id=stream_id)
+                for client_queue in client_queues.values():
+                    try:
+                        client_queue.put_nowait(chunk)
+                    except queue.Full:
+                        try:
+                            client_queue.get_nowait()
+                            client_queue.put_nowait(chunk)
+                        except (queue.Empty, queue.Full):
+                            pass
+        finally:
+            with self.lock:
+                self.threads.pop(stream_id)
 
-    def stream(self,game_id: str):
-        yield from self.stream_managers[game_id].stream()
 
+
+    def stream(self,stream_id: str, client_id: int):
+        client_queue = self.get_client_queue_single(stream_id,client_id)
+        try:
+            while True:
+                try:
+                    chunk = client_queue.get(timeout=2.0)
+                    yield chunk
+                except queue.Empty:
+                    continue
+        except GeneratorExit:
+            print(f"Client {client_id} disconnected from stream {stream_id}")
+        finally:
+            self.remove_client(stream_id,client_id)
+            self.stop_stream_if_no_clients(stream_id)
+    
+    def stop_stream_if_no_clients(self,stream_id: int):
+        with self.lock:
+            num_clients = len(self.stream_clients[stream_id])
+            if num_clients == 0:
+                self.stream_managers[stream_id].close_all_streams()
+    
 
     
 
@@ -423,6 +509,8 @@ COORDINATOR = Stream_coordinator()
 
 @app.get("/<string:sport>/<int:channel_index>")
 def restream(sport: str, channel_index: int):
+    if request.method == "HEAD":
+        return Response(status=200, mimetype="video/mp2t")
     #user_agent = request.headers.get("User-Agent", "")
     #print(f"USER AGENT: {user_agent}")
     #print(f"This is the sport: {sport}", flush=True)
@@ -461,9 +549,13 @@ def restream(sport: str, channel_index: int):
         #print(f"ERROR: {e}")
         #return Response("Not Found", status=404)
     if not "1" in COORDINATOR.stream_managers:
-        stream = Stream_manager(game_page_url="https://www.earthcam.com/usa/texas/dallas/reuniontower/?cam=reuniontower")
+        #stream = Stream_manager(game_page_url="https://www.earthcam.com/usa/texas/dallas/reuniontower/?cam=reuniontower")
+        #stream = Stream_manager(game_page_url="https://kick.com/kiaa6")
+        stream = Stream_manager(game_page_url="https://kick.com/yodhaleague")
         COORDINATOR.add_stream_manager(stream,"1")
-    return Response(COORDINATOR.stream("1"), mimetype="video/mp2t")
+    client_id = COORDINATOR.get_next_available_client_id("1")
+    COORDINATOR.add_client("1",client_id)
+    return Response(COORDINATOR.stream("1",client_id), mimetype="video/mp2t")
 def is_recording_request(user_agent: str) -> bool:
     return "JELLYFIN-SERVER" in user_agent.upper()
 

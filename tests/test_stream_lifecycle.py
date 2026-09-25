@@ -4,7 +4,9 @@ import time
 
 @fixture
 def livestream_site() -> str:
-    return "https://www.earthcam.com/usa/texas/dallas/reuniontower/?cam=reuniontower"
+    #return "https://www.earthcam.com/usa/texas/dallas/reuniontower/?cam=reuniontower"
+    #return "https://kick.com/kiaa6"
+    return "https://kick.com/yodhaleague"
     #return "https://v2.streameast.ga/mlb/tampa-bay-rays-vs-new-york-yankees-4/"
 @fixture
 def m3u8_link(livestream_site) -> str:
@@ -44,9 +46,19 @@ def test_stream(stream_manager):
 def stream_coordinator():
     return Stream_coordinator()
 
+def test_add_client(stream_coordinator,stream_manager):
+    stream_coordinator.add_stream_manager(stream_manager,1)
+    client_id = stream_coordinator.get_next_available_client_id(1)   
+    stream_coordinator.add_client(1,client_id)
+
 def test_stream_game(stream_coordinator,stream_manager):
     stream_coordinator.add_stream_manager(stream_manager,1)
-    stream = stream_coordinator.stream(game_id=1)
+    client_id = stream_coordinator.get_next_available_client_id(1)
+    stream_coordinator.add_client(stream_id=1,client_id=client_id)
+    stream = stream_coordinator.stream(stream_id=1,client_id=client_id)
+    print(f"This is the stream: {stream}")
     data = next(stream)
     print(data)
     assert data is not None
+
+#test_stream_game(Stream_coordinator(),Stream_manager(game_page_url="https://kick.com/yodhaleague"))
