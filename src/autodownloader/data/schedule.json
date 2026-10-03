@@ -2845,7 +2845,8 @@
                         "team_2": "athletics",
                         "time_start": "2026-09-26T01:40:00+00:00",
                         "time_end": "2026-09-26T04:40:00+00:00",
-                        "id": "222609260140"
+                        "id": "222609260140",
+                        "game_page_url": "https://streameast.ga/mlb/houston-astros-vs-athletics-4/"
                     },
                     {
                         "team_1": "royals",
@@ -4095,7 +4096,8 @@
                         "team_2": "phillies",
                         "time_start": "2026-09-25T22:40:00+00:00",
                         "time_end": "2026-09-26T01:40:00+00:00",
-                        "id": "222609252240"
+                        "id": "222609252240",
+                        "game_page_url": "https://streameast.ga/mlb/tampa-bay-rays-vs-philadelphia-phillies-2/"
                     },
                     {
                         "team_1": "blue jays",
@@ -4655,7 +4657,8 @@
                         "team_2": "giants",
                         "time_start": "2026-09-26T02:15:00+00:00",
                         "time_end": "2026-09-26T05:15:00+00:00",
-                        "id": "222609260215"
+                        "id": "222609260215",
+                        "game_page_url": "https://streameast.ga/mlb/los-angeles-dodgers-vs-san-francisco-giants-4/"
                     },
                     {
                         "team_1": "yankees",
@@ -5163,7 +5166,8 @@
                         "team_2": "padres",
                         "time_start": "2026-09-26T01:40:00+00:00",
                         "time_end": "2026-09-26T04:40:00+00:00",
-                        "id": "222609260140"
+                        "id": "222609260140",
+                        "game_page_url": "https://streameast.ga/mlb/arizona-diamondbacks-vs-san-diego-padres-5/"
                     },
                     {
                         "team_1": "rockies",
@@ -8269,7 +8273,8 @@
                         "team_2": "tigers",
                         "time_start": "2026-09-25T22:40:00+00:00",
                         "time_end": "2026-09-26T01:40:00+00:00",
-                        "id": "222609252240"
+                        "id": "222609252240",
+                        "game_page_url": "https://streameast.ga/mlb/pittsburgh-pirates-vs-detroit-tigers-2/"
                     },
                     {
                         "team_1": "rockies",
@@ -14060,7 +14065,8 @@
                         "team_2": "bills",
                         "time_start": "2026-09-27T17:00:00+00:00",
                         "time_end": "2026-09-27T21:00:00+00:00",
-                        "id": "002609271700"
+                        "id": "002609271700",
+                        "game_page_url": "https://streameast.ga/nfl/los-angeles-chargers-vs-buffalo-bills/"
                     },
                     {
                         "team_1": "cardinals",
@@ -15005,7 +15011,8 @@
                         "team_2": "buccaneers",
                         "time_start": "2026-09-27T20:05:00+00:00",
                         "time_end": "2026-09-28T00:05:00+00:00",
-                        "id": "002609272005"
+                        "id": "002609272005",
+                        "game_page_url": "https://streameast.ga/nfl/minnesota-vikings-vs-tampa-bay-buccaneers/"
                     },
                     {
                         "team_1": "dolphins",

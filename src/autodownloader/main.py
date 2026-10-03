@@ -21,10 +21,12 @@ from .constants import Constants
 from enum import StrEnum
 import threading
 import queue
-
+import logging
 app = Flask(__name__)
 
-
+logging.basicConfig(level=logging.DEBUG)
+logger=logging.getLogger("streamlink")
+logger.setLevel(logging.DEBUG)
 @dataclass
 class m3u8_link:
     url: str
@@ -317,6 +319,7 @@ class Stream_manager:
         self.streaming = False
     def initialize_session(self):
         session = self.session = Streamlink()
+        session.set_option("hls-live-restart",True)
         session.set_option("hls-playlist-reload-attempts",5)
         session.set_option("http-headers", {
             "User-Agent": self.m3u8_link.user_agent,
@@ -522,7 +525,6 @@ def restream(sport: str, channel_index: int):
             print(f"No active game found for {sport} on channel slot {channel_index}", flush=True)
             return Response("No active game scheduled right now.", status=404, mimetype="text/plain")
 
-        print(f"{active_team} are playing {sport} right now", flush=True)
 
         game_data_manager = Game_data_manager(sport,channel_index)
         m3u8_retriever = m3u8_url_finder(team=active_team)
@@ -537,16 +539,16 @@ def restream(sport: str, channel_index: int):
             COORDINATOR.add_stream_manager(stream,game.id)
         client_id = COORDINATOR.get_next_available_client_id(game.id)
         COORDINATOR.add_client(game.id,client_id)   
-        if is_recording_request(user_agent):
-            print(f"Attempting to record {active_team}")
-            m3u8_link = m3u8_retriever.get_m3u8_link()
-            stream = attempt_function(get_stream,{"m3u8_link": m3u8_link},sleep_time=5)
-            recording_writer = Recording_writer(game_data_manager.active_game)
+        #if is_recording_request(user_agent):
+            #print(f"Attempting to record {active_team}")
+            #m3u8_link = m3u8_retriever.get_m3u8_link()
+            #stream = attempt_function(get_stream,{"m3u8_link": m3u8_link},sleep_time=5)
+            #recording_writer = Recording_writer(game_data_manager.active_game)
 
-            output_file = f"/run/media/system/Games/media_share/TV Shows/{recording_writer.recording_end_filepath()}"
-            save_stream_to_file(stream,output_file=output_file)
-        else:
-            return Response(COORDINATOR.stream(game.id,client_id), mimetype="video/mp2t")
+            #output_file = f"/run/media/system/Games/media_share/TV Shows/{recording_writer.recording_end_filepath()}"
+            #save_stream_to_file(stream,output_file=output_file)
+        #else:
+        return Response(COORDINATOR.stream(game.id,client_id), mimetype="video/mp2t")
 
     except Exception as e:
         print(f"ERROR: {e}")
@@ -647,7 +649,12 @@ class Game_data_manager:
         for game in games:
             if self.game_is_on_now(game):
                 league = self.team_data[game["team_1"]]["league"]
-                return Game(sport=self.sport,league=league,**game)
+                active_game = Game(sport=self.sport,league=league,**game)
+        try:
+            return active_game
+        except Exception as e:
+            print(e)
+            print("Could not find game")
 
     @cached_property
     def currently_playing_team(self) -> str:
