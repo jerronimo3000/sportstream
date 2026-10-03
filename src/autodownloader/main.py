@@ -554,6 +554,26 @@ def restream(sport: str, channel_index: int):
         print(f"ERROR: {e}")
         return Response("Not Found", status=404)
     
+@app.get("/development")
+def development():
+    pass
+
+
+@app.route("/development.xml",methods=["GET"])
+def get_development_epg():
+    EPG_FILE_PATH = Path(__file__).resolve().parent / "data/development.xml"
+    if not os.path.exists(EPG_FILE_PATH):
+        return Response("<tv></tv>", mimetype="application/xml"), 404
+
+    return send_file(EPG_FILE_PATH, mimetype="application/xml")
+
+@app.route("/development.m3u", methods=["GET"])
+def get_development_channels_m3u():
+    m3u_path = Path(__file__).resolve().parent / "data/development.m3u"
+    if not os.path.exists(m3u_path):
+        return Response("#EXTM3U\n", mimetype="audio/x-mpegurl"), 404
+    return send_file(m3u_path, mimetype="audio/x-mpegurl")
+  
 def is_recording_request(user_agent: str) -> bool:
     return "JELLYFIN-SERVER" in user_agent.upper()
 

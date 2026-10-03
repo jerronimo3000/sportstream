@@ -1,0 +1,9 @@
+<?xml version="1.0" ?>
+<tv generator-info-name="The Ocean" generator-info-url="A boat on the Ocean">
+    <channel id="development">
+        <display-name>development</display-name>
+   </channel>
+   <programme start="20260914224000 +0000" stop="20280915014000 +0000" channel="development">
+        <title lang="en">development</title>
+    </programme>
+</tv>
