@@ -23,17 +23,16 @@ import threading
 import queue
 import logging
 app = Flask(__name__)
+from urllib.parse import urljoin
 
-logging.basicConfig(level=logging.DEBUG)
-logger=logging.getLogger("streamlink")
-logger.setLevel(logging.DEBUG)
+#logging.basicConfig(level=logging.DEBUG)
+#logger=logging.getLogger("streamlink")
+#logger.setLevel(logging.DEBUG)
 @dataclass
 class m3u8_link:
     url: str
-    referer: str
-    user_agent: str
     cookies_header: str
-
+    all_headers: str
 def match_m3u8(request) -> str:
     #print(request.url)
     pattern = r"\.m3u8(\?.*)?$"
@@ -67,10 +66,10 @@ def get_network_requests(url: str):
 
 def get_m3u8_link(
     webpage_url: str, timeout: int = 30000, num_retries: int = 3, raise_on_missing: bool = False
-) -> str:
+) -> m3u8_link:
     with sync_playwright() as p:
         browser = p.chromium.launch(
-            headless=False,  # Must be False so the player initializes
+            headless=True,
             args=[
                 "--disable-blink-features=AutomationControlled",
                 "--no-sandbox"
@@ -92,18 +91,15 @@ def get_m3u8_link(
                     page.wait_for_timeout(4000)
 
                 request = request_info.value
-                referer = request.headers.get("referer", webpage_url)
-                user_agent = request.headers.get("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/120.0.0.0")
-
+                all_headers = request.all_headers()
                 cookies = context.cookies()
                 cookie_str = "; ".join([f"{c['name']}={c['value']}" for c in cookies])
 
                 print(f"FOUND M3U8 ULR: {request.url}")
                 return m3u8_link(
                     url=request.url,
-                    referer=referer,
-                    user_agent=user_agent,
-                    cookies_header=cookie_str
+                    cookies_header=cookie_str,
+                    all_headers=all_headers
                 )
                 
             except Exception as e:
@@ -321,10 +317,8 @@ class Stream_manager:
         session = self.session = Streamlink()
         session.set_option("hls-live-restart",True)
         session.set_option("hls-playlist-reload-attempts",5)
-        session.set_option("http-headers", {
-            "User-Agent": self.m3u8_link.user_agent,
-            "Referer": self.m3u8_link.referer
-        })
+        session.set_option("http-headers",self.m3u8_link.all_headers)
+        
     def initialize_threading(self):
         self.lock = threading.Lock()
         self.warmer_thread = warmer_thread = threading.Thread(target=self.warm_stream, daemon=True)
@@ -394,9 +388,6 @@ class Stream_manager:
                 self.get_m3u8_link()
                 self.update_hls_url()
                 self.update_cached_streams()
-            
-
-
 
     def _stream(self):
         self.open_stream("best")
@@ -408,6 +399,37 @@ class Stream_manager:
                 break
             yield data
 
+    def get_playlist(self):
+        self.wait_for_cached_stream_initilization()
+        stream = self.cached_streams["best"]
+        playlist_url = stream.url
+        playlist_contents = requests.get(playlist_url,headers=self.m3u8_link.all_headers)
+        playlist_contents.raise_for_status()
+        return(Response(
+            self.condition_playlist(playlist_url,playlist_contents.text),
+            mimetype="application/vnd.apple.mpegurl",
+        ))
+
+    def condition_playlist(self,base_url: str,playlist: str):
+        output = []
+        for line in playlist.splitlines():
+            if not self.is_url_line(line) or not self.is_relative_url(line):
+                output.append(line)
+            elif self.is_relative_url(line):
+                output.append(urljoin(base_url,line.strip()))
+            else:
+                pass
+        return "\n".join(output) + "\n"   
+
+    def is_url_line(self,line: str) -> bool:
+        return (not line.startswith("#")) and bool(line.split())
+
+    def is_relative_url(self,line: str) -> bool:
+        return not line.startswith("http")
+
+    def wait_for_cached_stream_initilization(self):
+        while not self.cached_streams:
+            pass
 
 
 class Stream_coordinator:
@@ -553,10 +575,15 @@ def restream(sport: str, channel_index: int):
     except Exception as e:
         print(f"ERROR: {e}")
         return Response("Not Found", status=404)
-    
+
+DEVELOPMENT_MANAGER = Stream_manager("https://www.earthcam.com/world/spain/tamariu/?cam=tamariu")
 @app.get("/development")
 def development():
-    pass
+    if request.method == "HEAD":
+        return Response(status=200, mimetype="application/vnd.apple.mpegurl")
+
+    return DEVELOPMENT_MANAGER.get_playlist()
+
 
 
 @app.route("/development.xml",methods=["GET"])
