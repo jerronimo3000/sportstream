@@ -1,4 +1,4 @@
-from autodownloader import Stream_manager
+from autodownloader import Stream_manager,Stream_coordinator
 from autodownloader.main import app
 from pytest import fixture
 import time
@@ -13,3 +13,9 @@ def test_m3u8_playlist_retrieval(site_url):
     time.sleep(3)
     print("Getting playlist again...")
     print(manager.get_playlist())
+
+def test_segment_url_replacement(site_url):
+    coordinator = Stream_coordinator()
+    manager = Stream_manager(site_url)
+    coordinator.add_stream_manager(manager,1)
+    print(coordinator.get_local_playlist(1))

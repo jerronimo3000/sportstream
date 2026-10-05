@@ -8,7 +8,7 @@ import requests
 import streamlink
 from streamlink import Streamlink
 from pathlib import Path
-from flask import Flask, Response, request,send_file
+from flask import Flask, Response, request,send_file,stream_with_context
 from streamlink.stream.stream import Stream
 from .plugins import Site_plugin,Sportsurge, Dudestream
 import os
@@ -24,6 +24,7 @@ import queue
 import logging
 app = Flask(__name__)
 from urllib.parse import urljoin
+from typing import ClassVar
 
 #logging.basicConfig(level=logging.DEBUG)
 #logger=logging.getLogger("streamlink")
@@ -92,6 +93,7 @@ def get_m3u8_link(
 
                 request = request_info.value
                 all_headers = request.all_headers()
+                headers_cleaned = clean_headers(all_headers)
                 cookies = context.cookies()
                 cookie_str = "; ".join([f"{c['name']}={c['value']}" for c in cookies])
 
@@ -111,6 +113,8 @@ def get_m3u8_link(
                     return None
         browser.close()
 
+def clean_headers(headers) -> dict[str,str]:
+    return {header: val for header,val in headers.items() if not val.startswith(":")}
 
 def get_stream(m3u8_link: m3u8_link) -> Stream:
     if not m3u8_link:
@@ -405,10 +409,9 @@ class Stream_manager:
         playlist_url = stream.url
         playlist_contents = requests.get(playlist_url,headers=self.m3u8_link.all_headers)
         playlist_contents.raise_for_status()
-        return(Response(
-            self.condition_playlist(playlist_url,playlist_contents.text),
-            mimetype="application/vnd.apple.mpegurl",
-        ))
+        playlist_conditioned = self.condition_playlist(playlist_url,playlist_contents.text)
+        return playlist_conditioned
+         
 
     def condition_playlist(self,base_url: str,playlist: str):
         output = []
@@ -433,6 +436,8 @@ class Stream_manager:
 
 
 class Stream_coordinator:
+    server_prefix: ClassVar[str] = "http://192.168.50.109:8900/segments"
+
     def __init__(self):
         self.stream_managers: dict[str, Stream_manager] = {}
         self.stream_clients: dict[int,dict[int,queue.Queue]] = {}
@@ -526,7 +531,36 @@ class Stream_coordinator:
             num_clients = len(self.stream_clients[stream_id])
             if num_clients == 0:
                 self.stream_managers[stream_id].close_all_streams()
-    
+
+    def get_local_playlist(self,stream_id) -> str:
+        manager = self.stream_managers[stream_id]
+        playlist_original = manager.get_playlist()
+        local_playlist = []
+        for line in playlist_original.splitlines():
+            if self.is_segment_line(line):
+                segment = self.get_segment_id(line)
+                local_segment_url = f"{self.server_prefix}/{stream_id}/{segment}.ts"
+                local_playlist.append(local_segment_url)
+            else:
+                local_playlist.append(line.strip())
+        return "\n".join(local_playlist) + "\n"
+        
+    def is_segment_line(self,line: str) -> bool:
+        return line.startswith("http")
+
+    def get_segment_id(self,line) -> str:
+        pattern = r"(\d+)\.ts"
+        match = re.search(pattern,line)
+        if match:
+            id = match.group(1)
+        return id
+
+    def get_original_segment_url(self,stream_id: int,segment: str) -> str:
+        playlist_original = self.stream_managers[stream_id].get_playlist()
+        for line in playlist_original.splitlines():
+            if segment in line:
+                return line.strip()
+
 
     
 
@@ -535,7 +569,7 @@ COORDINATOR = Stream_coordinator()
 @app.get("/<string:sport>/<int:channel_index>")
 def restream(sport: str, channel_index: int):
     if request.method == "HEAD":
-        return Response(status=200, mimetype="video/mp2t")
+        return Response(status=200, mimetype="application/vnd.apple.mpegurl")
     user_agent = request.headers.get("User-Agent", "")
     print(f"USER AGENT: {user_agent}")
     print(f"This is the sport: {sport}", flush=True)
@@ -559,30 +593,60 @@ def restream(sport: str, channel_index: int):
         if not game.id in COORDINATOR.stream_managers:
             stream = Stream_manager(game_page_url=game_page_url)
             COORDINATOR.add_stream_manager(stream,game.id)
-        client_id = COORDINATOR.get_next_available_client_id(game.id)
-        COORDINATOR.add_client(game.id,client_id)   
-        #if is_recording_request(user_agent):
-            #print(f"Attempting to record {active_team}")
-            #m3u8_link = m3u8_retriever.get_m3u8_link()
-            #stream = attempt_function(get_stream,{"m3u8_link": m3u8_link},sleep_time=5)
-            #recording_writer = Recording_writer(game_data_manager.active_game)
-
-            #output_file = f"/run/media/system/Games/media_share/TV Shows/{recording_writer.recording_end_filepath()}"
-            #save_stream_to_file(stream,output_file=output_file)
-        #else:
-        return Response(COORDINATOR.stream(game.id,client_id), mimetype="video/mp2t")
+        
+        return Response(
+            COORDINATOR.get_local_playlist(game.id),
+            mimetype="application/vnd.apple.mpegurl"
+        )
 
     except Exception as e:
         print(f"ERROR: {e}")
         return Response("Not Found", status=404)
 
-DEVELOPMENT_MANAGER = Stream_manager("https://www.earthcam.com/world/spain/tamariu/?cam=tamariu")
+#DEVELOPMENT_MANAGER = Stream_manager("https://www.earthcam.com/world/spain/tamariu/?cam=tamariu")
+
+#DEV_STREAM_ID = COORDINATOR.get_next_available_stream_id()
+#COORDINATOR.add_stream_manager(Stream_manager("https://www.earthcam.com/usa/texas/dallas/reuniontower/?cam=reuniontower"),DEV_STREAM_ID)
+#COORDINATOR.add_stream_manager(Stream_manager("https://v2.streameast.ga/nfl/miami-dolphins-vs-minnesota-vikings/"),DEV_STREAM_ID)
+
 @app.get("/development")
 def development():
     if request.method == "HEAD":
         return Response(status=200, mimetype="application/vnd.apple.mpegurl")
+    if not "dev" in COORDINATOR.stream_managers:
+        COORDINATOR.add_stream_manager(Stream_manager("https://www.earthcam.com/usa/hawaii/kauai/?cam=kauai"),"dev")
+    local_playlist = COORDINATOR.get_local_playlist("dev")
+    return Response(
+        local_playlist,
+        mimetype="application/vnd.apple.mpegurl"
+    )
 
-    return DEVELOPMENT_MANAGER.get_playlist()
+@app.get("/segments/<int:stream_id>/<string:segment>.ts")
+def stream_segment(stream_id:int, segment:str):
+    print(f"Fetching segment {segment}")
+    original_segment_url = COORDINATOR.get_original_segment_url(stream_id,segment)
+    headers = COORDINATOR.stream_managers[stream_id].m3u8_link.all_headers
+
+    response = requests.get(
+        original_segment_url,
+        headers = headers,
+        stream=True
+    )
+
+    response.raise_for_status()
+
+    return Response(
+        stream_with_context(response.iter_content(chunk_size=64 * 1024)),
+        content_type=response.headers.get(
+            "Content-Type",
+            "video/mp2t"
+        ),
+    )
+    
+    
+
+
+
 
 
 
