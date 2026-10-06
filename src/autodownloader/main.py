@@ -537,7 +537,7 @@ class Stream_coordinator:
         playlist_original = manager.get_playlist()
         local_playlist = []
         for line in playlist_original.splitlines():
-            if self.is_segment_line(line):
+            if self.is_segment_line(line.strip()):
                 segment = self.get_segment_id(line)
                 local_segment_url = f"{self.server_prefix}/{stream_id}/{segment}.ts"
                 local_playlist.append(local_segment_url)
@@ -546,7 +546,7 @@ class Stream_coordinator:
         return "\n".join(local_playlist) + "\n"
         
     def is_segment_line(self,line: str) -> bool:
-        return line.startswith("http")
+        return line.startswith("http") and not line.startswith("#")
 
     def get_segment_id(self,line) -> str:
         pattern = r"(\d+)\.ts"
@@ -558,7 +558,7 @@ class Stream_coordinator:
     def get_original_segment_url(self,stream_id: int,segment: str) -> str:
         playlist_original = self.stream_managers[stream_id].get_playlist()
         for line in playlist_original.splitlines():
-            if segment in line:
+            if segment in line and self.is_segment_line(line):
                 return line.strip()
 
 
@@ -614,15 +614,15 @@ def development():
     if request.method == "HEAD":
         return Response(status=200, mimetype="application/vnd.apple.mpegurl")
     if not "dev" in COORDINATOR.stream_managers:
-        COORDINATOR.add_stream_manager(Stream_manager("https://www.earthcam.com/usa/hawaii/kauai/?cam=kauai"),"dev")
+        COORDINATOR.add_stream_manager(Stream_manager("https://www.earthcam.com/usa/texas/dallas/reuniontower/?cam=reuniontower"),"dev")
     local_playlist = COORDINATOR.get_local_playlist("dev")
     return Response(
         local_playlist,
         mimetype="application/vnd.apple.mpegurl"
     )
 
-@app.get("/segments/<int:stream_id>/<string:segment>.ts")
-def stream_segment(stream_id:int, segment:str):
+@app.get("/segments/<string:stream_id>/<string:segment>.ts")
+def stream_segment(stream_id:str, segment:str):
     print(f"Fetching segment {segment}")
     original_segment_url = COORDINATOR.get_original_segment_url(stream_id,segment)
     headers = COORDINATOR.stream_managers[stream_id].m3u8_link.all_headers
@@ -632,15 +632,21 @@ def stream_segment(stream_id:int, segment:str):
         headers = headers,
         stream=True
     )
-
+    #print("CDN status:", response.status_code)
+    #print("CDN content-type:", response.headers.get("Content-Type"))
+    #print("CDN content-length:", response.headers.get("Content-Length"))
     response.raise_for_status()
 
     return Response(
         stream_with_context(response.iter_content(chunk_size=64 * 1024)),
-        content_type=response.headers.get(
+        headers={
+            "Content-Type": response.headers.get(
             "Content-Type",
             "video/mp2t"
-        ),
+        )
+#        "Content-Length": response.headers.get("Content-Length"),
+        #"Accept-Ranges": response.headers.get("Accept-Ranges"),
+        },
     )
     
     
