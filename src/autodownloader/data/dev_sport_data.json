@@ -1,0 +1,13 @@
+        "development": {
+            "sport_id": "dev",
+            "leagues": {
+                "development": {
+                    "league_id": 1000,
+                    "month_start": 9,
+                    "month_end": 2,
+                    "teams": [
+                        "Kazakhstan"
+                    ]
+                }
+            }
+        },

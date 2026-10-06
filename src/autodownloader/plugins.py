@@ -41,7 +41,7 @@ class Dudestream(Site_plugin):
 
 class Sportsurge(Site_plugin):
     base_url: ClassVar[dict[str,str]] = {
-        "any": "https://v2.sportsurge.net/",
+        "development": "https://soccersurge.io/#",
         "soccer": "https://soccersurge.io/",
         "basketball": "https://v2.sportsurge.net/watch-basketball-streams/",
         "baseball": "https://v2.sportsurge.net/watch-baseball-streams/",
@@ -72,9 +72,10 @@ class Sportsurge(Site_plugin):
         return base_url
 
     def get_current_game_url(self,team_name: str,provider: str = None,retries: int = 10) -> str:
+         print("LOG: getting current game url (Sportsuge.get_current_game_url()")
          with sync_playwright() as p:
             browser = p.chromium.launch(
-                headless=False,  # Must be False so the player initializes
+                headless=True,  # Must be False so the player initializes
                 args=[
                     "--disable-blink-features=AutomationControlled",
                     "--no-sandbox"
@@ -105,7 +106,7 @@ class Sportsurge(Site_plugin):
     def get_current_game_url_all(self,team_name: str,provider: str = None,retries: int = 10) -> str:
          with sync_playwright() as p:
             browser = p.chromium.launch(
-                headless=False,  # Must be False so the player initializes
+                headless=True,  # Must be False so the player initializes
                 args=[
                     "--disable-blink-features=AutomationControlled",
                     "--no-sandbox"

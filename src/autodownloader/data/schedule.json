@@ -1,4 +1,20 @@
 {
+    "development": {
+        "channels": {
+            "1": {
+                "games": [
+                    {
+                        "team_1": "Kazakhstan",
+                        "team_2": "dev_2",
+                        "time_start": "2026-09-15T00:00+00:00",
+                        "time_end": "2028-09-15T00:00+00:00",
+                        "id": "1",
+                        "game_page_url": "https://sportsframe.site/9819/0/uefa%20nations/1"
+                    }
+                ]
+            }
+        }
+    },
     "baseball": {
         "channels": {
             "1": {

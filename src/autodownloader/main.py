@@ -46,7 +46,7 @@ def print_request_url(request: Request):
 def get_network_requests(url: str):
     with sync_playwright() as p:
         browser = p.chromium.launch(
-            headless=False,  # Must be False so the player initializes
+            headless=True,  # Must be False so the player initializes
             args=[
                 "--disable-blink-features=AutomationControlled",
                 "--no-sandbox",
@@ -68,6 +68,7 @@ def get_network_requests(url: str):
 def get_m3u8_link(
     webpage_url: str, timeout: int = 30000, num_retries: int = 3, raise_on_missing: bool = False
 ) -> m3u8_link:
+    print("LOG: getting m3u8 link (get_m3u8_link())")
     with sync_playwright() as p:
         browser = p.chromium.launch(
             headless=True,
@@ -101,7 +102,7 @@ def get_m3u8_link(
                 return m3u8_link(
                     url=request.url,
                     cookies_header=cookie_str,
-                    all_headers=all_headers
+                    all_headers=headers_cleaned
                 )
                 
             except Exception as e:
@@ -109,9 +110,7 @@ def get_m3u8_link(
                 if attempt < num_retries:
                     print(f"Retrying...({attempt+1} of {num_retries})")
                 else:
-                    browser.close()
                     return None
-        browser.close()
 
 def clean_headers(headers) -> dict[str,str]:
     return {header: val for header,val in headers.items() if not val.startswith(":")}
@@ -163,7 +162,7 @@ def save_stream_to_file(stream: Stream, output_file: str = "output.ts"):
 
 
 class m3u8_url_finder:
-    def __init__(self,team: str, num_retries: int = 10,plugin: Site_plugin = Sportsurge):
+    def __init__(self,team: str, num_retries: int = 3,plugin: Site_plugin = Sportsurge):
         self.team = team
         self.plugin = plugin()
         self.num_retries = num_retries
@@ -752,14 +751,14 @@ class Game_data_manager:
         with open(Constants.schedule_file, "w") as f:
             json.dump(self.schedule, f, indent=4)
 
-    @cached_property
+    @property
     def active_game_index(self) -> int:
         games = self.find_possible_games()
         for i,game in enumerate(games):
             if self.game_is_on_now(game):
                 return i
        
-    @cached_property
+    @property
     def active_game(self) -> Game:
         print(f"finding team playing {self.sport} on channel {self.channel}")
         games = self.find_possible_games()
@@ -773,7 +772,7 @@ class Game_data_manager:
             print(e)
             print("Could not find game")
 
-    @cached_property
+    @property
     def currently_playing_team(self) -> str:
         game = self.active_game
         return game.team_1
