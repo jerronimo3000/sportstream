@@ -338,13 +338,16 @@ class M3u_channel_string_creator:
         full_m3u_string = [m3u_line_1,m3u_line_2]
         return full_m3u_string
 
+scheduler_NBA = Schedule_generator_from_calendar_NBA()
+schedule_NBA = scheduler_NBA.generate_schedule_from_calendar()
+
 scheduler_MLB = Schedule_generator_from_calendar_MLB()
 schedule_MLB = scheduler_MLB.generate_schedule_from_calendar()
 
 scheduler_NFL = Schedule_generator_from_calendar_NFL()
 schedule_NFL = scheduler_NFL.generate_schedule_from_calendar()
 
-schedule = schedule_MLB | schedule_NFL
+schedule = schedule_NBA | schedule_MLB | schedule_NFL
 #schedule=schedule_NFL
 
 with open(Path(__file__).resolve().parent / "data/schedule.json","w") as f:
