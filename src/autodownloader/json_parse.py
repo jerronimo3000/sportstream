@@ -48,7 +48,22 @@ class Team_data_creator:
             json.dump(team_info,f,indent=4)
 
         
+class Team_data_expander:
+    def open_json_file(self,filepath: str | Path = Path(__file__).resolve().parent / "data/sport_data.json"):
+        with open(filepath,"r") as f:
+            data = json.load(f)
+            return data   
+    
+    def __init__(self):
+        self.team_data = self.open_json_file()
 
+    def assign_team_ids(self):
+        for sport in self.team_data["sports"]:
+            sport_id = self.team_data["sports"][sport]["sport_id"]
+            for league in self.team_data["sports"][sport]["leagues"]:
+                league_id = self.team_data["sports"][sport]["leagues"][league]["league_id"]
+                for team in self.team_data["sports"][sport]["leagues"][league]["teams"]:
+                    pass
 team_data_creator = Team_data_creator()
 team_data_creator.write_team_info()
 

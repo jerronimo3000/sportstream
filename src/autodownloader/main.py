@@ -482,6 +482,7 @@ def restream(sport: str, channel_index: int):
     print(f"This is the sport: {sport}", flush=True)
     game_retriever = Game_data_manager(sport,channel_index)
     try:
+        print("Getting active team...")
         active_team = game_retriever.currently_playing_team
         #active_team = "athletics"
         if not active_team:
@@ -494,7 +495,10 @@ def restream(sport: str, channel_index: int):
         #else:
         game_data_manager = Game_data_manager(sport,channel_index)
         #game_data_manager.write_m3u8_info(game_page_url=game_page_url)
+        print("Getting active game...")
         game = game_data_manager.active_game
+        print(f"{game.team_1} is playing {game.team_2}")
+        print(game.id)
         if not game.id in COORDINATOR.stream_managers:
             m3u8_retriever = m3u8_url_finder(team=active_team,plugin=Streameast)
             game_page_url = m3u8_retriever.get_game_page_url()

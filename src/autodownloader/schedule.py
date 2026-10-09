@@ -47,11 +47,18 @@ class Schedule_generator_from_calendar(ABC):
         return self.sport_data["sports"][self.sport]["sport_id"]
     def get_league_id(self) -> str:
         return self.sport_data["sports"][self.sport]["leagues"][self.league]["league_id"]
+    def get_team_index(self,team_1: str) -> str:
+        try:
+            team_index = self.sport_data["sports"][self.sport]["leagues"][self.league]["teams"].index(team_1)
+        except ValueError:
+            team_index = 1000
+        return team_index
 
-    def construct_game_id(self,game_time_start: str) -> str:
+    def construct_game_id(self,team_1: str, game_time_start: str) -> str:
         time = datetime.fromisoformat(game_time_start)
         time_str = time.strftime(r"%y%m%d%H%M")
-        return f"{self.get_sport_id()}{self.get_league_id()}{time_str}"
+        return f"{self.get_sport_id()}{self.get_league_id()}{self.get_team_index(team_1)}{time_str}"
+
     def create_game_from_calendar_event(self,component: Component) -> dict:
         game = {}
         teams = self.get_teams_from_calendar_string(component["SUMMARY"])
@@ -59,7 +66,7 @@ class Schedule_generator_from_calendar(ABC):
         game["team_2"] = teams[1]
         game["time_start"] = self.get_time_start_from_component(component)
         game["time_end"] = self.get_time_end_from_component(component)
-        game["id"] = self.construct_game_id(game["time_start"])
+        game["id"] = self.construct_game_id(game["team_1"],game["time_start"])
         return game
 
 
@@ -110,7 +117,7 @@ class Schedule_generator_from_calendar_NFL(Schedule_generator_from_calendar):
 
     def get_time_end_from_component(self,component=Component) -> datetime:
         time_start = datetime.fromisoformat(self.get_time_start_from_component(component=component))
-        time_end = time_start + timedelta(hours=4)
+        time_end = time_start + timedelta(hours=5)
         return datetime.isoformat(time_end)
 
 
@@ -168,7 +175,10 @@ class Schedule_generator_from_calendar_NBA(Schedule_generator_from_calendar):
         for standard_team in all_teams:
             if standard_team in team.lower():
                 return standard_team
-    
+    def get_time_end_from_component(self,component=Component) -> datetime:
+        time_start = datetime.fromisoformat(self.get_time_start_from_component(component=component))
+        time_end = time_start + timedelta(hours=4)
+        return datetime.isoformat(time_end)
 class Schedule:
     def __init__(self):
         self.schedule = {"channels": {1: {"games": []}}}

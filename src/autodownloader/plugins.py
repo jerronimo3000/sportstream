@@ -274,7 +274,7 @@ class Streameast(Site_plugin):
         return base_url
 
     def get_current_game_url(self,team_name: str,provider: str = None,retries: int = 10) -> str:
-         print("LOG: getting current game url (Nbabite.get_current_game_url()")
+         print("LOG: getting current game url (Streameast.get_current_game_url()")
          with sync_playwright() as p:
             browser = p.chromium.launch(channel="chrome", headless=True)
             context = browser.new_context(no_viewport=True)
