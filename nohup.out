@@ -104832,3 +104832,2080 @@ Fetching segment 1996261200
 USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
 This is the sport: football
 192.168.50.112 - - [11/Oct/2026 13:57:06] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 18:57:05.995895+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:57:05.996054+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:57:14] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:57:16] "GET /segments/00312610111700/1997341200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:57:18] "GET /segments/00312610111700/1997701200.ts HTTP/1.1" 200 -
+2026-10-11 18:57:13.922761+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:57:13.922888+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 1997341200
+Fetching segment 1997701200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:57:18] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 18:57:18.483402+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:57:18.483571+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:57:21] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:57:23] "GET /segments/00312610111700/1997701200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:57:24] "GET /segments/00312610111700/1998061200.ts HTTP/1.1" 200 -
+2026-10-11 18:57:21.109466+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:57:21.109617+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 1997701200
+Fetching segment 1998061200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:57:29] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 18:57:29.316673+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:57:29.316831+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 1998421200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.14 - - [11/Oct/2026 13:57:31] "GET /segments/00312610111700/1998421200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:57:33] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:57:33] "GET /segments/00312610111700/1998781200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:57:34] "GET /segments/00312610111700/1998781200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:57:35] "GET /segments/00312610111700/1999141200.ts HTTP/1.1" 200 -
+2026-10-11 18:57:31.403747+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:57:31.403927+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 1998781200
+Fetching segment 1998781200
+Fetching segment 1999141200
+Fetching segment 1999141200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:57:35] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:57:35] "GET /segments/00312610111700/1999141200.ts HTTP/1.1" 200 -
+2026-10-11 18:57:35.074920+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:57:35.075073+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:57:39] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 18:57:38.524844+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:57:38.525004+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 1999501200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:57:40] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:57:40] "GET /segments/00312610111700/1999501200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:57:41] "GET /segments/00312610111700/1999501200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:57:43] "GET /segments/00312610111700/1999861200.ts HTTP/1.1" 200 -
+2026-10-11 18:57:39.765106+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:57:39.765237+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 1999501200
+Fetching segment 1999861200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:57:45] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:57:46] "GET /segments/00312610111700/2000221200.ts HTTP/1.1" 200 -
+2026-10-11 18:57:44.874738+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:57:44.874891+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2000221200
+Fetching segment 2000581200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:57:47] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:57:48] "GET /segments/00312610111700/2000581200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:57:49] "GET /segments/00312610111700/2000221200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:57:50] "GET /segments/00312610111700/2000581200.ts HTTP/1.1" 200 -
+2026-10-11 18:57:47.443169+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:57:47.443344+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2000221200
+Fetching segment 2000581200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+2026-10-11 18:57:54.960217+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:57:54.960402+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:57:55] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:57:55] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:57:56] "GET /segments/00312610111700/2000941200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:57:57] "GET /segments/00312610111700/2000941200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:57:58] "GET /segments/00312610111700/2001301200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:57:58] "GET /segments/00312610111700/2001301200.ts HTTP/1.1" 200 -
+2026-10-11 18:57:55.246688+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:57:55.246827+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2000941200
+Fetching segment 2000941200
+Fetching segment 2001301200
+Fetching segment 2001301200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:58:01] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 18:58:00.809836+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:58:00.810000+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2001661200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:58:05] "GET /segments/00312610111700/2001661200.ts HTTP/1.1" 200 -
+2026-10-11 18:58:05.376188+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:58:05.376337+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:58:05] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:58:06] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:58:07] "GET /segments/00312610111700/2001661200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:58:08] "GET /segments/00312610111700/2002021200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:58:08] "GET /segments/00312610111700/2002021200.ts HTTP/1.1" 200 -
+2026-10-11 18:58:05.735151+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:58:05.735285+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2001661200
+Fetching segment 2002021200
+Fetching segment 2002021200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:58:10] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:58:11] "GET /segments/00312610111700/2002381200.ts HTTP/1.1" 200 -
+2026-10-11 18:58:09.994709+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:58:09.994860+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2002381200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:58:16] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:58:17] "GET /segments/00312610111700/2002741200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:58:19] "GET /segments/00312610111700/2003101200.ts HTTP/1.1" 200 -
+2026-10-11 18:58:15.502356+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:58:15.502516+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2002741200
+Fetching segment 2003101200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:58:23] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 18:58:22.739442+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:58:22.739577+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2003461200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:58:25] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:58:26] "GET /segments/00312610111700/2003461200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:58:27] "GET /segments/00312610111700/2003461200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:58:28] "GET /segments/00312610111700/2003821200.ts HTTP/1.1" 200 -
+2026-10-11 18:58:25.287500+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:58:25.287654+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2003461200
+Fetching segment 2003821200
+Fetching segment 2003821200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:58:28] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:58:28] "GET /segments/00312610111700/2003821200.ts HTTP/1.1" 200 -
+2026-10-11 18:58:28.034113+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:58:28.034262+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+2026-10-11 18:58:34.499106+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:58:34.499256+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:58:34] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:58:34] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:58:36] "GET /segments/00312610111700/2004541200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:58:37] "GET /segments/00312610111700/2004541200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:58:38] "GET /segments/00312610111700/2004901200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:58:38] "GET /segments/00312610111700/2004901200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:58:39] "GET /segments/00312610111700/2005261200.ts HTTP/1.1" 200 -
+2026-10-11 18:58:34.547497+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:58:34.547592+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2004541200
+Fetching segment 2004541200
+Fetching segment 2004901200
+Fetching segment 2004901200
+Fetching segment 2005261200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:58:40] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:58:45] "GET /segments/00312610111700/2005621200.ts HTTP/1.1" 200 -
+2026-10-11 18:58:39.584473+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:58:39.584622+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2005621200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:58:45] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 18:58:45.479983+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:58:45.480132+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:58:47] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:58:48] "GET /segments/00312610111700/2005621200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:58:48] "GET /segments/00312610111700/2005981200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:58:49] "GET /segments/00312610111700/2005981200.ts HTTP/1.1" 200 -
+2026-10-11 18:58:46.555647+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:58:46.555816+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2005621200
+Fetching segment 2005981200
+Fetching segment 2005981200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:58:53] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:58:54] "GET /segments/00312610111700/2006341200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:58:56] "GET /segments/00312610111700/2006701200.ts HTTP/1.1" 200 -
+2026-10-11 18:58:52.969394+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:58:52.969546+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2006341200
+Fetching segment 2006701200
+Fetching segment 2007061200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:58:57] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:58:58] "GET /segments/00312610111700/2007061200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:58:59] "GET /segments/00312610111700/2006341200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:59:00] "GET /segments/00312610111700/2006701200.ts HTTP/1.1" 200 -
+2026-10-11 18:58:57.074508+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:58:57.074669+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2006341200
+Fetching segment 2006701200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:59:03] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:59:05] "GET /segments/00312610111700/2007421200.ts HTTP/1.1" 200 -
+2026-10-11 18:59:02.589458+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:59:02.589613+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2007421200
+Fetching segment 2007781200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:59:07] "GET /segments/00312610111700/2007781200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:59:08] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:59:10] "GET /segments/00312610111700/2007421200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:59:12] "GET /segments/00312610111700/2007781200.ts HTTP/1.1" 200 -
+2026-10-11 18:59:07.033391+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:59:07.033579+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2007421200
+Fetching segment 2007781200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:59:14] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:59:15] "GET /segments/00312610111700/2008141200.ts HTTP/1.1" 200 -
+2026-10-11 18:59:13.863051+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:59:13.863208+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2008141200
+Fetching segment 2008501200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:59:17] "GET /segments/00312610111700/2008501200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:59:17] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 18:59:17.256288+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:59:17.256455+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2008141200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.14 - - [11/Oct/2026 13:59:19] "GET /segments/00312610111700/2008141200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:59:19] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:59:20] "GET /segments/00312610111700/2008861200.ts HTTP/1.1" 200 -
+2026-10-11 18:59:18.866913+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:59:18.867075+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2008861200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:59:27] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 18:59:27.494716+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:59:27.494893+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2009221200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:59:29] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:59:29] "GET /segments/00312610111700/2009221200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:59:31] "GET /segments/00312610111700/2009221200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:59:31] "GET /segments/00312610111700/2009581200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:59:34] "GET /segments/00312610111700/2009581200.ts HTTP/1.1" 200 -
+2026-10-11 18:59:29.062204+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:59:29.062399+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2009221200
+Fetching segment 2009581200
+Fetching segment 2009581200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:59:34] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 18:59:34.252470+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:59:34.252610+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:59:36] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:59:38] "GET /segments/00312610111700/2009941200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:59:39] "GET /segments/00312610111700/2010301200.ts HTTP/1.1" 200 -
+2026-10-11 18:59:36.369052+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:59:36.369206+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2009941200
+Fetching segment 2010301200
+Fetching segment 2010301200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:59:39] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:59:40] "GET /segments/00312610111700/2010301200.ts HTTP/1.1" 200 -
+2026-10-11 18:59:39.034185+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:59:39.034367+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2010661200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:59:43] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:59:44] "GET /segments/00312610111700/2010661200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:59:44] "GET /segments/00312610111700/2010661200.ts HTTP/1.1" 200 -
+2026-10-11 18:59:42.551179+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:59:42.551352+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2010661200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:59:44] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:59:46] "GET /segments/00312610111700/2011021200.ts HTTP/1.1" 200 -
+2026-10-11 18:59:44.350144+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:59:44.350344+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2011021200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:59:47] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:59:49] "GET /segments/00312610111700/2011021200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 13:59:50] "GET /segments/00312610111700/2011381200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:59:50] "GET /segments/00312610111700/2011381200.ts HTTP/1.1" 200 -
+2026-10-11 18:59:47.174189+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:59:47.174332+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2011021200
+Fetching segment 2011381200
+Fetching segment 2011381200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 13:59:51] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 13:59:53] "GET /segments/00312610111700/2011741200.ts HTTP/1.1" 200 -
+2026-10-11 18:59:50.767687+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:59:50.767833+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2011741200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:00:00] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:00:03] "GET /segments/00312610111700/2012101200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:00:05] "GET /segments/00312610111700/2012461200.ts HTTP/1.1" 200 -
+2026-10-11 18:59:59.982755+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 18:59:59.982921+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2012101200
+Fetching segment 2012461200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:00:10] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:00:11] "GET /segments/00312610111700/2013181200.ts HTTP/1.1" 200 -
+2026-10-11 19:00:10.145254+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:00:10.145418+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2013181200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:00:12] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:00:13] "GET /segments/00312610111700/2013541200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:00:14] "GET /segments/00312610111700/2013181200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:00:15] "GET /segments/00312610111700/2013541200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:00:15] "GET /segments/00312610111700/2013901200.ts HTTP/1.1" 200 -
+2026-10-11 19:00:12.097219+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:00:12.097380+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2013541200
+Fetching segment 2013181200
+Fetching segment 2013541200
+Fetching segment 2013901200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:00:16] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:00:20] "GET /segments/00312610111700/2014261200.ts HTTP/1.1" 200 -
+2026-10-11 19:00:15.800631+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:00:15.800780+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2014261200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:00:21] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 19:00:20.611029+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:00:20.611199+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:00:22] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:00:23] "GET /segments/00312610111700/2013901200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:00:24] "GET /segments/00312610111700/2014261200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:00:26] "GET /segments/00312610111700/2014621200.ts HTTP/1.1" 200 -
+2026-10-11 19:00:21.589562+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:00:21.589721+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2013901200
+Fetching segment 2014261200
+Fetching segment 2014621200
+Fetching segment 2014621200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:00:27] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:00:27] "GET /segments/00312610111700/2014621200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:00:28] "GET /segments/00312610111700/2014981200.ts HTTP/1.1" 200 -
+2026-10-11 19:00:26.803890+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:00:26.804023+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2014981200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:00:31] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:00:32] "GET /segments/00312610111700/2014981200.ts HTTP/1.1" 200 -
+2026-10-11 19:00:30.945984+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:00:30.946148+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2014981200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:00:36] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:00:38] "GET /segments/00312610111700/2015341200.ts HTTP/1.1" 200 -
+2026-10-11 19:00:35.978636+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:00:35.978823+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2015341200
+Fetching segment 2015701200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:00:38] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:00:40] "GET /segments/00312610111700/2015701200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:00:41] "GET /segments/00312610111700/2015701200.ts HTTP/1.1" 200 -
+2026-10-11 19:00:38.419226+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:00:38.419390+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2015701200
+Fetching segment 2016061200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:00:41] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:00:41] "GET /segments/00312610111700/2016061200.ts HTTP/1.1" 200 -
+2026-10-11 19:00:41.338645+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:00:41.338804+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2016061200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:00:44] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:00:44] "GET /segments/00312610111700/2016061200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:00:46] "GET /segments/00312610111700/2016421200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:00:48] "GET /segments/00312610111700/2016781200.ts HTTP/1.1" 200 -
+2026-10-11 19:00:43.824459+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:00:43.824622+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2016421200
+Fetching segment 2016781200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+2026-10-11 19:00:55.309484+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:00:55.309648+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:00:55] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:00:56] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:00:57] "GET /segments/00312610111700/2017141200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:00:57] "GET /segments/00312610111700/2017141200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:00:58] "GET /segments/00312610111700/2017501200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:00:59] "GET /segments/00312610111700/2017501200.ts HTTP/1.1" 200 -
+2026-10-11 19:00:55.310678+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:00:55.310769+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2017141200
+Fetching segment 2017141200
+Fetching segment 2017501200
+Fetching segment 2017501200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:01:02] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 19:01:01.980094+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:01:01.980263+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2017861200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:01:02] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:01:03] "GET /segments/00312610111700/2017861200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:01:04] "GET /segments/00312610111700/2017861200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:01:05] "GET /segments/00312610111700/2018221200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:01:08] "GET /segments/00312610111700/2018581200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:01:08] "GET /segments/00312610111700/2018221200.ts HTTP/1.1" 200 -
+2026-10-11 19:01:02.483823+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:01:02.483966+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2017861200
+Fetching segment 2018221200
+Fetching segment 2018221200
+Fetching segment 2018581200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:01:08] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 19:01:08.304072+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:01:08.304211+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2018581200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:01:11] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:01:12] "GET /segments/00312610111700/2018941200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:01:13] "GET /segments/00312610111700/2018581200.ts HTTP/1.1" 200 -
+2026-10-11 19:01:11.080063+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:01:11.080234+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2018941200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:01:13] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 19:01:13.140586+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:01:13.140745+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2018941200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:01:16] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:01:17] "GET /segments/00312610111700/2018941200.ts HTTP/1.1" 200 -
+2026-10-11 19:01:15.610471+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:01:15.610643+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2019301200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:01:17] "GET /segments/00312610111700/2019301200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:01:18] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:01:20] "GET /segments/00312610111700/2019301200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:01:20] "GET /segments/00312610111700/2019661200.ts HTTP/1.1" 200 -
+2026-10-11 19:01:17.615713+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:01:17.615872+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2019661200
+Fetching segment 2019301200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:01:24] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:01:26] "GET /segments/00312610111700/2019661200.ts HTTP/1.1" 200 -
+2026-10-11 19:01:24.123139+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:01:24.123285+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2019661200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:01:26] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:01:28] "GET /segments/00312610111700/2020021200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:01:28] "GET /segments/00312610111700/2020021200.ts HTTP/1.1" 200 -
+2026-10-11 19:01:26.509939+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:01:26.510115+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2020021200
+Fetching segment 2020021200
+Fetching segment 2020381200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:01:29] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:01:30] "GET /segments/00312610111700/2020381200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:01:32] "GET /segments/00312610111700/2020381200.ts HTTP/1.1" 200 -
+2026-10-11 19:01:28.686719+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:01:28.686864+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2020381200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:01:34] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 19:01:33.723825+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:01:33.723985+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2020741200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:01:38] "GET /segments/00312610111700/2020741200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:01:38] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:01:39] "GET /segments/00312610111700/2021101200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:01:40] "GET /segments/00312610111700/2021101200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:01:44] "GET /segments/00312610111700/2021461200.ts HTTP/1.1" 200 -
+2026-10-11 19:01:36.908858+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:01:36.909031+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2021101200
+Fetching segment 2021101200
+Fetching segment 2021461200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+2026-10-11 19:01:44.299181+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:01:44.299353+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:01:44] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:01:44] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:01:46] "GET /segments/00312610111700/2021461200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:01:47] "GET /segments/00312610111700/2021821200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:01:47] "GET /segments/00312610111700/2021821200.ts HTTP/1.1" 200 -
+2026-10-11 19:01:44.375850+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:01:44.376013+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2021461200
+Fetching segment 2021821200
+Fetching segment 2021821200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:01:49] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 19:01:49.064887+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:01:49.065058+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2022181200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.14 - - [11/Oct/2026 14:01:50] "GET /segments/00312610111700/2022181200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:01:50] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:01:53] "GET /segments/00312610111700/2022181200.ts HTTP/1.1" 200 -
+2026-10-11 19:01:50.454803+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:01:50.454964+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2022181200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:01:59] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 19:01:59.285009+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:01:59.285145+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2022901200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:02:00] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:02:01] "GET /segments/00312610111700/2022901200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:02:02] "GET /segments/00312610111700/2022901200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:02:02] "GET /segments/00312610111700/2023261200.ts HTTP/1.1" 200 -
+2026-10-11 19:02:00.328855+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:02:00.329016+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2022901200
+Fetching segment 2023261200
+Fetching segment 2023261200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.14 - - [11/Oct/2026 14:02:04] "GET /segments/00312610111700/2023261200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:02:04] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:02:06] "GET /segments/00312610111700/2023621200.ts HTTP/1.1" 200 -
+2026-10-11 19:02:04.420008+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:02:04.420150+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2023621200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:02:14] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:02:15] "GET /segments/00312610111700/2024341200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:02:17] "GET /segments/00312610111700/2024701200.ts HTTP/1.1" 200 -
+2026-10-11 19:02:13.654840+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:02:13.654979+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2024341200
+Fetching segment 2024701200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+2026-10-11 19:02:18.576450+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:02:18.576603+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:02:19] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:02:19] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:02:20] "GET /segments/00312610111700/2025061200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:02:20] "GET /segments/00312610111700/2024701200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:02:22] "GET /segments/00312610111700/2025061200.ts HTTP/1.1" 200 -
+2026-10-11 19:02:18.690300+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:02:18.690454+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2025061200
+Fetching segment 2024701200
+Fetching segment 2025061200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+2026-10-11 19:02:23.646722+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:02:23.646868+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:02:24] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:02:24] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:02:25] "GET /segments/00312610111700/2025421200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:02:25] "GET /segments/00312610111700/2025421200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:02:27] "GET /segments/00312610111700/2025781200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:02:28] "GET /segments/00312610111700/2026141200.ts HTTP/1.1" 200 -
+2026-10-11 19:02:23.765188+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:02:23.765396+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2025421200
+Fetching segment 2025421200
+Fetching segment 2025781200
+Fetching segment 2026141200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:02:29] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 19:02:28.766388+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:02:28.766525+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:02:30] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:02:32] "GET /segments/00312610111700/2025781200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:02:33] "GET /segments/00312610111700/2026141200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:02:33] "GET /segments/00312610111700/2026501200.ts HTTP/1.1" 200 -
+2026-10-11 19:02:30.041879+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:02:30.042017+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2025781200
+Fetching segment 2026141200
+Fetching segment 2026501200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:02:34] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:02:35] "GET /segments/00312610111700/2026861200.ts HTTP/1.1" 200 -
+2026-10-11 19:02:33.727634+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:02:33.727786+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2026861200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:02:39] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:02:40] "GET /segments/00312610111700/2026501200.ts HTTP/1.1" 200 -
+2026-10-11 19:02:39.096862+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:02:39.097013+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2026501200
+Fetching segment 2026861200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:02:42] "GET /segments/00312610111700/2026861200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:02:42] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:02:43] "GET /segments/00312610111700/2027221200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:02:43] "GET /segments/00312610111700/2027221200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:02:45] "GET /segments/00312610111700/2027581200.ts HTTP/1.1" 200 -
+2026-10-11 19:02:41.847397+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:02:41.847569+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2027221200
+Fetching segment 2027221200
+Fetching segment 2027581200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+2026-10-11 19:02:48.785384+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:02:48.785535+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:02:49] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:02:49] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:02:50] "GET /segments/00312610111700/2027581200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:02:51] "GET /segments/00312610111700/2027941200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:02:52] "GET /segments/00312610111700/2027941200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:02:52] "GET /segments/00312610111700/2028301200.ts HTTP/1.1" 200 -
+2026-10-11 19:02:49.115844+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:02:49.116008+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2027581200
+Fetching segment 2027941200
+Fetching segment 2027941200
+Fetching segment 2028301200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:02:58] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 19:02:56.418694+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:02:56.418879+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2028661200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:03:00] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:03:01] "GET /segments/00312610111700/2028661200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:03:02] "GET /segments/00312610111700/2028301200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:03:03] "GET /segments/00312610111700/2029021200.ts HTTP/1.1" 200 -
+2026-10-11 19:02:58.654125+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:02:58.654288+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2028301200
+Fetching segment 2029021200
+Fetching segment 2028661200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:03:03] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:03:04] "GET /segments/00312610111700/2028661200.ts HTTP/1.1" 200 -
+2026-10-11 19:03:03.247156+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:03:03.247323+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:03:06] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:03:07] "GET /segments/00312610111700/2029021200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:03:08] "GET /segments/00312610111700/2029381200.ts HTTP/1.1" 200 -
+2026-10-11 19:03:05.585757+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:03:05.585923+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2029021200
+Fetching segment 2029381200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:03:09] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 19:03:08.676605+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:03:08.676772+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:03:11] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:03:12] "GET /segments/00312610111700/2029381200.ts HTTP/1.1" 200 -
+2026-10-11 19:03:10.790012+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:03:10.790189+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2029381200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:03:15] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 19:03:15.407228+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:03:15.407421+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2029741200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:03:16] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:03:17] "GET /segments/00312610111700/2029741200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:03:18] "GET /segments/00312610111700/2029741200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:03:19] "GET /segments/00312610111700/2030101200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:03:21] "GET /segments/00312610111700/2030101200.ts HTTP/1.1" 200 -
+2026-10-11 19:03:16.070023+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:03:16.070172+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2029741200
+Fetching segment 2030101200
+Fetching segment 2030101200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:03:24] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 19:03:23.519806+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:03:23.519974+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2030461200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:03:25] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:03:25] "GET /segments/00312610111700/2030461200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:03:27] "GET /segments/00312610111700/2030821200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:03:27] "GET /segments/00312610111700/2030461200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:03:28] "GET /segments/00312610111700/2030821200.ts HTTP/1.1" 200 -
+2026-10-11 19:03:24.583907+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:03:24.584084+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2030461200
+Fetching segment 2030821200
+Fetching segment 2030821200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:03:30] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:03:33] "GET /segments/00312610111700/2031181200.ts HTTP/1.1" 200 -
+2026-10-11 19:03:30.062919+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:03:30.063094+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2031181200
+Fetching segment 2031541200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:03:34] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:03:35] "GET /segments/00312610111700/2031541200.ts HTTP/1.1" 200 -
+2026-10-11 19:03:33.942498+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:03:33.942668+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2031541200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:03:35] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:03:36] "GET /segments/00312610111700/2031541200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:03:37] "GET /segments/00312610111700/2031901200.ts HTTP/1.1" 200 -
+2026-10-11 19:03:35.153417+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:03:35.153557+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2031901200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:03:41] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:03:42] "GET /segments/00312610111700/2031901200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:03:44] "GET /segments/00312610111700/2032261200.ts HTTP/1.1" 200 -
+2026-10-11 19:03:40.876478+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:03:40.876636+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2031901200
+Fetching segment 2032261200
+Fetching segment 2032621200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:03:46] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:03:47] "GET /segments/00312610111700/2032261200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:03:47] "GET /segments/00312610111700/2032621200.ts HTTP/1.1" 200 -
+2026-10-11 19:03:45.482715+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:03:45.482895+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2032261200
+Fetching segment 2032621200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:03:48] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:03:48] "GET /segments/00312610111700/2032621200.ts HTTP/1.1" 200 -
+2026-10-11 19:03:47.851713+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:03:47.851837+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:03:53] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 19:03:52.834156+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:03:52.834363+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2032981200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.14 - - [11/Oct/2026 14:03:55] "GET /segments/00312610111700/2032981200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:03:55] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:03:56] "GET /segments/00312610111700/2033341200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:03:56] "GET /segments/00312610111700/2033341200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:03:58] "GET /segments/00312610111700/2033701200.ts HTTP/1.1" 200 -
+2026-10-11 19:03:54.605990+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:03:54.606167+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2033341200
+Fetching segment 2033341200
+Fetching segment 2033701200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:04:00] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 19:04:00.075643+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:04:00.075799+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2033701200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.14 - - [11/Oct/2026 14:04:02] "GET /segments/00312610111700/2033701200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:04:02] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:04:05] "GET /segments/00312610111700/2034061200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:04:05] "GET /segments/00312610111700/2034061200.ts HTTP/1.1" 200 -
+2026-10-11 19:04:01.109354+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:04:01.109508+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2034061200
+Fetching segment 2034061200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:04:06] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 19:04:05.788175+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:04:05.788347+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:04:07] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:04:09] "GET /segments/00312610111700/2034421200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:04:09] "GET /segments/00312610111700/2034781200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:04:11] "GET /segments/00312610111700/2034781200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:04:11] "GET /segments/00312610111700/2035141200.ts HTTP/1.1" 200 -
+2026-10-11 19:04:07.125156+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:04:07.125313+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2034421200
+Fetching segment 2034781200
+Fetching segment 2034781200
+Fetching segment 2035141200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:04:12] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 19:04:11.892080+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:04:11.892228+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:04:14] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:04:16] "GET /segments/00312610111700/2035141200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:04:16] "GET /segments/00312610111700/2035501200.ts HTTP/1.1" 200 -
+2026-10-11 19:04:14.461063+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:04:14.461225+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2035141200
+Fetching segment 2035501200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:04:17] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 19:04:16.701829+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:04:16.701993+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2035861200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.14 - - [11/Oct/2026 14:04:19] "GET /segments/00312610111700/2035861200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:04:19] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:04:20] "GET /segments/00312610111700/2035501200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:04:22] "GET /segments/00312610111700/2036221200.ts HTTP/1.1" 200 -
+2026-10-11 19:04:18.964191+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:04:18.964364+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2035501200
+Fetching segment 2036221200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:04:22] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 19:04:22.038287+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:04:22.038503+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:04:25] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:04:25] "GET /segments/00312610111700/2036581200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:04:26] "GET /segments/00312610111700/2035861200.ts HTTP/1.1" 200 -
+2026-10-11 19:04:23.692124+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:04:23.692276+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2036581200
+Fetching segment 2035861200
+Fetching segment 2036221200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:04:27] "GET /segments/00312610111700/2036221200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:04:28] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:04:29] "GET /segments/00312610111700/2036941200.ts HTTP/1.1" 200 -
+2026-10-11 19:04:27.695944+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:04:27.696119+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2036941200
+Fetching segment 2037301200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:04:30] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:04:31] "GET /segments/00312610111700/2037301200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:04:32] "GET /segments/00312610111700/2036581200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:04:33] "GET /segments/00312610111700/2036941200.ts HTTP/1.1" 200 -
+2026-10-11 19:04:30.513994+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:04:30.514172+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2036581200
+Fetching segment 2036941200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:04:36] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:04:37] "GET /segments/00312610111700/2037661200.ts HTTP/1.1" 200 -
+2026-10-11 19:04:35.976985+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:04:35.977131+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2037661200
+Fetching segment 2038021200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:04:38] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:04:39] "GET /segments/00312610111700/2038021200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:04:40] "GET /segments/00312610111700/2037301200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:04:42] "GET /segments/00312610111700/2037661200.ts HTTP/1.1" 200 -
+2026-10-11 19:04:38.433021+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:04:38.433187+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2037301200
+Fetching segment 2037661200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:04:43] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:04:44] "GET /segments/00312610111700/2038381200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:04:45] "GET /segments/00312610111700/2038741200.ts HTTP/1.1" 200 -
+2026-10-11 19:04:42.623220+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:04:42.623427+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2038381200
+Fetching segment 2038741200
+Fetching segment 2039101200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:04:47] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:04:48] "GET /segments/00312610111700/2039101200.ts HTTP/1.1" 200 -
+2026-10-11 19:04:47.467387+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:04:47.467567+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2038021200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:04:49] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:04:50] "GET /segments/00312610111700/2038021200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:04:51] "GET /segments/00312610111700/2039461200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:04:52] "GET /segments/00312610111700/2038381200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:04:53] "GET /segments/00312610111700/2039821200.ts HTTP/1.1" 200 -
+2026-10-11 19:04:48.645880+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:04:48.646045+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2038381200
+Fetching segment 2039461200
+Fetching segment 2039821200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:04:54] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:04:57] "GET /segments/00312610111700/2040181200.ts HTTP/1.1" 200 -
+2026-10-11 19:04:53.896778+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:04:53.896931+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2040181200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:04:58] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:05:00] "GET /segments/00312610111700/2039101200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:05:01] "GET /segments/00312610111700/2039461200.ts HTTP/1.1" 200 -
+2026-10-11 19:04:58.048763+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:04:58.048918+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2039101200
+Fetching segment 2039461200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:05:03] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 19:05:03.058686+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:05:03.058920+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2040541200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:05:04] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:05:04] "GET /segments/00312610111700/2040541200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:05:06] "GET /segments/00312610111700/2039821200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:05:07] "GET /segments/00312610111700/2040901200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:05:07] "GET /segments/00312610111700/2040181200.ts HTTP/1.1" 200 -
+2026-10-11 19:05:04.173066+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:05:04.173227+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2039821200
+Fetching segment 2040901200
+Fetching segment 2040181200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:05:12] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:05:13] "GET /segments/00312610111700/2041261200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:05:15] "GET /segments/00312610111700/2041621200.ts HTTP/1.1" 200 -
+2026-10-11 19:05:10.792245+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:05:10.792389+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2041261200
+Fetching segment 2041621200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+2026-10-11 19:05:16.361135+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:05:16.361275+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:05:16] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:05:17] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:05:18] "GET /segments/00312610111700/2040541200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:05:19] "GET /segments/00312610111700/2041981200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:05:19] "GET /segments/00312610111700/2040901200.ts HTTP/1.1" 200 -
+2026-10-11 19:05:16.866878+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:05:16.867036+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2040541200
+Fetching segment 2041981200
+Fetching segment 2040901200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:05:22] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 19:05:22.158694+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:05:22.158856+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2042341200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:05:23] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:05:25] "GET /segments/00312610111700/2042341200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:05:25] "GET /segments/00312610111700/2041261200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:05:26] "GET /segments/00312610111700/2041621200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:05:27] "GET /segments/00312610111700/2042701200.ts HTTP/1.1" 200 -
+2026-10-11 19:05:23.399647+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:05:23.399813+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2041261200
+Fetching segment 2041621200
+Fetching segment 2042701200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+2026-10-11 19:05:27.496785+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:05:27.496908+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:05:27] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:05:28] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:05:29] "GET /segments/00312610111700/2041981200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:05:31] "GET /segments/00312610111700/2043061200.ts HTTP/1.1" 200 -
+2026-10-11 19:05:27.859362+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:05:27.859527+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2041981200
+Fetching segment 2043061200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+2026-10-11 19:05:32.897953+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:05:32.898137+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:05:33] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:05:33] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:05:34] "GET /segments/00312610111700/2043421200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:05:35] "GET /segments/00312610111700/2042341200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:05:36] "GET /segments/00312610111700/2043781200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:05:36] "GET /segments/00312610111700/2042701200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:05:38] "GET /segments/00312610111700/2043061200.ts HTTP/1.1" 200 -
+2026-10-11 19:05:33.219758+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:05:33.219929+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2043421200
+Fetching segment 2042341200
+Fetching segment 2043781200
+Fetching segment 2042701200
+Fetching segment 2043061200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:05:40] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 19:05:39.867075+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:05:39.867233+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2044141200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.14 - - [11/Oct/2026 14:05:42] "GET /segments/00312610111700/2044141200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:05:42] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:05:44] "GET /segments/00312610111700/2043421200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:05:44] "GET /segments/00312610111700/2044501200.ts HTTP/1.1" 200 -
+2026-10-11 19:05:41.845020+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:05:41.845188+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2044501200
+Fetching segment 2043421200
+Fetching segment 2043781200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:05:45] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:05:45] "GET /segments/00312610111700/2043781200.ts HTTP/1.1" 200 -
+2026-10-11 19:05:44.756568+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:05:44.756723+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:05:50] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 19:05:50.133614+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:05:50.133750+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2044861200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:05:51] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:05:52] "GET /segments/00312610111700/2044861200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:05:53] "GET /segments/00312610111700/2044141200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:05:53] "GET /segments/00312610111700/2045221200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:05:54] "GET /segments/00312610111700/2044501200.ts HTTP/1.1" 200 -
+2026-10-11 19:05:51.332432+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:05:51.332591+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2044141200
+Fetching segment 2045221200
+Fetching segment 2044501200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:05:56] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 19:05:55.720500+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:05:55.720660+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2045581200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.14 - - [11/Oct/2026 14:05:58] "GET /segments/00312610111700/2045581200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:05:59] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 19:05:58.555191+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:05:58.555372+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2044861200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:06:01] "GET /segments/00312610111700/2044861200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:06:01] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:06:02] "GET /segments/00312610111700/2045221200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:06:04] "GET /segments/00312610111700/2045941200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:06:06] "GET /segments/00312610111700/2046301200.ts HTTP/1.1" 200 -
+2026-10-11 19:06:01.021767+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:06:01.021948+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2045221200
+Fetching segment 2045941200
+Fetching segment 2046301200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:06:07] "GET /football/4 HTTP/1.1" 200 -
+2026-10-11 19:06:06.610966+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:06:06.611124+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2046661200
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:06:10] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:06:11] "GET /segments/00312610111700/2046661200.ts HTTP/1.1" 200 -
+2026-10-11 19:06:09.742567+00:00
+Getting active team...
+finding team playing football on channel 4
+2026-10-11 19:06:09.742731+00:00
+Getting active game...
+finding team playing football on channel 4
+vikings is playing saints
+00312610111700
+Fetching segment 2045581200
+USER AGENT: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36
+This is the sport: football
+192.168.50.112 - - [11/Oct/2026 14:06:11] "GET /segments/00312610111700/2045581200.ts HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:06:11] "GET /football/4 HTTP/1.1" 200 -
+192.168.50.112 - - [11/Oct/2026 14:06:12] "GET /segments/00312610111700/2045941200.ts HTTP/1.1" 200 -
+192.168.50.14 - - [11/Oct/2026 14:06:13] "GET /segments/00312610111700/2047021200.ts HTTP/1.1" 200 -
