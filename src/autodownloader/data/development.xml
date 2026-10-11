@@ -3,10 +3,7 @@
     <channel id="development">
         <display-name>development</display-name>
    </channel>
-    <programme start="20261008175500 +0000" stop="20261008175600 +0000" channel="development">
+    <programme start="20261010123000 -0500" stop="20261011120000 -0500" channel="development">
         <title lang="en">Development</title>
-        <sub-title lang="en">Episode 1</sub-title>
-        <category lang="en">Series</category>
-        <episode-num system="xmltv_ns">0 . 0 .</episode-num>
     </programme>
 </tv>

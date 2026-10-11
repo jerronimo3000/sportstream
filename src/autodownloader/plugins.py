@@ -114,7 +114,7 @@ class Sportsurge(Site_plugin):
     def get_current_game_url_all(self,team_name: str,provider: str = None,retries: int = 10) -> str:
          with sync_playwright() as p:
             browser = p.chromium.launch(
-                headless=True,  # Must be False so the player initializes
+                headless=False,  # Must be False so the player initializes
                 args=[
                     "--disable-blink-features=AutomationControlled",
                     "--no-sandbox"
@@ -178,7 +178,7 @@ class Nbabite(Site_plugin):
     def get_current_game_url(self,team_name: str,provider: str = None,retries: int = 10) -> str:
          print("LOG: getting current game url (Nbabite.get_current_game_url()")
          with sync_playwright() as p:
-            browser = p.chromium.launch(channel="chrome", headless=True)
+            browser = p.chromium.launch(channel="chrome", headless=False)
             context = browser.new_context(no_viewport=True)
             page = context.new_page()
             base_url = self.get_base_url(team_name=team_name)
@@ -215,7 +215,7 @@ class Nbabite(Site_plugin):
     def get_current_game_url_all(self,team_name: str,provider: str = None,retries: int = 10) -> str:
          with sync_playwright() as p:
             browser = p.chromium.launch(
-                headless=True,  # Must be False so the player initializes
+                headless=False,  # Must be False so the player initializes
                 args=[
                     "--disable-blink-features=AutomationControlled",
                     "--no-sandbox"
@@ -276,7 +276,7 @@ class Streameast(Site_plugin):
     def get_current_game_url(self,team_name: str,provider: str = None,retries: int = 10) -> str:
          print("LOG: getting current game url (Streameast.get_current_game_url()")
          with sync_playwright() as p:
-            browser = p.chromium.launch(channel="chrome", headless=True)
+            browser = p.chromium.launch(channel="chrome", headless=False)
             context = browser.new_context(no_viewport=True)
             page = context.new_page()
             base_url = self.get_base_url(team_name=team_name)

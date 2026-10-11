@@ -53,7 +53,7 @@ def get_m3u8_link(
     print("LOG: getting m3u8 link (get_m3u8_link())")
     with sync_playwright() as p:
         browser = p.chromium.launch(
-            headless=True,
+            headless=False,
             args=[
                 "--disable-blink-features=AutomationControlled",
                 "--no-sandbox"
@@ -525,7 +525,7 @@ def development():
     if request.method == "HEAD":
         return Response(status=200, mimetype="application/vnd.apple.mpegurl")
     if not "dev" in COORDINATOR.stream_managers:
-        COORDINATOR.add_stream_manager(Stream_manager("https://www.earthcam.com/usa/texas/dallas/reuniontower/?cam=reuniontower"),"dev")
+        COORDINATOR.add_stream_manager(Stream_manager("https://www.earthcam.com/usa/florida/lauderdalebythesea/town/?cam=lbts_beach"),"dev")
     local_playlist = COORDINATOR.get_local_playlist("dev")
     return Response(
         local_playlist,
