@@ -307,8 +307,9 @@ class M3U_generator:
     def __init__(self,schedule: dict, host_ip_and_port: str):
         self.schedule = schedule
         self.host_ip_and_port = host_ip_and_port
+        self.output_format = None
     
-    @cached_property
+    @property
     def m3u_string(self):
         m3u_string_list = ["#EXTM3U"]
         guide_channel = 1
@@ -318,7 +319,8 @@ class M3U_generator:
                     sport=sport,
                     global_channel=guide_channel,
                     sport_channel=channel,
-                    host_ip_and_port=self.host_ip_and_port
+                    host_ip_and_port=self.host_ip_and_port,
+                    output_format = self.output_format
                 )
                 m3u_string_list.extend(channel_string_creator.get_channel_string())
                 guide_channel += 1
@@ -326,8 +328,12 @@ class M3U_generator:
         final_m3u_string = "\n".join(m3u_string_list)
         return final_m3u_string
 
-    def Write_m3u(self):
-        with open(Path(__file__).resolve().parent / "data/channels.m3u", "w") as f:
+    def Write_m3u(self,filename: str | None = None,output_format: str | None = None):
+        self.output_format = output_format
+        if filename is None:
+            filename = "channels.m3u"
+    
+        with open(Path(__file__).resolve().parent / f"data/{filename}", "w") as f:
             f.write(self.m3u_string)
                 
 @dataclass
@@ -336,6 +342,15 @@ class M3u_channel_string_creator:
     global_channel: int
     sport_channel: int
     host_ip_and_port: str
+    output_format: str | None = None
+
+    @property
+    def m3u_line_2(self):
+        line = {
+            None: f"http://{self.host_ip_and_port}/{self.sport}/{self.sport_channel}",
+            "tv_head_end": f"pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://{self.host_ip_and_port}/{self.sport}/{self.sport_channel}' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1"
+        }
+        return line[self.output_format]
 
     def get_channel_string(self):
         tvg_id = f"{self.sport}_{self.sport_channel}"
@@ -343,7 +358,7 @@ class M3u_channel_string_creator:
         group_title = "Sports"
         
         m3u_line_1 = rf'#EXTINF:-1 tvg-id="{tvg_id}" tvg-name="{tvg_name}" group_title="{group_title}" channel-id="{self.global_channel}", {tvg_name}'
-        m3u_line_2 = f"http://{self.host_ip_and_port}/{self.sport}/{self.sport_channel}"
+        m3u_line_2 = self.m3u_line_2
 
         full_m3u_string = [m3u_line_1,m3u_line_2]
         return full_m3u_string
@@ -357,7 +372,7 @@ schedule_MLB = scheduler_MLB.generate_schedule_from_calendar()
 scheduler_NFL = Schedule_generator_from_calendar_NFL()
 schedule_NFL = scheduler_NFL.generate_schedule_from_calendar()
 
-schedule = schedule_NBA | schedule_MLB | schedule_NFL
+schedule = schedule_NBA | schedule_NFL
 #schedule=schedule_NFL
 
 with open(Path(__file__).resolve().parent / "data/schedule.json","w") as f:
@@ -365,6 +380,7 @@ with open(Path(__file__).resolve().parent / "data/schedule.json","w") as f:
 
 m3u_creator = M3U_generator(schedule=schedule, host_ip_and_port="192.168.50.109:8900")
 m3u_creator.Write_m3u()
+m3u_creator.Write_m3u(filename="channels_tv_head_end.m3u", output_format="tv_head_end")
 epg_creator = Epg_xml_generator(schedule)
 epg_creator.generate_epg_xml()
 

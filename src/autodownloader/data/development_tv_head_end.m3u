@@ -1,0 +1,4 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="development" tvg-name="development" group_title="Sports" channel-id="1000", development
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/development' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+

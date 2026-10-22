@@ -316,11 +316,11 @@ class Stream_manager:
         playlist_url = stream.url
         playlist_contents = requests.get(playlist_url,headers=self.m3u8_link.all_headers)
         playlist_contents.raise_for_status()
-        playlist_conditioned = self.condition_playlist(playlist_url,playlist_contents.text)
+        playlist_conditioned = self.replace_relative_with_full_url(playlist_url,playlist_contents.text)
         return playlist_conditioned
          
-
-    def condition_playlist(self,base_url: str,playlist: str):
+    
+    def replace_relative_with_full_url(self,base_url: str,playlist: str):
         output = []
         for line in playlist.splitlines():
             if not self.is_url_line(line) or not self.is_relative_url(line):
@@ -469,7 +469,28 @@ class Stream_coordinator:
                 return line.strip()
 
 
+def no_game_m3u_playlist():
+    lines = [
+        "#EXTM3U",
+        "#EXT-X-VERSION:3",
+        "#EXT-X-TARGETDURATION:10",
+        "#EXT-X-MEDIA-SEQUENCE:0",
+        "#EXTINF:10.0,",
+        "http://192.168.50.109:8900/unavailable"
+    ]
+    return "\n".join(lines)
     
+def waiting_for_stream_playlist(stream_id: str) -> str:
+    lines = [
+        "#EXTM3U",
+        "#EXT-X-VERSION:3",
+        "#EXT-X-TARGETDURATION:10",
+        "#EXT-X-MEDIA-SEQUENCE:0",
+        "#EXTINF:10.0,",
+        f"http://192.168.50.109:8900/waiting/{stream_id}"
+    ]
+    return "\n".join(lines)
+
 
 COORDINATOR = Stream_coordinator()
 
@@ -485,9 +506,9 @@ def restream(sport: str, channel_index: int):
         print("Getting active team...")
         active_team = game_retriever.currently_playing_team
         #active_team = "athletics"
-        if not active_team:
+        if active_team is None:
             print(f"No active game found for {sport} on channel slot {channel_index}", flush=True)
-            return Response("No active game scheduled right now.", status=404, mimetype="text/plain")
+            return Response(no_game_m3u_playlist(), status=200, mimetype="application/vnd.apple.mpegurl")
 
 
         #if not game_data_manager.get_cached_game_url() == "":
@@ -499,12 +520,20 @@ def restream(sport: str, channel_index: int):
         game = game_data_manager.active_game
         print(f"{game.team_1} is playing {game.team_2}")
         print(game.id)
+               
         if not game.id in COORDINATOR.stream_managers:
+            print(f"Adding game to coordinator ({game.id})")
+            #return Response(
+                    #no_game_m3u_playlist(),
+                    #mimetype="application/vnd.apple.mpegurl"
+                #)
+
             m3u8_retriever = m3u8_url_finder(team=active_team,plugin=Streameast)
             game_page_url = m3u8_retriever.get_game_page_url()
             stream = Stream_manager(game_page_url=game_page_url)
             COORDINATOR.add_stream_manager(stream,game.id)
         
+
         return Response(
             COORDINATOR.get_local_playlist(game.id),
             mimetype="application/vnd.apple.mpegurl"
@@ -513,6 +542,37 @@ def restream(sport: str, channel_index: int):
     except Exception as e:
         print(f"ERROR: {e}")
         return Response("Not Found", status=404)
+
+
+def read_file_chunks(path):
+    with open(path, "rb") as f:
+        while chunk := f.read(188*100):
+            yield chunk
+
+def send_no_stream_available():
+    for chunk in read_file_chunks("slate.ts"):
+        yield chunk
+
+@app.get("/unavailable")
+def no_stream_available():
+    return Response(
+        send_no_stream_available(),
+        headers={"Content-Type": "video/mp2t"}
+    )
+
+def waiting_for_stream(stream_id: str):
+    while COORDINATOR.stream_managers[stream_id].cached_streams is None:
+        for chunk in read_file_chunks("slate.ts"):
+            if COORDINATOR.stream_managers[stream_id].cached_streams is not None:
+                break
+            yield chunk
+
+@app.get("/waiting/<string:stream_id>")
+def waiting(stream_id: str):
+    return Response(
+        waiting_for_stream(stream_id),
+        headers={"Content-Type": "video/mp2t"}
+    )
 
 #DEVELOPMENT_MANAGER = Stream_manager("https://www.earthcam.com/world/spain/tamariu/?cam=tamariu")
 
@@ -544,6 +604,7 @@ def stream_segment(stream_id:str, segment:str):
         stream=True
     )
     response.raise_for_status()
+    print(f"Recieved segment ({response.elapsed})")
 
     return Response(
         stream_with_context(response.iter_content(chunk_size=64 * 1024)),
@@ -589,9 +650,9 @@ def get_epg():
 
     return send_file(EPG_FILE_PATH, mimetype="application/xml")
 
-@app.route("/channels.m3u", methods=["GET"])
-def get_channels_m3u():
-    m3u_path = Path(__file__).resolve().parent / "data/channels.m3u"
+@app.route("/m3u/<string:m3u_file>", methods=["GET"])
+def get_channels_m3u(m3u_file: str):
+    m3u_path = Path(__file__).resolve().parent / f"data/{m3u_file}"
     if not os.path.exists(m3u_path):
         return Response("#EXTM3U\n", mimetype="audio/x-mpegurl"), 404
     return send_file(m3u_path, mimetype="audio/x-mpegurl")
@@ -673,10 +734,13 @@ class Game_data_manager:
         except Exception as e:
             print(e)
             print("Could not find game")
+            return None
 
     @cached_property
     def currently_playing_team(self) -> str:
         game = self.active_game
+        if game is None:
+            return None
         return game.team_1
 
     def game_is_on_now(self,game: dict) -> bool:

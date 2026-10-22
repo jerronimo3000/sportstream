@@ -1,0 +1,61 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="basketball_1" tvg-name="basketball_1" group_title="Sports" channel-id="1", basketball_1
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/basketball/1' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="basketball_2" tvg-name="basketball_2" group_title="Sports" channel-id="2", basketball_2
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/basketball/2' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="basketball_3" tvg-name="basketball_3" group_title="Sports" channel-id="3", basketball_3
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/basketball/3' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="basketball_4" tvg-name="basketball_4" group_title="Sports" channel-id="4", basketball_4
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/basketball/4' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="basketball_5" tvg-name="basketball_5" group_title="Sports" channel-id="5", basketball_5
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/basketball/5' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="basketball_6" tvg-name="basketball_6" group_title="Sports" channel-id="6", basketball_6
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/basketball/6' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="basketball_7" tvg-name="basketball_7" group_title="Sports" channel-id="7", basketball_7
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/basketball/7' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="basketball_8" tvg-name="basketball_8" group_title="Sports" channel-id="8", basketball_8
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/basketball/8' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="basketball_9" tvg-name="basketball_9" group_title="Sports" channel-id="9", basketball_9
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/basketball/9' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="basketball_10" tvg-name="basketball_10" group_title="Sports" channel-id="10", basketball_10
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/basketball/10' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="basketball_11" tvg-name="basketball_11" group_title="Sports" channel-id="11", basketball_11
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/basketball/11' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="basketball_12" tvg-name="basketball_12" group_title="Sports" channel-id="12", basketball_12
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/basketball/12' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="basketball_13" tvg-name="basketball_13" group_title="Sports" channel-id="13", basketball_13
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/basketball/13' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="basketball_14" tvg-name="basketball_14" group_title="Sports" channel-id="14", basketball_14
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/basketball/14' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="basketball_15" tvg-name="basketball_15" group_title="Sports" channel-id="15", basketball_15
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/basketball/15' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="football_1" tvg-name="football_1" group_title="Sports" channel-id="16", football_1
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/football/1' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="football_2" tvg-name="football_2" group_title="Sports" channel-id="17", football_2
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/football/2' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="football_3" tvg-name="football_3" group_title="Sports" channel-id="18", football_3
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/football/3' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="football_4" tvg-name="football_4" group_title="Sports" channel-id="19", football_4
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/football/4' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="football_5" tvg-name="football_5" group_title="Sports" channel-id="20", football_5
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/football/5' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="football_6" tvg-name="football_6" group_title="Sports" channel-id="21", football_6
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/football/6' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="football_7" tvg-name="football_7" group_title="Sports" channel-id="22", football_7
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/football/7' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="football_8" tvg-name="football_8" group_title="Sports" channel-id="23", football_8
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/football/8' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="football_9" tvg-name="football_9" group_title="Sports" channel-id="24", football_9
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/football/9' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="football_10" tvg-name="football_10" group_title="Sports" channel-id="25", football_10
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/football/10' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="football_11" tvg-name="football_11" group_title="Sports" channel-id="26", football_11
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/football/11' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="football_12" tvg-name="football_12" group_title="Sports" channel-id="27", football_12
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/football/12' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="football_13" tvg-name="football_13" group_title="Sports" channel-id="28", football_13
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/football/13' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="football_14" tvg-name="football_14" group_title="Sports" channel-id="29", football_14
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/football/14' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
+#EXTINF:-1 tvg-id="football_15" tvg-name="football_15" group_title="Sports" channel-id="30", football_15
+pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://192.168.50.109:8900/football/15' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1
