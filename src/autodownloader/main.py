@@ -517,8 +517,8 @@ def restream(sport: str, channel_index: int):
         game_data_manager = Game_data_manager(sport,channel_index)
         #game_data_manager.write_m3u8_info(game_page_url=game_page_url)
         print("Getting active game...")
-        game = game_data_manager.active_game
-        print(f"{game.team_1} is playing {game.team_2}")
+        game = game_data_manager.nearest_game
+        print(f"{game.team_1} are playing {game.team_2} at {game.time_start}")
         print(game.id)
                
         if not game.id in COORDINATOR.stream_managers:
@@ -732,8 +732,7 @@ class Game_data_manager:
         try:
             return active_game
         except Exception as e:
-            print(e)
-            print("Could not find game")
+            print("No active game")
             return None
 
     @cached_property
@@ -752,6 +751,31 @@ class Game_data_manager:
     def find_possible_games(self):
         games = self.schedule[self.sport]["channels"][self.channel]["games"]
         return games
+    
+    @property
+    def nearest_game(self):
+        games = self.find_possible_games()
+        nearest_game = self.sort_games_by_proximity(games)[0]
+        league = self.team_data[nearest_game["team_1"]]["league"]
+        nearest_game = Game(sport=self.sport,league=league,**nearest_game)
+        return nearest_game
+
+    def sort_games_by_proximity(self,games: list[dict]) -> list[dict]:
+        time_diff = self.get_time_difference(games)
+        sorted_games = [sorted_zipped[0] for sorted_zipped in sorted(zip(games,time_diff),key=lambda x: x[1])]
+        return sorted_games
+
+    def get_time_difference(self,games: list[dict]) -> list[float]:
+        time_diff = []
+        for game in games:
+            time_diff_start = abs(self.search_time - datetime.fromisoformat(game["time_start"]))
+            time_diff_end = abs(self.search_time - datetime.fromisoformat(game["time_end"]))
+            time_diff_min = min(time_diff_start,time_diff_end)
+            time_diff.append(time_diff_min)
+        return time_diff
+
+
+
 
 def convert_to_str_with_leading_zeroes(num: int,output_digits: int) -> str:
     num_str = str(num)
