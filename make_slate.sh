@@ -1,0 +1,1 @@
+ffmpeg -f lavfi -i testsrc=size=640x360:rate=25 -f lavfi -i anullsrc=r=48000:cl=stereo -t 3 -c:v libx264 -preset ultrafast -pix_fmt yuv420p -c:a aac -f mpegts slate.ts

@@ -282,6 +282,7 @@ class Streameast(Site_plugin):
             base_url = self.get_base_url(team_name=team_name)
             print(base_url)
             page.goto(base_url)
+            #page.screenshot("base_url.out")
             try:
                 page.wait_for_function(
                     "() => !document.title.includes('Just a moment')",

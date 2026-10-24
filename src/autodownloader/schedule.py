@@ -348,7 +348,7 @@ class M3u_channel_string_creator:
     def m3u_line_2(self):
         line = {
             None: f"http://{self.host_ip_and_port}/{self.sport}/{self.sport_channel}",
-            "tv_head_end": f"pipe:///usr/bin/ffmpeg -nostdin -loglevel warning -i 'http://{self.host_ip_and_port}/{self.sport}/{self.sport_channel}' -map 0:v:0 -map 0:a? -c copy -f mpegts pipe:1"
+            "tv_head_end": f"pipe:///usr/local/bin/tvhe_pipe_command.sh http://{self.host_ip_and_port}/{self.sport}/{self.sport_channel} {self.sport}_{self.sport_channel}"
         }
         return line[self.output_format]
 

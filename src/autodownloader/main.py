@@ -476,7 +476,7 @@ def no_game_m3u_playlist():
         "#EXT-X-TARGETDURATION:10",
         "#EXT-X-MEDIA-SEQUENCE:0",
         "#EXTINF:10.0,",
-        "http://192.168.50.109:8900/unavailable"
+        "http://192.168.50.109:8900/unavailable.ts"
     ]
     return "\n".join(lines)
     
@@ -498,17 +498,22 @@ COORDINATOR = Stream_coordinator()
 def restream(sport: str, channel_index: int):
     if request.method == "HEAD":
         return Response(status=200, mimetype="application/vnd.apple.mpegurl")
+    #return Response(
+            #no_game_m3u_playlist(),
+            #mimetype="application/vnd.apple.mpegurl"
+        #)
+
+
     user_agent = request.headers.get("User-Agent", "")
     print(f"USER AGENT: {user_agent}")
     print(f"This is the sport: {sport}", flush=True)
-    game_retriever = Game_data_manager(sport,channel_index)
     try:
-        print("Getting active team...")
-        active_team = game_retriever.currently_playing_team
-        #active_team = "athletics"
-        if active_team is None:
-            print(f"No active game found for {sport} on channel slot {channel_index}", flush=True)
-            return Response(no_game_m3u_playlist(), status=200, mimetype="application/vnd.apple.mpegurl")
+        #print("Getting active team...")
+        #active_team = game_retriever.currently_playing_team
+        ##active_team = "athletics"
+        #if active_team is None:
+            #print(f"No active game found for {sport} on channel slot {channel_index}", flush=True)
+            #return Response(no_game_m3u_playlist(), status=200, mimetype="application/vnd.apple.mpegurl")
 
 
         #if not game_data_manager.get_cached_game_url() == "":
@@ -519,15 +524,11 @@ def restream(sport: str, channel_index: int):
         print("Getting active game...")
         game = game_data_manager.nearest_game
         print(f"{game.team_1} are playing {game.team_2} at {game.time_start}")
+        active_team = game.team_1
         print(game.id)
                
         if not game.id in COORDINATOR.stream_managers:
             print(f"Adding game to coordinator ({game.id})")
-            #return Response(
-                    #no_game_m3u_playlist(),
-                    #mimetype="application/vnd.apple.mpegurl"
-                #)
-
             m3u8_retriever = m3u8_url_finder(team=active_team,plugin=Streameast)
             game_page_url = m3u8_retriever.get_game_page_url()
             stream = Stream_manager(game_page_url=game_page_url)
@@ -541,7 +542,7 @@ def restream(sport: str, channel_index: int):
 
     except Exception as e:
         print(f"ERROR: {e}")
-        return Response("Not Found", status=404)
+        return Response("Not Found", status=503)
 
 
 def read_file_chunks(path):
@@ -553,7 +554,7 @@ def send_no_stream_available():
     for chunk in read_file_chunks("slate.ts"):
         yield chunk
 
-@app.get("/unavailable")
+@app.get("/unavailable.ts")
 def no_stream_available():
     return Response(
         send_no_stream_available(),
