@@ -25,6 +25,7 @@ import logging
 app = Flask(__name__)
 from urllib.parse import urljoin
 from typing import ClassVar
+import traceback
 
 #logging.basicConfig(level=logging.DEBUG)
 #logger=logging.getLogger("streamlink")
@@ -442,6 +443,7 @@ class Stream_coordinator:
     def get_local_playlist(self,stream_id) -> str:
         manager = self.stream_managers[stream_id]
         playlist_original = manager.get_playlist()
+        print(playlist_original)
         local_playlist = []
         for line in playlist_original.splitlines():
             if self.is_segment_line(line.strip()):
@@ -460,6 +462,12 @@ class Stream_coordinator:
         match = re.search(pattern,line)
         if match:
             id = match.group(1)
+        else:
+            pattern = r"/([^/~]+)~tplv"
+            match = re.search(pattern,line)
+            if match:
+                id = match.group(1)
+ 
         return id
 
     def get_original_segment_url(self,stream_id: int,segment: str) -> str:
@@ -542,6 +550,7 @@ def restream(sport: str, channel_index: int):
 
     except Exception as e:
         print(f"ERROR: {e}")
+        traceback.print_exception(e)
         return Response("Not Found", status=503)
 
 
@@ -595,27 +604,42 @@ def development():
 
 @app.get("/segments/<string:stream_id>/<string:segment>.ts")
 def stream_segment(stream_id:str, segment:str):
+    print(f"Incoming Range: {request.headers.get('Range')}")
     print(f"Fetching segment {segment}")
     original_segment_url = COORDINATOR.get_original_segment_url(stream_id,segment)
+    print(f"Original segment:\n{original_segment_url}")
     headers = COORDINATOR.stream_managers[stream_id].m3u8_link.all_headers
+    range_header = request.headers.get("Range")   # what ffmpeg asked for
+    headers = dict(headers)                       # copy the stored headers
+    if range_header:
+        headers["Range"] = range_header          
 
     response = requests.get(
         original_segment_url,
         headers = headers,
         stream=True
     )
+    print(f"Range sent to CDN: {headers.get('Range')}")
+    print(f"CDN status: {response.status_code}")
     response.raise_for_status()
     print(f"Recieved segment ({response.elapsed})")
 
+ # pass it on to the CDN
+
+    content_type = response.headers.get("Content-Type", "video/mp2t")
+    if content_type.startswith("image/"):
+        content_type = "video/mp2t"
+    out_headers = {"Content-Type": content_type}
+    for name in ("Content-Range", "Accept-Ranges"):
+        if name in response.headers:
+            out_headers[name] = response.headers[name]
+
+
     return Response(
         stream_with_context(response.iter_content(chunk_size=64 * 1024)),
-        headers={
-            "Content-Type": response.headers.get(
-            "Content-Type",
-            "video/mp2t"
+        status=response.status_code,
+        headers=out_headers
         )
-        },
-    )
     
     
 

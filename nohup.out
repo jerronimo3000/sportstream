@@ -115433,3 +115433,41 @@ Exception
 192.168.50.112 - - [24/Oct/2026 10:43:10] "GET /m3u/channels_tv_head_end.m3u HTTP/1.1" 200 -
 192.168.50.112 - - [24/Oct/2026 11:41:04] "GET /m3u/development_tv_head_end.m3u HTTP/1.1" 200 -
 192.168.50.112 - - [24/Oct/2026 11:43:10] "GET /m3u/channels_tv_head_end.m3u HTTP/1.1" 200 -
+ * Serving Flask app 'autodownloader.main'
+ * Debug mode: off
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8900
+ * Running on http://192.168.50.109:8900
+[33mPress CTRL+C to quit[0m
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [25/Oct/2026 12:06:50] "[35m[1mGET /football/5 HTTP/1.1[0m" 503 -
+2026-10-25 17:06:32.172483+00:00
+Getting active game...
+colts are playing vikings at 2026-10-25T17:00:00+00:00
+00102610251700
+Adding game to coordinator (00102610251700)
+LOG: getting current game url (Streameast.get_current_game_url()
+https://v2.streameast.ga/nfl-streams
+Found game url: https://v2.streameast.ga/nfl/indianapolis-colts-vs-minnesota-vikings/
+LOG: getting m3u8 link (get_m3u8_link())
+opening url and waiting for m3u8 request (https://v2.streameast.ga/nfl/indianapolis-colts-vs-minnesota-vikings/)
+FOUND M3U8 URL: https://edgestream3.pro/sh/cdn/hls/oipozuezeji33.m3u8
+ERROR: cannot access local variable 'id' where it is not associated with a value
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [25/Oct/2026 12:07:15] "[35m[1mGET /football/5 HTTP/1.1[0m" 503 -
+2026-10-25 17:07:14.825510+00:00
+Getting active game...
+colts are playing vikings at 2026-10-25T17:00:00+00:00
+00102610251700
+ERROR: cannot access local variable 'id' where it is not associated with a value
+USER AGENT: Lavf/61.7.103
+This is the sport: football
+192.168.50.112 - - [25/Oct/2026 12:08:15] "[35m[1mGET /football/5 HTTP/1.1[0m" 503 -
+2026-10-25 17:08:14.834621+00:00
+Getting active game...
+colts are playing vikings at 2026-10-25T17:00:00+00:00
+00102610251700
+ERROR: cannot access local variable 'id' where it is not associated with a value

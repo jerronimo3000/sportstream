@@ -302,3 +302,67 @@ class Streameast(Site_plugin):
                 raise ValueError("could not find streaming site")
                 browser.close()
             return game_url
+
+
+
+class Sportusa(Site_plugin):
+    game_page_url_prefix: ClassVar[str] = "https://v2.streameast.ga"
+    base_url: ClassVar[dict[str,str]] = {
+        "development": "https://soccersurge.io/#",
+        "soccer": "https://v2.streameast.ga/soccer-streams",
+        "basketball": "https://sportsupa.st/",
+        "baseball": "https://v2.streameast.ga/mlb-streams",
+        "NFL": "https://sportsupa.st/",
+    }
+     
+    def __init__(self):
+        self.set_team_data()    
+
+    def set_team_data(self):
+        team_data_path = Path(__file__).resolve().parent / "data/team_data.json"
+        with open(team_data_path,"r") as f:
+            self.team_data = json.load(f)
+
+    def get_base_url(self,team_name: str) -> str:
+        team_data = self.team_data[team_name]
+        if team_data["sport"] in self.base_url:
+            base_url = self.base_url[team_data["sport"]]
+        elif team_data["league"] in self.base_url:
+            base_url = self.base_url[team_data["league"]]
+        else:
+            raise ValueError(f"[ERROR] Team {team_name}'s sport ({team_data["sport"]}) and league ({team_data["league"]}) not configured in plugin")
+        return base_url
+
+    def get_current_game_url(self,team_name: str,provider: str = None,retries: int = 10) -> str:
+         print("LOG: getting current game url (Streameast.get_current_game_url()")
+         with sync_playwright() as p:
+            browser = p.chromium.launch(channel="chrome", headless=False)
+            context = browser.new_context(no_viewport=True)
+            page = context.new_page()
+            base_url = self.get_base_url(team_name=team_name)
+            print(base_url)
+            page.goto(base_url)
+            #page.screenshot("base_url.out")
+            try:
+                page.wait_for_function(
+                    "() => !document.title.includes('Just a moment')",
+                    timeout=20000,
+                )
+            except Exception:
+                page.screenshot(path="challenge_stuck.png")
+                raise RuntimeError("Challenge did not clear on its own (likely interactive)")
+
+            game_page_elem = page.locator(f'a.pcard').filter(has_text=f"{team_name}").first.click()
+            
+
+
+
+            if not game_page_elem is None:
+            
+                game_url_relative = game_page_elem.get_attribute("href")
+                game_url = f"{self.game_page_url_prefix}{game_url_relative}"
+                print(f"Found game url: {game_url}")
+            else:
+                raise ValueError("could not find streaming site")
+                browser.close()
+            return game_url
