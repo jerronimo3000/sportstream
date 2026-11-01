@@ -443,7 +443,7 @@ class Stream_coordinator:
     def get_local_playlist(self,stream_id) -> str:
         manager = self.stream_managers[stream_id]
         playlist_original = manager.get_playlist()
-        print(playlist_original)
+        #print(playlist_original)
         local_playlist = []
         for line in playlist_original.splitlines():
             if self.is_segment_line(line.strip()):
