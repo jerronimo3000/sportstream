@@ -1,16 +1,16 @@
 import re
 from playwright.sync_api import sync_playwright,Page,Browser,Request
 from dataclasses import dataclass
-import re
 import subprocess
 import time
 import requests
 import streamlink
 from streamlink import Streamlink
+from streamlink.stream.hls import MuxedHLSStream
 from pathlib import Path
 from flask import Flask, Response, request,send_file,stream_with_context
 from streamlink.stream.stream import Stream
-from .plugins import Site_plugin,Sportsurge, Dudestream, Nbabite, Streameast
+from .plugins import Site_plugin,Sportsurge, Dudestream, Nbabite, Streameast,Sportusa
 import os
 from datetime import datetime,timedelta,timezone
 from zoneinfo import ZoneInfo
@@ -26,6 +26,8 @@ app = Flask(__name__)
 from urllib.parse import urljoin
 from typing import ClassVar
 import traceback
+from typing import ClassVar
+import shutil
 
 #logging.basicConfig(level=logging.DEBUG)
 #logger=logging.getLogger("streamlink")
@@ -211,12 +213,20 @@ def attempt_function(function: callable,arguments: dict = {},num_retries: int = 
 
 
 class Stream_manager:
-    def __init__(self,game_page_url: str, m3u8_link: m3u8_link = None):
+    def __init__(self,stream_id: str,game_page_url: str, m3u8_link: m3u8_link = None):
+        self.stream_id = stream_id
         self.game_page_url = game_page_url
         self.initialize_m3u8_variables(m3u8_link)
         self.initialize_stream_variables()
         self.initialize_session()
         self.initialize_threading()
+        self.initialize_stream_repackager()
+
+    def initialize_stream_repackager(self):
+        if m3u8_link is None:
+            self.get_m3u8_link()
+        self.stream_repackager = Stream_repackager(self.stream_id,m3u8_link=self.m3u8_link)
+        
     def initialize_m3u8_variables(self,m3u8_link: m3u8_link):
         if m3u8_link is None:
             self.get_m3u8_link()
@@ -314,12 +324,20 @@ class Stream_manager:
     def get_playlist(self):
         self.wait_for_cached_stream_initilization()
         stream = self.cached_streams["best"]
-        playlist_url = stream.url
+        if isinstance(stream,MuxedHLSStream):
+            playlist_url = self.get_url_from_muxxed(stream)
+        else:
+            print(stream.args)
+            playlist_url = stream.url
         playlist_contents = requests.get(playlist_url,headers=self.m3u8_link.all_headers)
         playlist_contents.raise_for_status()
         playlist_conditioned = self.replace_relative_with_full_url(playlist_url,playlist_contents.text)
         return playlist_conditioned
-         
+    
+    def get_url_from_muxxed(self,stream: MuxedHLSStream) -> str:
+        video_stream,audio_stream = stream.substreams
+        url = video_stream.url
+        return url
     
     def replace_relative_with_full_url(self,base_url: str,playlist: str):
         output = []
@@ -343,6 +361,93 @@ class Stream_manager:
             pass
 
 
+class Stream_repackager:
+    segment_parent_dir: ClassVar[Path] = Path("/dev/shm/sportstream")
+    host_address: ClassVar[str] = "http://192.168.50.109:8900"
+
+    def __init__(self,stream_id: str, m3u8_link: m3u8_link):
+        self.initialize_state_vars()
+        self.stream_id = stream_id
+        self.m3u8_link = m3u8_link
+        self.set_output_dir()
+        self.start()
+
+    def initialize_state_vars(self):
+        self.ffmpeg = None
+
+    def set_output_dir(self):
+        self.output_dir = self.segment_parent_dir / f"{self.stream_id}/"
+
+    def start(self):
+        self.remove_files()
+        self.ffmpeg = self._start_ffmpeg()
+    def stop(self):
+        if self.ffmpeg is None:
+            print(f"ffmpeg not started for stream id {self.stream_id}")
+        else:
+            self.ffmpeg.terminate()
+            self.remove_files()
+
+    def remove_files(self):
+        shutil.rmtree(self.output_dir, ignore_errors=True)
+    def _start_ffmpeg(self):
+        output_dir = Path(self.output_dir)
+        output_dir.mkdir(parents=True, exist_ok=True)
+        
+        header_string = "".join(f"{name}: {value}\r\n" for name,value in self.m3u8_link.all_headers.items())
+        
+        command = [
+            "ffmpeg", "-loglevel", "warning",
+            "-headers", header_string,
+            "-i", self.m3u8_link.url,
+            "-c", "copy",
+            "-f", "hls",
+            "-hls_segment_type", "mpegts",
+            "-hls_time", "4",
+            "-hls_list_size", "10",
+            "-hls_flags", "delete_segments+temp_file+omit_endlist",
+            "-hls_segment_filename", str(self.output_dir / "seg_%08d.ts"),
+            str(output_dir / "index.m3u8"),
+        ]
+
+        return subprocess.Popen(command)
+
+    @property
+    def playlist(self) -> str:
+        playlist_ffmpeg = self.get_ffmpeg_playlist()
+        new_playlist_lines = []
+        for line in playlist_ffmpeg:
+            if self.is_segment_line(line):
+                id = self.get_segment_id(line)
+                new_playlist_lines.append(
+                    f"{self.host_address}/playlist/{self.stream_id}/segments/{id}.ts"
+                )
+            else:
+                new_playlist_lines.append(line.strip())
+        playlist = "\n".join(new_playlist_lines)
+        return playlist
+
+    def is_segment_line(self,line: str) -> bool:
+        return line.startswith("seg")
+    def get_segment_id(self, line: str) -> str:
+        pattern = r"seg_(\d+).ts$"
+        match = re.search(pattern,line)
+        if match:
+            return match.group(1)
+
+    def get_ffmpeg_playlist(self) -> list[str]:
+        with open(self.output_dir / "index.m3u8", "r") as f:
+            playlist = f.readlines()
+        return playlist
+
+    def serve_segment(self,segment_id: str):
+        filepath = self.output_dir / f"seg_{segment_id}.ts"
+        return Response(
+            read_file_chunks(filepath),
+            headers={"Content-Type": "video/mp2t"}
+        )
+
+
 class Stream_coordinator:
     server_prefix: ClassVar[str] = "http://192.168.50.109:8900/segments"
 
@@ -351,12 +456,14 @@ class Stream_coordinator:
         self.stream_clients: dict[int,dict[int,queue.Queue]] = {}
         self.threads: dict[int,threading.Thread] = {}
         self.lock = threading.Lock()
-    def add_stream_manager(self,stream_manager: Stream_manager, stream_id: str):
+    def add_stream_manager(self,stream_manager: Stream_manager):
         with self.lock:
+            stream_id = stream_manager.stream_id
             if not stream_id in self.stream_managers:
                 self.stream_managers[stream_id] = stream_manager
             if not stream_id in self.stream_clients:
                 self.stream_clients[stream_id] = {}
+
     def get_client_queues(self,stream_id: int):
         return self.stream_clients[stream_id]
     def get_client_queue_single(self,stream_id: int, client_id: int) -> queue.Queue:
@@ -440,7 +547,7 @@ class Stream_coordinator:
             if num_clients == 0:
                 self.stream_managers[stream_id].close_all_streams()
 
-    def get_local_playlist(self,stream_id) -> str:
+    def _get_local_playlist(self,stream_id) -> str:
         manager = self.stream_managers[stream_id]
         playlist_original = manager.get_playlist()
         #print(playlist_original)
@@ -452,8 +559,10 @@ class Stream_coordinator:
                 local_playlist.append(local_segment_url)
             else:
                 local_playlist.append(line.strip())
+        print("\n".join(local_playlist[0:20]))
         return "\n".join(local_playlist) + "\n"
-        
+    def get_local_playlist(self,stream_id: str) -> str:
+        return self.stream_managers[stream_id].stream_repackager.playlist 
     def is_segment_line(self,line: str) -> bool:
         return line.startswith("http") and not line.startswith("#")
 
@@ -467,6 +576,13 @@ class Stream_coordinator:
             match = re.search(pattern,line)
             if match:
                 id = match.group(1)
+            
+            else:
+                match = re.search(r'(\d+)\.m4s$', line)
+                if match:
+                    id = match.group(1)
+                else:
+                    print("no match found")
  
         return id
 
@@ -539,8 +655,8 @@ def restream(sport: str, channel_index: int):
             print(f"Adding game to coordinator ({game.id})")
             m3u8_retriever = m3u8_url_finder(team=active_team,plugin=Streameast)
             game_page_url = m3u8_retriever.get_game_page_url()
-            stream = Stream_manager(game_page_url=game_page_url)
-            COORDINATOR.add_stream_manager(stream,game.id)
+            stream = Stream_manager(game.id,game_page_url=game_page_url)
+            COORDINATOR.add_stream_manager(stream)
         
 
         return Response(
@@ -554,6 +670,12 @@ def restream(sport: str, channel_index: int):
         return Response("Not Found", status=503)
 
 
+@app.get("/playlist/<string:stream_id>/segments/<string:segment_id>.ts")
+def serve_segment(stream_id: str, segment_id: str):
+    return COORDINATOR.stream_managers[stream_id].stream_repackager.serve_segment(segment_id)
+
+
+        
 def read_file_chunks(path):
     with open(path, "rb") as f:
         while chunk := f.read(188*100):
@@ -595,7 +717,7 @@ def development():
     if request.method == "HEAD":
         return Response(status=200, mimetype="application/vnd.apple.mpegurl")
     if not "dev" in COORDINATOR.stream_managers:
-        COORDINATOR.add_stream_manager(Stream_manager("https://www.earthcam.com/usa/florida/lauderdalebythesea/town/?cam=lbts_beach"),"dev")
+        COORDINATOR.add_stream_manager(Stream_manager("dev","https://www.earthcam.com/usa/florida/lauderdalebythesea/town/?cam=lbts_beach"))
     local_playlist = COORDINATOR.get_local_playlist("dev")
     return Response(
         local_playlist,

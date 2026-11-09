@@ -352,7 +352,8 @@ class Sportusa(Site_plugin):
                 page.screenshot(path="challenge_stuck.png")
                 raise RuntimeError("Challenge did not clear on its own (likely interactive)")
 
-            game_page_elem = page.locator(f'a.pcard').filter(has_text=f"{team_name}").first.click()
+            game_tile_elem = page.locator(f'').filter(has_text=f"{team_name}").first.click()
+            game_page_elem = page.locator(f'a.stream-btn[href*="{team_name}" i]').first
             
 
 
