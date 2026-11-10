@@ -59,7 +59,8 @@ def get_m3u8_link(
             headless=False,
             args=[
                 "--disable-blink-features=AutomationControlled",
-                "--no-sandbox"
+                "--no-sandbox",
+                "--autoplay-policy=no-user-gesture-required"
             ]
         )
         context = browser.new_context(
@@ -718,6 +719,7 @@ def development():
         return Response(status=200, mimetype="application/vnd.apple.mpegurl")
     if not "dev" in COORDINATOR.stream_managers:
         COORDINATOR.add_stream_manager(Stream_manager("dev","https://www.earthcam.com/usa/florida/lauderdalebythesea/town/?cam=lbts_beach"))
+        #COORDINATOR.add_stream_manager(Stream_manager("dev","https://tvsportslive.fr/69371-2/"))
     local_playlist = COORDINATOR.get_local_playlist("dev")
     return Response(
         local_playlist,
