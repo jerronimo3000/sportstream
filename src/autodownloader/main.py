@@ -394,8 +394,10 @@ class Stream_repackager:
     def _start_ffmpeg(self):
         output_dir = Path(self.output_dir)
         output_dir.mkdir(parents=True, exist_ok=True)
-        
-        header_string = "".join(f"{name}: {value}\r\n" for name,value in self.m3u8_link.all_headers.items())
+        headers = dict(self.m3u8_link.all_headers)         # copy, so the object's own dict isn't modified
+        headers["Cookie"] = self.m3u8_link.cookies_header.strip()
+        header_string = "".join(f"{name}: {value}\r\n" for name, value in headers.items())
+
         
         command = [
             "ffmpeg", "-loglevel", "warning",
