@@ -5,11 +5,14 @@ from typing import ClassVar
 import json
 from pathlib import Path
 from .game_data import Game
-
+from functools import cached_property
 
 class Site_plugin(ABC):
-    def __init__(game: Game):
-        self.game = game
+    def __init__(self):
+        self.initialize_vars()
+
+    def initialize_vars(self):
+        self._page = None
 
     @property
     def page(self) -> Page:
@@ -18,14 +21,27 @@ class Site_plugin(ABC):
         return self._page
 
     def instantiate_page(self) -> Page:
+        p = sync_playwright().start()
+        browser = p.chromium.launch(
+            headless=False,
+            args=[
+                "--disable-blink-features=AutomationControlled",
+                "--no-sandbox",
+                "--autoplay-policy=no-user-gesture-required"
+            ]
+        )
+        context = browser.new_context(
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            viewport={"width": 3840, "height": 2160}
+        )    
+        return context.new_page()
+
+    @abstractmethod
+    def game_page_url(self) -> str:
         pass
 
     @abstractmethod
-    def game_url(self) -> str:
-        pass
-
-    @abstractmethod
-    def playlist_local(self) -> str:
+    def get_playlist_local(self) -> str:
         pass
 
 class Dudestream(Site_plugin):
@@ -384,3 +400,35 @@ class Sportusa(Site_plugin):
                 browser.close()
             return game_url
 
+class Crackstreams(Site_plugin):
+    game_page_url_prefix: ClassVar[str] = "https://crackstreams.mx"
+    base_urls: ClassVar[dict[str,str]] = {
+        "development": "https://soccersurge.io/#",
+        "basketball": "https://crackstreams.mx/league/nbastreams",
+        "NFL": "https://crackstreams.mx/league/nflstreams",
+    }
+     
+    def __init__(self,game:Game):
+        self.game = game
+        super().__init__()
+
+    @property 
+    def base_url(self) -> str:
+        sport = self.game.sport
+        return self.base_urls[sport]
+
+    @cached_property
+    def game_page_url(self) -> str:
+        page = self.page
+        page.goto(self.base_url)
+        game_elem = self.get_game_card_elem()
+        game_page_url_suffix = game_elem.get_attribute("href")
+        game_page_url = self.game_page_url_prefix + game_page_url_suffix
+        return game_page_url
+
+    def get_game_card_elem(self):
+        elem = self.page.locator("a.card").filter(has_text=self.game.team_1).filter(has_text=self.game.team_2).first
+        return elem
+
+    def get_playlist_local(self) -> str:
+        pass
