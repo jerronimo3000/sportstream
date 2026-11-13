@@ -1,15 +1,31 @@
-from playwright.sync_api import sync_playwright
-from playwright_stealth import Stealth
+from playwright.sync_api import sync_playwright,Page,Browser,Request
 from dataclasses import dataclass
 from abc import ABC, abstractmethod
 from typing import ClassVar
 import json
 from pathlib import Path
+from .game_data import Game
 
 
 class Site_plugin(ABC):
+    def __init__(game: Game):
+        self.game = game
+
+    @property
+    def page(self) -> Page:
+        if self._page is None:
+            self._page = self.instantiate_page()
+        return self._page
+
+    def instantiate_page(self) -> Page:
+        pass
+
     @abstractmethod
-    def get_current_game_url(self) -> str:
+    def game_url(self) -> str:
+        pass
+
+    @abstractmethod
+    def playlist_local(self) -> str:
         pass
 
 class Dudestream(Site_plugin):
@@ -367,3 +383,4 @@ class Sportusa(Site_plugin):
                 raise ValueError("could not find streaming site")
                 browser.close()
             return game_url
+
