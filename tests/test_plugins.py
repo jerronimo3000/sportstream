@@ -7,12 +7,12 @@ def test_crackstreams():
     game = Game(
         sport = "basketball",
         league = "NBA",
-        team_1="pistons",
-        team_2="wizards",
+        team_1="NBA",
+        team_2="24/7",
         time_start="123456",
         time_end="78910",
         id="12345"
     )
     site = Crackstreams(game=game)
-    assert site.game_page_url == "https://crackstreams.mx/stream/detroit-pistons-vs-washington-wizards"
-    #site.get_playlist_local()
+    assert site.stream_page_url == "https://crackstreams.mx/stream/nba-24-7-live-stream"
+    #print(site.get_playlist_local())

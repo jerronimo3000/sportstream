@@ -8,4 +8,4 @@ def stream_coordinator():
     return Stream_coordinator()
 
 def test_stream_game(stream_coordinator,stream_manager):
-    stream_coordinator.add_stream_manager(stream_manager,1)
+    stream_coordinator.add_stream(stream_manager,1)

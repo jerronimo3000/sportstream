@@ -10,7 +10,7 @@ def livestream_site() -> str:
     #return "https://v2.streameast.ga/mlb/tampa-bay-rays-vs-new-york-yankees-4/"
 @fixture
 def m3u8_link(livestream_site) -> str:
-    m3u8_link = get_m3u8_link(livestream_site)
+    m3u8_link = get_playlist_request(livestream_site)
     return m3u8_link
 
 @fixture
@@ -47,7 +47,7 @@ def stream_coordinator():
     return Stream_coordinator()
 
 def test_add_client(stream_coordinator,stream_manager):
-    stream_coordinator.add_stream_manager(stream_manager,1)
+    stream_coordinator.add_stream(stream_manager,1)
     client_id = stream_coordinator.get_next_available_client_id(1)   
     stream_coordinator.add_client(1,client_id)
 

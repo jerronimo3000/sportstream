@@ -17,5 +17,5 @@ def test_m3u8_playlist_retrieval(site_url):
 def test_segment_url_replacement(site_url):
     coordinator = Stream_coordinator()
     manager = Stream_manager(site_url)
-    coordinator.add_stream_manager(manager,1)
+    coordinator.add_stream(manager,1)
     print(coordinator.get_local_playlist(1))

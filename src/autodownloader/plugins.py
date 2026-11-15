@@ -6,13 +6,122 @@ import json
 from pathlib import Path
 from .game_data import Game
 from functools import cached_property
+import shutil
+import subprocess
+import re
+from flask import Response
+import time
+
+
+
+
+
+@dataclass
+class Playlist_request:
+    url: str
+    cookies_header: str
+    all_headers: str
+class Stream_repackager:
+    segment_parent_dir: ClassVar[Path] = Path("/dev/shm/sportstream")
+    host_address: ClassVar[str] = "http://192.168.50.109:8900"
+
+    def __init__(self,stream_id: str, playlist_request: Playlist_request):
+        self.initialize_state_vars()
+        self.stream_id = stream_id
+        self.playlist_request = playlist_request
+        self.set_output_dir()
+        self.start()
+
+    def initialize_state_vars(self):
+        self.ffmpeg = None
+
+    def set_output_dir(self):
+        self.output_dir = self.segment_parent_dir / f"{self.stream_id}/"
+
+    def start(self):
+        self.remove_files()
+        self.ffmpeg = self._start_ffmpeg()
+    def stop(self):
+        if self.ffmpeg is None:
+            print(f"ffmpeg not started for stream id {self.stream_id}")
+        else:
+            self.ffmpeg.terminate()
+            self.remove_files()
+
+    def remove_files(self):
+        shutil.rmtree(self.output_dir, ignore_errors=True)
+    def _start_ffmpeg(self):
+        output_dir = Path(self.output_dir)
+        output_dir.mkdir(parents=True, exist_ok=True)
+        headers = dict(self.playlist_request.all_headers)         # copy, so the object's own dict isn't modified
+        headers["Cookie"] = self.playlist_request.cookies_header.strip()
+        header_string = "".join(f"{name}: {value}\r\n" for name, value in headers.items())
+
+        
+        command = [
+            "ffmpeg", "-loglevel", "warning", "-y", "-nostdin",
+            "-protocol_whitelist", "file,http,https,tcp,tls,crypto",
+            "-allowed_extensions", "ALL",
+            "-extension_picky", "0",
+            "-headers", header_string,
+            "-i", self.playlist_request.url,
+            "-c", "copy",
+            "-f", "hls",
+            "-hls_segment_type", "mpegts",
+            "-hls_time", "4",
+            "-hls_list_size", "10",
+            "-hls_flags", "delete_segments+temp_file+omit_endlist",
+            "-hls_segment_filename", str(self.output_dir / "seg_%08d.ts"),
+            str(output_dir / "index.m3u8"),
+        ]
+
+        return subprocess.Popen(command)
+
+    @property
+    def playlist(self) -> str:
+        playlist_ffmpeg = self.get_ffmpeg_playlist()
+        new_playlist_lines = []
+        for line in playlist_ffmpeg:
+            if self.is_segment_line(line):
+                id = self.get_segment_id(line)
+                new_playlist_lines.append(
+                    f"{self.host_address}/playlist/{self.stream_id}/segments/{id}.ts"
+                )
+            else:
+                new_playlist_lines.append(line.strip())
+        playlist = "\n".join(new_playlist_lines)
+        return playlist
+
+    def is_segment_line(self,line: str) -> bool:
+        return line.startswith("seg")
+    def get_segment_id(self, line: str) -> str:
+        pattern = r"seg_(\d+).ts$"
+        match = re.search(pattern,line)
+        if match:
+            return match.group(1)
+
+    def get_ffmpeg_playlist(self) -> list[str]:
+        with open(self.output_dir / "index.m3u8", "r") as f:
+            playlist = f.readlines()
+        return playlist
+
+    def serve_segment(self,segment_id: str):
+        filepath = self.output_dir / f"seg_{segment_id}.ts"
+        return Response(
+            read_file_chunks(filepath),
+            headers={"Content-Type": "video/mp2t"}
+        )
+
 
 class Site_plugin(ABC):
-    def __init__(self):
+    def __init__(self,game: Game):
+        self.game = game
         self.initialize_vars()
 
     def initialize_vars(self):
         self._page = None
+        self._playlist_request = None
+        self._stream_repackager = None
 
     @property
     def page(self) -> Page:
@@ -35,15 +144,50 @@ class Site_plugin(ABC):
             viewport={"width": 3840, "height": 2160}
         )    
         return context.new_page()
-
+    
+    @property
+    def stream_repackager(self) -> Stream_repackager:
+        if self._stream_repackager is None:
+            self._stream_repackager = Stream_repackager(self.game.id,self.get_playlist_request())
+        return self._stream_repackager
+    
     @abstractmethod
-    def game_page_url(self) -> str:
+    def get_playlist_request(self) -> Playlist_request:
         pass
 
-    @abstractmethod
     def get_playlist_local(self) -> str:
-        pass
+        return self.stream_repackager.playlist
 
+
+class Development(Site_plugin):
+    def __init__(self,stream_page_url: str):
+        self.stream_page_url = stream_page_url
+        super().__init__(game=Game(
+            "development",
+            "development",
+            "team_dev_1",
+            "team_dev_2",
+            "now",
+            "later",
+            "development"
+        ))
+
+    def get_playlist_request(self) -> Request:
+        page = self.instantiate_page()
+        try:
+            playlist = get_playlist_request(
+                intercept_playlist_request(page,self.stream_page_url,".m3u8"),
+                page
+            )
+
+        except:
+            playlist = get_playlist_request(
+                intercept_playlist_request(page,self.stream_page_url,"application"),
+                page
+            )
+
+
+        return playlist
 class Dudestream(Site_plugin):
     base_url = "https://dudestream1.com/"
     league_urls: ClassVar[dict[str,str]] = {
@@ -408,17 +552,13 @@ class Crackstreams(Site_plugin):
         "NFL": "https://crackstreams.mx/league/nflstreams",
     }
      
-    def __init__(self,game:Game):
-        self.game = game
-        super().__init__()
-
     @property 
     def base_url(self) -> str:
         sport = self.game.sport
         return self.base_urls[sport]
 
     @cached_property
-    def game_page_url(self) -> str:
+    def stream_page_url(self) -> str:
         page = self.page
         page.goto(self.base_url)
         game_elem = self.get_game_card_elem()
@@ -430,5 +570,48 @@ class Crackstreams(Site_plugin):
         elem = self.page.locator("a.card").filter(has_text=self.game.team_1).filter(has_text=self.game.team_2).first
         return elem
 
-    def get_playlist_local(self) -> str:
-        pass
+    def get_playlist_request(self) -> Playlist_request:
+        return get_playlist_request(self._intercept_playlist_request(), self.page)
+
+    def _intercept_playlist_request(self) -> Request:
+        return intercept_playlist_request(self.page,self.stream_page_url,"application") 
+
+
+
+
+
+def clean_headers(headers: dict[str,str]) -> str:
+    clean_headers = {
+        k: v for k, v in headers.items()
+        if not k.startswith(":") and k not in ("host", "content-length")
+    }
+    return clean_headers
+
+def build_headers_str(headers: dict[str,str]) -> str:
+    return "".join(f"{k}: {v}\r\n" for k,v in headers.items())
+
+def get_playlist_request(raw_request: Request, page: Page) -> Playlist_request:
+    url = raw_request.url
+    headers = clean_headers(raw_request.all_headers())
+    cookies = page.context.cookies()
+    cookie_str = "; ".join([f"{c['name']}={c['value']}" for c in cookies])
+
+    print(f"FOUND PLAYLIST URL: {raw_request.url}")
+    return Playlist_request(
+        url=url,
+        cookies_header=cookie_str,
+        all_headers=headers
+    )
+
+def intercept_playlist_request(page,url: str,match_string: str) -> Request:
+    print("Intercepting playlist request...")
+    time.sleep(1)
+    with page.expect_request(lambda r: match_string in r.url) as req_info:
+        page.goto(url)
+    print(req_info)
+    return req_info.value
+
+def read_file_chunks(path):
+    with open(path, "rb") as f:
+        while chunk := f.read(188*100):
+            yield chunk
